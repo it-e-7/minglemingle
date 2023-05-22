@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9991d21-e263-4097-b057-7bc16112706e" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minglemingle/chat2mingle/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/chat2mingle_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/chat2mingle_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat2mingle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chat2mingle.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,9 +73,12 @@
       <recent name="C:\dev\minglemingle\chat2mingle\src\main\webapp" />
       <recent name="C:\dev\minglemingle\chat2mingle\src\main\webapp\WEB-INF" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\minglemingle\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.74" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.74" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.73" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.73" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -83,7 +89,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="f70703a5-b638-485c-9a0e-3e236d011369" />
+        <option name="BASE_DIRECTORY_NAME" value="1b10aaab-b2e1-41c3-a534-328ae1b473df" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -306,6 +312,7 @@
       <option name="presentableId" value="Default" />
       <updated>1684732715930</updated>
       <workItem from="1684732717140" duration="2251000" />
+      <workItem from="1684735938474" duration="698000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1684734219907</created>
