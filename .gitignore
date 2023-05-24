@@ -2,3 +2,5 @@ config/
 target/
 libraries/
 workspace.xml
+.idea
+chat2mingle.iml
