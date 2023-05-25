@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.minglemingle.chat2mingle.message.mapper.MessageMapper">
+    <select id="selectOneMessage" parameterType="Message" resultType="Message">
+        SELECT message_id as messageId,
+               nickname,
+               channel,
+               content,
+               message_type as messageType,
+               sent_at as sentAt
+        FROM message
+        WHERE message_id = #{messageId}
+    </select>
+</mapper>
