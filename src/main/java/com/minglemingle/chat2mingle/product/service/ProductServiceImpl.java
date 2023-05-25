@@ -1,6 +1,6 @@
 package com.minglemingle.chat2mingle.product.service;
 
-import com.minglemingle.chat2mingle.product.dao.ProductDAO;
+import com.minglemingle.chat2mingle.product.mapper.ProductMapper;
 import com.minglemingle.chat2mingle.product.vo.ProductVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,19 +10,19 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService{
-    private ProductDAO dao;
+    private ProductMapper mapper;
 
      Logger logger = LogManager.getLogger("case3");
 
-    public ProductServiceImpl(ProductDAO dao) {
-        this.dao = dao;
+    public ProductServiceImpl(ProductMapper mapper) {
+        this.mapper = mapper;
     }
 
     @Override
     public List<ProductVO> getProductList(ProductVO productVO) {
         List<ProductVO> result = null;
         try {
-            result = dao.selectAllProductFromCategory(productVO);
+            result = mapper.selectAllProductFromCategory(productVO);
         } catch(Exception e) {
             logger.error(e);
         }
@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService{
     public ProductVO getProductInfo(ProductVO productVO) {
         ProductVO result = null;
         try {
-            result = dao.selectOneProduct(productVO);
+            result = mapper.selectOneProduct(productVO);
         } catch (Exception e) {
             logger.error(e);
         }

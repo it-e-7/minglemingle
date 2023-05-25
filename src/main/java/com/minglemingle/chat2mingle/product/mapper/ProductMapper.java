@@ -1,13 +1,15 @@
-package com.minglemingle.chat2mingle.product.dao;
+package com.minglemingle.chat2mingle.product.mapper;
 
 import com.minglemingle.chat2mingle.product.vo.ProductVO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * ProductDAO 인터페이스는 제품에 관련된 데이터베이스 작업을 수행하는 메서드를 정의합니다.
  */
-public interface ProductDAO {
+@Mapper
+public interface ProductMapper {
     /**
      * 특정 카테고리에서 모든 제품을 선택하여 반환합니다.
      *

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="product">
+<mapper namespace="com.minglemingle.chat2mingle.product.mapper.ProductMapper">
 
     <resultMap type="Product" id="productResult">
         <result column="product_code" property="productCode" />
@@ -16,18 +16,18 @@
     </resultMap>
 
 
-    <select id="selectAllProductFromCategory" parameterType="int" resultMap="productResult">
+    <select id="selectAllProductFromCategory" parameterType="Product" resultMap="productResult">
     <![CDATA[
         select product_code, product_name, product_brand, product_category, product_price_won, product_image_path from product
-        where product_category = #{intId}
+        where product_category = #{productCategory}
         ]]>
     </select>
 
-    <select id="selectOneProduct" parameterType="string" resultMap="productResult">
+    <select id="selectOneProduct" parameterType="Product" resultMap="productResult">
     <![CDATA[
         select product_code, product_name, product_brand, product_category, product_price_won, product_image_path
         from product
-        where product_code = #{productId}
+        where product_code = #{productCode}
         ]]>
     </select>
 </mapper>
