@@ -6,16 +6,28 @@
 
 <mapper namespace="product">
 
-    <resultMap type="Post" id="postResult">
-        <result column="post_id" property="postId" />
-        <result column="post_title" property="postTitle" />
-        <result column="post_owner" property="postOwner" />
-        <result column="post_content" property="postContent" />
-        <result column="post_date" property="postDate" />
-        <result column="likes" property="likes" />
+    <resultMap type="Product" id="productResult">
+        <result column="product_code" property="productCode" />
+        <result column="product_name" property="productName" />
+        <result column="product_brand" property="productBrand" />
+        <result column="product_category" property="productCategory" />
+        <result column="product_price_won" property="productPriceWon" />
+        <result column="product_image_path" property="productImagePath" />
     </resultMap>
 
-    <select id="selectAllProductFromCategory" >
 
+    <select id="selectAllProductFromCategory" parameterType="int" resultMap="productResult">
+    <![CDATA[
+        select product_code, product_name, product_brand, product_category, product_price_won, product_image_path from product
+        where product_category = #{intId}
+        ]]>
+    </select>
+
+    <select id="selectOneProduct" parameterType="string" resultMap="productResult">
+    <![CDATA[
+        select product_code, product_name, product_brand, product_category, product_price_won, product_image_path
+        from product
+        where product_code = #{productId}
+        ]]>
     </select>
 </mapper>

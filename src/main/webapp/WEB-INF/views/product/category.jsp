@@ -13,5 +13,6 @@
 <body>
 
     <h1>카테고리의 전체 상품 페이지</h1>
+    <h3>${productList}</h3>
 </body>
 </html>

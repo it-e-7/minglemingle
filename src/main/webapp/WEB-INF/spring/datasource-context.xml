@@ -27,6 +27,7 @@
       <property name="configLocation" value="classpath:mybatis-config.xml"/>
       <property name="mapperLocations">
          <list>
+            <value>classpath:mappers/Product.xml</value>
 <!--            <value>classpath:sqlmap/Board.xml</value>-->
          </list>
       </property>

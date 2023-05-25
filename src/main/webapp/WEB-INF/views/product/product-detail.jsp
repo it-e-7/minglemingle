@@ -13,5 +13,6 @@
 <body>
 
   <h1>상품 상세정보</h1>
+<h3>${productDetail}</h3>
 </body>
 </html>
