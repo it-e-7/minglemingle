@@ -1,10 +1,11 @@
 package com.minglemingle.chat2mingle.auth;
 
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
-import com.minglemingle.chat2mingle.auth.temp.MemberService;
-import com.minglemingle.chat2mingle.auth.temp.MemberVO;
+import com.minglemingle.chat2mingle.member.service.MemberService;
+import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,22 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//TODO: servlet-context에서 interceptor exclude mapping path login post mapping 루트로 변경
 public class AuthInterceptor implements HandlerInterceptor {
 
     Logger logger = LogManager.getLogger("case3");
 
-    //TODO: edit import
     private MemberService service;
 
     public AuthInterceptor(MemberService service) {
         this.service = service;
     }
 
-    //    @DebugLog
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.debug("AUTH INTERCEPTOR == PREHANDLE");
+//        logger.debug("AUTH INTERCEPTOR == PREHANDLE");
 
         // auth 있는지 확인
         HandlerMethod handlerMethod = (HandlerMethod) handler;
@@ -41,23 +39,25 @@ public class AuthInterceptor implements HandlerInterceptor {
         // session 있는지 확인
         HttpSession session = request.getSession(false);
         if(session==null){
-            // TODO: logintest 루트 수정
-            response.sendRedirect("/chat2mingle/logintest");
+            response.sendRedirect("/chat2mingle/member/login");
             return false;
         }
 
 
-        // 로그인한 멤버 확인
-        MemberVO member = (MemberVO) session.getAttribute("member");
-        //TODO: service 로그인 method 수정
-        MemberVO loggedInMember = service.loginUser(member);
+        // 로그인한 멤버 토큰 확인
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+        MemberVO registeredMember = service.loginService(sessionMember);
+        String authToken = (String) session.getAttribute("authToken");
+        // 유저의 비밀번호(1번 해시된 유저의 비밀번호)와 그 값을 해시한 authoToken(로그인할 때 생성)
+        boolean validToken = BCrypt.checkpw(registeredMember.getPassword(), authToken);
+//        logger.debug("AUTH INTERCEPTOR == " + authToken);
+//        logger.debug("AUTH INTERCEPTOR == " + loggedInMember.getPassword());
 
-        if(loggedInMember == null) {
-            //TODO: logintest 루트 수정
-            response.sendRedirect("/chat2mingle/logintest");
-            return false;
-        } else {
+        if(registeredMember != null && validToken) {
             return true;
+        } else {
+            response.sendRedirect("/chat2mingle/member/login");
+            return false;
         }
     }
     @Override

@@ -7,11 +7,9 @@
 	<title>Home</title>
 </head>
 <body>
-  <h1>Membership Registration</h1>
+  <h1>Membership Login</h1>
 
-  <form action="login" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="nickname" name="nickname" required><br>
+  <form action="processLogin" method="post">
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
@@ -19,7 +17,7 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required><br>
 
-    <input type="submit" value="Register">
+    <input type="submit" value="Login">
   </form>
 </body>
 </html>

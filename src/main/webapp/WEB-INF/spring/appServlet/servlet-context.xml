@@ -37,13 +37,13 @@
 	<interceptors>
 
 		<interceptor>
-			<mapping path="/processlogin"/>
+			<mapping path="/member/processLogin"/>
 			<beans:bean class="com.minglemingle.chat2mingle.auth.LoginInterceptor"/>
 		</interceptor>
 
 		<interceptor>
 			<mapping path="/**"/>
-			<exclude-mapping path="/processlogin"/>
+			<exclude-mapping path="/member/processLogin"/>
 <!--			<exclude-mapping path="/resources/**"/>-->
 			<beans:bean class="com.minglemingle.chat2mingle.auth.AuthInterceptor"/>
 		</interceptor>

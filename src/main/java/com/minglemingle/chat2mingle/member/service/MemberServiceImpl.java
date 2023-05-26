@@ -5,6 +5,7 @@ import com.minglemingle.chat2mingle.member.mapper.MemberMapper;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Member;
@@ -13,6 +14,8 @@ import java.lang.reflect.Member;
 public class MemberServiceImpl implements MemberService {
 
     private MemberMapper mapper;
+    Logger logger = LogManager.getLogger("case3");
+
     public MemberServiceImpl(MemberMapper mapper) {
         this.mapper = mapper;
     }
@@ -22,6 +25,9 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Boolean registerMember(MemberVO member) {
         Boolean result = false;
+        String encryptedPassword = BCrypt.hashpw(member.getPassword(), BCrypt.gensalt());
+
+        member.setPassword(encryptedPassword);
         try {
             result = mapper.insertMember(member);
         } catch (Exception e) {

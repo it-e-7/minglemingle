@@ -18,7 +18,7 @@
         <![CDATA[
          SELECT member_id, nickname, email, password, account_type, profile_image_path, account_status
          FROM member
-         WHERE email = #{email} AND password = #{password}
+         WHERE email = #{email}
         ]]>
     </select>
 
