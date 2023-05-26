@@ -3,6 +3,8 @@ package com.minglemingle.chat2mingle.member.service;
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.member.mapper.MemberMapper;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Member;
@@ -11,7 +13,6 @@ import java.lang.reflect.Member;
 public class MemberServiceImpl implements MemberService {
 
     private MemberMapper mapper;
-
     public MemberServiceImpl(MemberMapper mapper) {
         this.mapper = mapper;
     }
@@ -33,7 +34,7 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO infoService(MemberVO member) {
         MemberVO result = new MemberVO();
         try {
-            result = mapper.selectMember(member);
+            result = mapper.selectOneMember(member);
         } catch (Exception e) {
             //
         }
@@ -55,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
     public Boolean isEmailAvailable(MemberVO member) {
         MemberVO result;
         try {
-            result = mapper.selectMember(member);
+            result = mapper.selectOneMember(member);
             if (result != null)
                 return true;
         } catch (Exception e) {
@@ -68,7 +69,7 @@ public class MemberServiceImpl implements MemberService {
     public Boolean isNicknameAvailable(MemberVO member) {
         MemberVO result;
         try {
-            result = mapper.selectMember(member);
+            result = mapper.selectOneMember(member);
             if (result != null)
                 return true;
         } catch (Exception e) {
@@ -77,19 +78,15 @@ public class MemberServiceImpl implements MemberService {
         return false;
     }
 
-    @DebugLog
     public MemberVO loginService(MemberVO member) {
         MemberVO result = new MemberVO();
         try {
-            result = mapper.selectMember(member);
+            result = mapper.selectOneMember(member);
             return result;
         } catch (Exception e) {
             // false
         }
         return result;
     }
-
-    ;
-
 }
 

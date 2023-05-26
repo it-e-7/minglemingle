@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberVO {
-    private String member_id;
+    private String memberId;
     private String nickname;
     private String email;
     private String password;
-    private int account_type;
-    private String profile_image_path;
-    private int account_status;
+    private int accountType;
+    private String profileImagePath;
+    private int accountStatus;
 }

@@ -8,6 +8,8 @@
 </head>
 <body>
   <h1>Membership Registration</h1>
-    <c:set var="loggedInMember" value="${sessionScope.email}" />
+
+    <h1>${member}</h1>
+
 </body>
 </html>

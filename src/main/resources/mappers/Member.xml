@@ -14,11 +14,11 @@
         ]]>
     </insert>
 
-    <select id="selectMember" parameterType="Member" resultMap="memberResult">
+    <select id="selectOneMember" parameterType="Member" resultMap="memberResult">
         <![CDATA[
-         SELECT member_id, nickname, eamil, password, account_type, profile_image_path, account_status
+         SELECT member_id, nickname, email, password, account_type, profile_image_path, account_status
          FROM member
-         WHERE eamil = #{eamil} AND password= #{password}
+         WHERE email = #{email} AND password = #{password}
         ]]>
     </select>
 

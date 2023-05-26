@@ -9,7 +9,7 @@ import org.springframework.lang.Nullable;
 public interface MemberMapper {
     public Boolean insertMember(@NonNull MemberVO member) throws Exception;
 
-    public MemberVO selectMember(@Nullable MemberVO member) throws Exception;;
+    public MemberVO selectOneMember(@Nullable MemberVO member) throws Exception;;
 
     public void deleteMember(MemberVO member) throws Exception;
 

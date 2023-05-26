@@ -4,17 +4,21 @@ import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import oracle.jdbc.proxy.annotation.Post;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/member")
-@SessionAttributes(value = "member")
+@SessionAttributes(value = {"member"})
 public class MemberController {
-
+    Logger log = LogManager.getLogger("case3");
     public MemberController(MemberService service) {
         this.service = service;
     }
@@ -37,6 +41,12 @@ public class MemberController {
 //        return viewName;
 //    }
 
+
+    @ModelAttribute("member")
+    public MemberVO setEmptyMember() {
+        return new MemberVO();
+    }
+
     @GetMapping(value = "signup")
     public String signupPageHandler() {
         return "member/signup";
@@ -54,14 +64,17 @@ public class MemberController {
     }
 
     @PostMapping(value = "login")
-    public String loginHandler(@ModelAttribute MemberVO member, HttpSession session) {
+    public String loginHandler(SessionStatus sessionStatus, @ModelAttribute(value ="member") MemberVO member) {
         MemberVO resultMember = service.loginService(member);
 
-        if (resultMember !=null){
-            session.setAttribute("loggedInMember", resultMember);
+        if (resultMember ==null){
+            sessionStatus.setComplete();
+            return "dd";
+        }
+        else {
+            member.setMemberId(resultMember.getMemberId());
             return "member/login-check";
         }
-        return "dd";
     }
 //    @ModelAttribute(value="loginMember")
 //    public MemberVO createMember(MemberVO member) {
