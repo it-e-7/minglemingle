@@ -26,23 +26,6 @@ public class MemberController {
 
     private MemberService service;
 
-//    @PostMapping(value = "/")
-//    public String registerMemberHandler(@ModelAttribute(value = "login")
-//                                        MemberVO member) {
-//
-//        boolean result = service.registerMember(member);
-//        String viewName = "";
-//
-//        if(result) {
-//            viewName = "/home";
-//        } else {
-//            viewName = "member/login";
-//        }
-//
-//        return viewName;
-//    }
-
-
     @ModelAttribute("member")
     public MemberVO setEmptyMember() {
         return new MemberVO();
@@ -93,13 +76,5 @@ public class MemberController {
 //        return "member/info-check";
         return  sessionMember;
     }
-
-
-//    @PutMapping(value="/{memberId}")
-//    public void editMemberHandelr(@ModelAttribute(value = "login")
-//                                    @PathVariable(name="memberId"){
-//        service.editMember(memberId);
-//        return ;
-//    }
 
 }

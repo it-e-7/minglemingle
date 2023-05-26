@@ -11,7 +11,6 @@ import java.lang.reflect.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    Logger log = LogManager.getLogger("case3");
     private MemberMapper mapper;
     public MemberServiceImpl(MemberMapper mapper) {
         this.mapper = mapper;
@@ -46,7 +45,6 @@ public class MemberServiceImpl implements MemberService {
         MemberVO result = new MemberVO();
         try {
             result = mapper.updateMember(member);
-            log.debug(result);
 
         } catch (Exception e) {
             //
