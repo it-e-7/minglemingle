@@ -7,17 +7,13 @@
 	<title>Home</title>
 </head>
 <body>
-<header>
-    <div class="logo">
-      <h1>로고</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">메뉴1</a></li>
-        <li><a href="#">메뉴2</a></li>
-        <li><a href="#">메뉴3</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%-- 헤더 포함 --%>
+  <%@ include file="header.jsp" %>
+
+  <!-- 다른 내용 -->
+  <h1>본문 내용</h1>
+
+  <%-- 푸터 포함 --%>
+  <%@ include file="footer.jsp" %>
 </body>
 </html>
