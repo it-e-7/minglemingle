@@ -77,6 +77,7 @@ public class MemberServiceImpl implements MemberService {
         return false;
     }
 
+    @DebugLog
     public MemberVO loginService(MemberVO member) {
         MemberVO result = new MemberVO();
         try {

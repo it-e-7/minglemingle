@@ -14,13 +14,21 @@
         ]]>
     </insert>
 
+    <select id="selectMember" parameterType="Member" resultMap="memberResult">
+        <![CDATA[
+         SELECT member_id, nickname, eamil, password, account_type, profile_image_path, account_status
+         FROM member
+         WHERE eamil = #{eamil} AND password= #{password}
+        ]]>
+    </select>
+
     <resultMap type="Member" id="memberResult">
-        <result column="member_id" property="memberId" />
-        <result column="nickname" property="nickname" />
-        <result column="email" property="email" />
-        <result column="password" property="password" />
-        <result column="account_type" property="accountType" />
-        <result column="profile_image_path" property="profileImagePath" />
-        <result column="account_status" property="accountStatus" />
+        <result column="member_id" property="memberId"/>
+        <result column="nickname" property="nickname"/>
+        <result column="email" property="email"/>
+        <result column="password" property="password"/>
+        <result column="account_type" property="accountType"/>
+        <result column="profile_image_path" property="profileImagePath"/>
+        <result column="account_status" property="accountStatus"/>
     </resultMap>
 </mapper>

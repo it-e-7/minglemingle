@@ -8,6 +8,8 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping(value = "/member")
 @SessionAttributes(value = "member")
@@ -52,9 +54,14 @@ public class MemberController {
     }
 
     @PostMapping(value = "login")
-    public String loginHandler(@ModelAttribute MemberVO member) {
+    public String loginHandler(@ModelAttribute MemberVO member, HttpSession session) {
         MemberVO resultMember = service.loginService(member);
-        return "member/login";
+
+        if (resultMember !=null){
+            session.setAttribute("loggedInMember", resultMember);
+            return "member/login-check";
+        }
+        return "dd";
     }
 //    @ModelAttribute(value="loginMember")
 //    public MemberVO createMember(MemberVO member) {
