@@ -2,20 +2,21 @@ package com.minglemingle.chat2mingle.message.vo;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class MessageDTO {
-    private Long messageId;
+    private Integer messageId;
     private String nickname;
-    private List<Integer> channels;
+    private Integer channel;
     private String content;
-    private int messageType;
+    private Integer messageType;
     private Timestamp sentAt;
 }
