@@ -22,6 +22,15 @@
         ]]>
     </select>
 
+    <update id="updateOneMember" parameterType="Member">
+        <![CDATA[
+         UPDATE member
+         SET
+            nickname = #{nickname}
+         WHERE member_id = #{memberId}
+        ]]>
+    </update>
+
     <resultMap type="Member" id="memberResult">
         <result column="member_id" property="memberId"/>
         <result column="nickname" property="nickname"/>

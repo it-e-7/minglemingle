@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -76,24 +77,29 @@ public class MemberController {
             return "member/login-check";
         }
     }
-//    @ModelAttribute(value="loginMember")
-//    public MemberVO createMember(MemberVO member) {
-//        MemberVO mymember = service.loginService(member);
-//        return "member/login";
-//    }
-//
-//    @GetMapping(value = "info")
-//    public String infoHandler(HttpServletRequest request){
-//        HttpSession session = request.getSession(true);
-//        boolean result = service.infoService(request);
-//        return "member/info";
-//    }
-//
+
+    @GetMapping(value = "info")
+    public String infoHandler(){
+        return "member/info";
+    }
+
+    @PostMapping(value = "info")
+    @ResponseBody
+    public MemberVO infoEditHandler(HttpServletRequest request, @ModelAttribute(value ="member") MemberVO nicknameMember){
+        HttpSession session = request.getSession();
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+        sessionMember.setNickname(nicknameMember.getNickname());
+        service.infoEditService(sessionMember);
+//        return "member/info-check";
+        return  sessionMember;
+    }
+
+
 //    @PutMapping(value="/{memberId}")
 //    public void editMemberHandelr(@ModelAttribute(value = "login")
 //                                    @PathVariable(name="memberId"){
 //        service.editMember(memberId);
-//        return;
+//        return ;
 //    }
 
 }
