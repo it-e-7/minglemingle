@@ -6,30 +6,21 @@
 
 <mapper namespace="com.minglemingle.chat2mingle.member.mapper.MemberMapper">
 
+
+    <insert id="insertMember" parameterType="Member">
+        <![CDATA[
+        INSERT INTO member (email, password, nickname)
+        VALUES (#{email}, #{password}, #{nickname})
+        ]]>
+    </insert>
+
     <resultMap type="Member" id="memberResult">
-        <result column="product_code" property="productCode" />
-        <result column="product_name" property="productName" />
-        <result column="product_brand" property="productBrand" />
-        <result column="product_category" property="productCategory" />
-        <result column="product_price_won" property="productPriceWon" />
-        <result column="product_image_path" property="productImagePath" />
+        <result column="member_id" property="memberId" />
+        <result column="nickname" property="nickname" />
+        <result column="email" property="email" />
+        <result column="password" property="password" />
+        <result column="account_type" property="accountType" />
+        <result column="profile_image_path" property="profileImagePath" />
+        <result column="account_status" property="accountStatus" />
     </resultMap>
-
-
-<!--
-    <select id="selectAllProductFromCategory" parameterType="Product" resultMap="productResult">
-        <![CDATA[
-        select product_code, product_name, product_brand, product_category, product_price_won, product_image_path from product
-        where product_category = #{productCategory}
-        ]]>
-    </select>
--->
-
-    <select id="insertMember" parameterType="Member" resultMap="memberResult">
-        <![CDATA[
-        select product_code, product_name, product_brand, product_category, product_price_won, product_image_path
-        from member
-        where product_code = #{productCode}
-        ]]>
-    </select>
 </mapper>

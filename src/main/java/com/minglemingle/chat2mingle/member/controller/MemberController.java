@@ -3,62 +3,77 @@ package com.minglemingle.chat2mingle.member.controller;
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
+import oracle.jdbc.proxy.annotation.Post;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value="/member")
-@SessionAttributes(value="login")
+@RequestMapping(value = "/member")
+@SessionAttributes(value = "member")
 public class MemberController {
 
     public MemberController(MemberService service) {
         this.service = service;
     }
+
     private MemberService service;
 
-    @GetMapping("signup")
-    @DebugLog
-    public String signupHandler(MemberVO member) {
+//    @PostMapping(value = "/")
+//    public String registerMemberHandler(@ModelAttribute(value = "login")
+//                                        MemberVO member) {
+//
+//        boolean result = service.registerMember(member);
+//        String viewName = "";
+//
+//        if(result) {
+//            viewName = "/home";
+//        } else {
+//            viewName = "member/login";
+//        }
+//
+//        return viewName;
+//    }
+
+    @GetMapping(value = "signup")
+    public String signupPageHandler() {
+        return "member/signup";
+    }
+
+    @PostMapping(value = "signup")
+    public String signupHandler(@ModelAttribute MemberVO member) {
         boolean result = service.registerMember(member);
         return "member/signup";
     }
-/*
-    @ModelAttribute(value="loginMember")
-    public MemberVO createMember() {
-        boolean result = service.loginService();
-        return new MemberVO();
+
+    @GetMapping(value = "login")
+    public String loginPageHandler() {
+        return "member/login";
     }
 
-    @GetMapping(value = "info")
-    public String infoHandler(HttpServletRequest request){
-        HttpSession session = request.getSession(true);
-        boolean result = service.infoService(request);
-        return "member/info";
+    @PostMapping(value = "login")
+    public String loginHandler(@ModelAttribute MemberVO member) {
+        MemberVO resultMember = service.loginService(member);
+        return "member/login";
     }
-
-    @PostMapping(value = "/")
-    public String registerMemberHandler(@ModelAttribute(value = "login")
-                                      MemberVO member) {
-
-        boolean result = service.registerMember(member);
-        String viewName = "";
-
-        if(result) {
-            viewName = "/home";
-        } else {
-            viewName = "member/login";
-        }
-
-        return viewName;
-    }
-
-    @PutMapping(value="/{memberId}")
-    public void editMemberHandelr(@ModelAttribute(value = "login")
-                                    @PathVariable(name="memberId"){
-        service.editMember(memberId);
-        return;
-    }*/
+//    @ModelAttribute(value="loginMember")
+//    public MemberVO createMember(MemberVO member) {
+//        MemberVO mymember = service.loginService(member);
+//        return "member/login";
+//    }
+//
+//    @GetMapping(value = "info")
+//    public String infoHandler(HttpServletRequest request){
+//        HttpSession session = request.getSession(true);
+//        boolean result = service.infoService(request);
+//        return "member/info";
+//    }
+//
+//    @PutMapping(value="/{memberId}")
+//    public void editMemberHandelr(@ModelAttribute(value = "login")
+//                                    @PathVariable(name="memberId"){
+//        service.editMember(memberId);
+//        return;
+//    }
 
 }

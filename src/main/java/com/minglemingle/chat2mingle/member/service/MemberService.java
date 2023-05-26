@@ -19,10 +19,11 @@ public interface MemberService {
      * @see : MemberService#isNicknameAvailable(String nickname) 닉네임 중복 확인 함수
      * @see : MemberService#registerMember(MemberVO member) 회원가입을 담당하는 함수
      */
-/*    MemberVO infoService(String user_id);
-    MemberVO infoEditService(String user_id);
-    MemberVO loginService(MemberVO member);
-    Boolean isEmailAvailable(String email);
-    Boolean isNicknameAvailable(String nickname);*/
+
     Boolean registerMember(MemberVO member);
+    MemberVO infoService(MemberVO member);
+    MemberVO infoEditService(MemberVO member);
+    Boolean isEmailAvailable(MemberVO member);
+    Boolean isNicknameAvailable(MemberVO member);
+    MemberVO loginService(MemberVO member);
 }

@@ -9,7 +9,7 @@
 <body>
   <h1>Membership Registration</h1>
 
-  <form action="signup" method="post">
+  <form action="login" method="post">
     <label for="name">Name:</label>
     <input type="text" id="nickname" name="nickname" required><br>
 
