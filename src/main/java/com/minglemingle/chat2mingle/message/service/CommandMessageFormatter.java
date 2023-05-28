@@ -11,16 +11,16 @@ import java.time.Instant;
 
 @Service
 public class CommandMessageFormatter {
-    public MessageDTO makeBaseCommandMessage(MessageDTO messageDTO, String admin_name) {
+    public MessageDTO makeBaseCommandMessage(MessageDTO messageDTO, String adminName) {
         return MessageDTO.builder()
-                .nickname(admin_name)
+                .nickname(adminName)
                 .channel(messageDTO.getChannel())
                 .messageType(MessageConst.ADMIN_MESSAGE_TYPE)
                 .sentAt(Timestamp.from(Instant.now()))
                 .build();
     }
-    public MessageDTO makeDeleteCommandMessage(MessageDTO messageDTO, String admin_name) {
-        MessageDTO commandMessage = makeBaseCommandMessage(messageDTO, admin_name);
+    public MessageDTO makeDeleteCommandMessage(MessageDTO messageDTO, String adminName) {
+        MessageDTO commandMessage = makeBaseCommandMessage(messageDTO, adminName);
         commandMessage.setContent(MessageConst.DELETE_COMMAND_PREFIX + messageDTO.getMessageId());
         return commandMessage;
 

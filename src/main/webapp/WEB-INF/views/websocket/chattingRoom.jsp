@@ -72,8 +72,8 @@
     }
 
     $("#message").keyup(e => {
-        if (e.keyCode == 13) {
-            sendMessage();
+        if (e.keyCode === 13) {
+            sendMessage("${nickname}", ${channel});
         }
     });
 

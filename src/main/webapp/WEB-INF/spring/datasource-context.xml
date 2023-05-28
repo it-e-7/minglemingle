@@ -10,8 +10,7 @@
    <!-- 일반적으로 설정파일들은 src/main/resources 안에 들어가 있고
        이 경로는 classpath안에 포함되어 있어요!
     -->
-   <context:property-placeholder
-      location="classpath:config/database.properties"/>
+
 
    <!-- 데이터베이스 연결에 대한 Datasource를 bean으로 등록 -->
    <bean id="dataSource"

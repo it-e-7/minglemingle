@@ -1,15 +1,14 @@
 package com.minglemingle.chat2mingle.kafka.consumer;
 
-import com.minglemingle.chat2mingle.kafka.KafkaConst;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,14 +17,22 @@ import java.util.Map;
 @EnableKafka
 public class KafkaConsumerConfig {
 
+    @Value("${kafka.bootstrap_server}")
+    private String bootstrapServer;
+
+    @Value("${kafka.group_id}")
+    private String groupID;
+
+    @Value("${kafka.auto_offset_reset}")
+    private String autoOffsetReset;
     @Bean
     public DefaultKafkaConsumerFactory<String, MessageDTO> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaConst.BOOTSTRAP_SERVER);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, KafkaConst.GROUP_ID);
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupID);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, KafkaConst.AUTO_OFFSET_RESET);
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetReset);
 
         return new DefaultKafkaConsumerFactory<>(props);
     }

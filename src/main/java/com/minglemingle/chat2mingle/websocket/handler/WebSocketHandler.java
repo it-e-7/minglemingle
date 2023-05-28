@@ -3,6 +3,7 @@ package com.minglemingle.chat2mingle.websocket.handler;
 import com.minglemingle.chat2mingle.kafka.producer.KafkaProducer;
 import com.minglemingle.chat2mingle.websocket.service.WebSocketSessionManager;
 import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -13,6 +14,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
 public class WebSocketHandler extends TextWebSocketHandler {
+
+    @Value("${kafka.topic_prefix}")
+    private String topicPrefix;
 
     private final KafkaProducer kafkaProducer;
 
@@ -38,7 +42,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         UriComponents uriComponents = UriComponentsBuilder.fromUri(session.getUri()).build();
 
         // Retrieve the query string parameter value
-        String channelFromQuery = uriComponents.getQueryParams().getFirst("channel");
+        String channelFromQuery = uriComponents.getQueryParams().getFirst(topicPrefix);
         if (channelFromQuery == null) {
             // do something to delete session
             // invalid Access
@@ -46,14 +50,14 @@ public class WebSocketHandler extends TextWebSocketHandler {
         }
         Integer channel = Integer.valueOf(channelFromQuery);
 
-        session.getAttributes().put("channel", channel);
+        session.getAttributes().put(topicPrefix, channel);
         webSocketSessionManager.add(channel, session);
 
     }
     @Override
     public void afterConnectionClosed(@NonNull WebSocketSession session,
                                       @NonNull CloseStatus status) throws Exception {
-        Integer channel = (Integer) session.getAttributes().get("channel");
+        Integer channel = (Integer) session.getAttributes().get(topicPrefix);
         if (channel == null) {
             return;
         }
