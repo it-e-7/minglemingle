@@ -16,10 +16,9 @@ public class KafkaProducer {
         this.messageParser = messageParser;
     }
 
-    public void sendMessage(String topic, TextMessage message) {
-        System.out.println(message.getPayload());
+    public void sendMessage(TextMessage message) {
         MessageDTO messageDto = messageParser.toDto(message);
+        String topic = messageParser.parseTopic(messageDto);
         kafkaTemplate.send(topic, messageDto);
-
     }
 }

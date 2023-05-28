@@ -17,11 +17,14 @@ public class MessageParser {
     public MessageDTO toDto(TextMessage textMessage) {
         return gson.fromJson(textMessage.getPayload(), MessageDTO.class);
     }
-    public MessageDTO
-    toDto(String message) {
+    public MessageDTO toDto(String message) {
         return gson.fromJson(message, MessageDTO.class);
     }
-    public String toJson(MessageDTO messageDto) {
-        return gson.toJson(messageDto, MessageDTO.class);
+    public String toJson(MessageDTO messageDTO) {
+        return gson.toJson(messageDTO, MessageDTO.class);
+    }
+
+    public String parseTopic(MessageDTO messageDTO) {
+        return "channel" + messageDTO.getChannel();
     }
 }
