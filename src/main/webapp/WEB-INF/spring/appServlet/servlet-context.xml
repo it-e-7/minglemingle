@@ -44,7 +44,7 @@
 		<interceptor>
 			<mapping path="/**"/>
 			<exclude-mapping path="/member/processLogin"/>
-<!--			<exclude-mapping path="/resources/**"/>-->
+			<exclude-mapping path="/resources/**"/>
 			<beans:bean class="com.minglemingle.chat2mingle.auth.AuthInterceptor"/>
 		</interceptor>
 	</interceptors>
