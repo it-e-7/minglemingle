@@ -34,22 +34,19 @@
 								expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
-<!--	<interceptors>-->
-<!--		<interceptor>-->
-<!--			<mapping path="/**"/>-->
-<!--			<beans:bean class="com.spring.springweb.interceptor.TestInterceptor"/>-->
-<!--		</interceptor>-->
-<!--		<interceptor>-->
-<!--			<mapping path="/sample9/login"/>-->
-<!--			<beans:bean class="com.spring.springweb.interceptor.LoginInterceptor"/>-->
-<!--		</interceptor>-->
+	<interceptors>
 
-<!--		<interceptor>-->
-<!--			<mapping path="/**"/>-->
-<!--			<exclude-mapping path="/sample9/login"/>-->
+		<interceptor>
+			<mapping path="/member/processLogin"/>
+			<beans:bean class="com.minglemingle.chat2mingle.auth.LoginInterceptor"/>
+		</interceptor>
+
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/member/processLogin"/>
 <!--			<exclude-mapping path="/resources/**"/>-->
-<!--			<beans:bean class="com.spring.springweb.interceptor.AuthInterceptor"/>-->
-<!--		</interceptor>-->
-<!--	</interceptors>-->
-<!--	-->
+			<beans:bean class="com.minglemingle.chat2mingle.auth.AuthInterceptor"/>
+		</interceptor>
+	</interceptors>
+
 </beans:beans>
