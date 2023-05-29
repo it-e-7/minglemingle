@@ -22,11 +22,23 @@
     <a>닉네임: ${nickname}</a>
     <a>채널: ${channel}</a>
 
-    <input id="message">
-    <button id="sendBtn">전송</button>
-    <div id="chatBox"></div>
-</div>
+    <div class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
+        <!-- Component Start -->
+        <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
+            <div id="chatbox-wrap" class="flex flex-col flex-grow h-0 p-4 overflow-auto">
+                <div id="chatbox"></div>
+            </div>
 
+            <div class="bg-gray-300 p-4">
+                <input id="message" class="flex items-center h-10 w-full rounded px-3 text-sm" type="text" placeholder="Type your message…">
+            </div>
+            <button id="sendBtn">전송</button>
+        </div>
+        <!-- Component End  -->
+    </div>
+</div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/resources/js/message/component/message-box.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -37,9 +49,21 @@
         sock = new WebSocket("ws://localhost:8080/chat2mingle/ws/chat?channel=${channel}");
         sock.onopen = function () {
             alert('연결에 성공하였습니다.');
+
             sock.onmessage = (data => {
-                console.log(JSON.parse(data.data))
-                $("<p>" + data.data + "</p>").prependTo('#chatBox');
+
+                let d = JSON.parse(data.data);
+
+                if (d.content === '') {return;}
+
+                let myMessage = "${nickname}" === d .nickname;
+
+                $(`<message-box isMyMessage="` + myMessage +
+                    `" content="` + d.content +
+                    `" nickname="` + d.nickname +
+                    `" sentAt="` + d.sentAt + `"/>`).appendTo('#chatbox');
+
+                $("#chatbox-wrap").animate({ scrollTop: $('#chatbox-wrap').prop("scrollHeight")}, 500);
             });
             $('#chatConnect').hide();
             $('#chat').show();
@@ -65,7 +89,8 @@
                 content: content,
                 nickname: nickname,
                 messageType: 1,
-                channel: channel
+                channel: channel,
+                sentAt: new Date().valueOf(),
             })
         );
         $('#message').val("");
