@@ -1,6 +1,7 @@
 package com.minglemingle.chat2mingle.message.service;
 
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
+import com.minglemingle.chat2mingle.aspect.transaction.annotation.Transactional;
 import com.minglemingle.chat2mingle.message.mapper.MessageMapper;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import com.minglemingle.chat2mingle.websocket.service.WebSocketSessionManager;
@@ -10,6 +11,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -65,10 +67,16 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Integer insertOneMessage(@NonNull MessageDTO messageDTO) {
+    @Transactional
+    public Integer insertOneMessage(@NonNull MessageDTO messageDTO) throws SQLException {
         return messageMapper.insertOneMessage(messageDTO);
     }
 
+    @Override
+    @Transactional
+    public Integer insertOneMessage(@NonNull String messageString) throws SQLException {
+        return insertOneMessage(messageParser.toDto(messageString));
+    }
     @Override
     public Integer deleteMessageSent(@NonNull MessageDTO messageDTO) {
 //        Session Attribute

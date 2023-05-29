@@ -19,7 +19,7 @@
                content,
                message_type,
                sent_at
-        FROM message
+        FROM MESSAGE
         WHERE message_id = #{messageId}
     </select>
 
@@ -30,7 +30,7 @@
                content,
                message_type,
                sent_at
-        FROM message
+        FROM MESSAGE
         ORDER BY message_id
         OFFSET #{offset} ROWS FETCH NEXT 5 ROWS ONLY
     </select>
@@ -43,7 +43,7 @@
                 content,
                 message_type,
                 sent_at
-        FROM message
+        FROM MESSAGE
         WHERE message_id < #{messageId}
         ORDER BY message_id DESC
         FETCH FIRST 5 ROWS ONLY
@@ -52,7 +52,7 @@
 
 
     <insert id="insertOneMessage" parameterType="Message">
-        INSERT INTO COMMENTS (nickname, channel, content, message_type, sent_at)
+        INSERT INTO MESSAGE (nickname, channel, content, message_type, sent_at)
         VALUES (#{nickname}, #{channel}, #{content}, #{messageType}, #{sentAt})
 
         <selectKey keyProperty="messageId" resultType="Integer" order="AFTER">
@@ -61,6 +61,6 @@
     </insert>
 
     <delete id="deleteOneMessage" parameterType="Message">
-        DELETE FROM message WHERE message_id = #{messageId};
+        DELETE FROM MESSAGE WHERE message_id = #{messageId};
     </delete>
 </mapper>

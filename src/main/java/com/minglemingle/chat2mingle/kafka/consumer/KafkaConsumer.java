@@ -5,28 +5,36 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
+
 @Component
 class KafkaConsumer {
 
     private final MessageService messageService;
 
-
     public KafkaConsumer(MessageService messageService) {
         this.messageService = messageService;
     }
 
-//     @KafkaListener(topics = "channel1")
-//     public void listenerChannel1(@Payload String message) {
-//         messageService.broadcast(message);
-//     }
-//     @KafkaListener(topics = "channel2")
-//     public void listenerChannel2(@Payload String message) {
-//         messageService.broadcast(message);
-//     }
-//     @KafkaListener(topics = "channel3")
-//     public void listenerChannel3(@Payload String message) {
-//         messageService.broadcast(message);
-//     }
+//    @KafkaListener(topics = "channel1")
+//    public void listenerChannel1(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel2")
+//    public void listenerChannel2(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel3")
+//    public void listenerChannel3(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "database")
+//    public void listenerDatabase(@Payload String message) throws SQLException {
+//        messageService.insertOneMessage(message);
+//    }
 
 
 }

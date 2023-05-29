@@ -25,6 +25,10 @@ public class KafkaConsumerConfig {
 
     @Value("${kafka.auto_offset_reset}")
     private String autoOffsetReset;
+
+    @Value("${kafka.auto_commit}")
+    private String autoCommit;
+
     @Bean
     public DefaultKafkaConsumerFactory<String, MessageDTO> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
@@ -33,7 +37,7 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetReset);
-
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, autoCommit);
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
