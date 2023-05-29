@@ -4,22 +4,53 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>회원가입</title>
+  <link rel="stylesheet" href="/chat2mingle/resources/css/member/member.css"/>
+
 </head>
+<script
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"
+></script>
 <body>
-  <h1>Membership Registration</h1>
+<div class="logo">
+  <img src="/chat2mingle/resources/images/logo_thyundai.png"/>
+</div>
+<div class="member-container">
 
-  <form action="signup" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="nickname" name="nickname" required><br>
+  <form action="/chat2mingle/member/signup" method="post">
+    <h1>회원가입</h1>
+    <hr />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
+    <label class="form-label" for="nickname">아이디</label>
+      <input type="text" id="nickname" name="nickname" required />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br>
+    <div class="message" id="nickname-message"></div>
 
-    <input type="submit" value="Register">
+    <label class="form-label" for="email">이메일</label>
+
+      <input type="email" id="email" name="email" required />
+    <div class="message" id="email-message"></div>
+
+    <label class="form-label" for="password">비밀번호</label>
+    <input type="password" id="password" name="password" required />
+
+    <label class="form-label" for="password-check">비밀번호 확인</label>
+    <input
+            type="password"
+            id="password-check"
+            name="password-check"
+            required
+    />
+    <div class="message" id="password-message"></div>
+    <input type="submit" value="회원가입" />
+
+    <div class="message" id="submit-message"></div>
   </form>
+  <script src="/chat2mingle/resources/js/member/signup.js" async defer></script>
+
+</div>
+
 </body>
 </html>

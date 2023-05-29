@@ -7,11 +7,13 @@ import org.springframework.lang.Nullable;
 
 @Mapper
 public interface MemberMapper {
-    public Boolean insertMember(@NonNull MemberVO member) throws Exception;
+    Boolean insertMember(@NonNull MemberVO member) throws Exception;
 
-    public MemberVO selectOneMember(@Nullable MemberVO member) throws Exception;;
+    MemberVO selectOneMemberByEmail(@Nullable MemberVO member) throws Exception;
 
-    public void deleteMember(MemberVO member) throws Exception;
+    void deleteMember(MemberVO member) throws Exception;
 
-    public MemberVO updateMember(MemberVO member) throws Exception;
+    MemberVO updateMember(MemberVO member) throws Exception;
+
+    MemberVO selectOneMemberByNickname(MemberVO member);
 }

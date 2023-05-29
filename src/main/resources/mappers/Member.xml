@@ -14,11 +14,19 @@
         ]]>
     </insert>
 
-    <select id="selectOneMember" parameterType="Member" resultMap="memberResult">
+    <select id="selectOneMemberByEmail" parameterType="Member" resultMap="memberResult">
         <![CDATA[
          SELECT member_id, nickname, email, password, account_type, profile_image_path, account_status
          FROM member
          WHERE email = #{email}
+        ]]>
+    </select>
+
+    <select id="selectOneMemberByNickname" parameterType="Member" resultMap="memberResult">
+        <![CDATA[
+         SELECT member_id, nickname, email, password, account_type, profile_image_path, account_status
+         FROM member
+         WHERE nickname = #{nickname}
         ]]>
     </select>
 

@@ -1,17 +1,12 @@
 package com.minglemingle.chat2mingle.member.controller;
 
-import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
-import com.minglemingle.chat2mingle.auth.Auth;
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
-import oracle.jdbc.proxy.annotation.Post;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,7 +15,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/member")
 //@SessionAttributes(value = {"member"})
 public class MemberController {
-    Logger log = LogManager.getLogger("case3");
     public MemberController(MemberService service) {
         this.service = service;
     }
@@ -44,35 +38,24 @@ public class MemberController {
     }
 
     @GetMapping(value = "login")
-    public String loginPageHandler(SessionStatus sessionStatus)
+    public String loginPageHandler(HttpServletRequest request, Model model)
     {
-        // redirect 됐을시 필요한 코드
-        sessionStatus.setComplete();
+        try {
+            boolean incorrectPw = (boolean) request.getSession(true).getAttribute("incorrectPw");
+            if (incorrectPw) {
+                model.addAttribute("incorrectPw", true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "member/login";
     }
 
     @PostMapping(value = "processLogin")
     public String loginHandler(@SessionAttribute("member") MemberVO member,
                                Model model) {
-//    public String loginHandler(@SessionAttribute("member") MemberVo member, @ModelAttribute(value ="member") MemberVO member) {
-//        MemberVO resultMember = service.loginService(member);
-//
-//        if (resultMember ==null){
-//            sessionStatus.setComplete();
-//            return "dd";
-//        }
-//        else {
-//            member.setMemberId(resultMember.getMemberId());
-            model.addAttribute("member", member);
-            // TODO: Product 리스트 페이지로 redirect
-            return "member/login-check";
-//        }
-    }
-
-    @GetMapping("test")
-    @Auth
-    public String test() {
-        return "test";
+        model.addAttribute("member", member);
+        return "member/login-check";
     }
 
     @GetMapping(value = "info")
@@ -87,8 +70,9 @@ public class MemberController {
         MemberVO sessionMember = (MemberVO) session.getAttribute("member");
         sessionMember.setNickname(nicknameMember.getNickname());
         service.infoEditService(sessionMember);
-//        return "member/info-check";
         return  sessionMember;
     }
+
+
 
 }
