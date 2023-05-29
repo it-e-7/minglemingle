@@ -15,18 +15,18 @@ class KafkaConsumer {
         this.messageService = messageService;
     }
 
-    @KafkaListener(topics = "channel1")
-    public void listenerChannel1(@Payload String message) {
-        messageService.broadcast(message);
-    }
-    @KafkaListener(topics = "channel2")
-    public void listenerChannel2(@Payload String message) {
-        messageService.broadcast(message);
-    }
-    @KafkaListener(topics = "channel3")
-    public void listenerChannel3(@Payload String message) {
-        messageService.broadcast(message);
-    }
+//     @KafkaListener(topics = "channel1")
+//     public void listenerChannel1(@Payload String message) {
+//         messageService.broadcast(message);
+//     }
+//     @KafkaListener(topics = "channel2")
+//     public void listenerChannel2(@Payload String message) {
+//         messageService.broadcast(message);
+//     }
+//     @KafkaListener(topics = "channel3")
+//     public void listenerChannel3(@Payload String message) {
+//         messageService.broadcast(message);
+//     }
 
 
 }
