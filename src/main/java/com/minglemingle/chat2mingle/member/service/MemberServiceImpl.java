@@ -1,6 +1,5 @@
 package com.minglemingle.chat2mingle.member.service;
 
-import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.member.mapper.MemberMapper;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import org.apache.logging.log4j.LogManager;
@@ -8,12 +7,10 @@ import org.apache.logging.log4j.Logger;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {
     private MemberMapper mapper;
-    Logger logger = LogManager.getLogger("case3");
 
     public MemberServiceImpl(MemberMapper mapper) {
         this.mapper = mapper;
@@ -39,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO infoService(MemberVO member) {
         MemberVO result = new MemberVO();
         try {
-            result = mapper.selectOneMember(member);
+            result = mapper.selectOneMemberByEmail(member);
         } catch (Exception e) {
             //
         }
@@ -62,8 +59,8 @@ public class MemberServiceImpl implements MemberService {
     public Boolean isEmailAvailable(MemberVO member) {
         MemberVO result;
         try {
-            result = mapper.selectOneMember(member);
-            if (result != null)
+            result = mapper.selectOneMemberByEmail(member);
+            if (result == null)
                 return true;
         } catch (Exception e) {
             return false;
@@ -75,8 +72,8 @@ public class MemberServiceImpl implements MemberService {
     public Boolean isNicknameAvailable(MemberVO member) {
         MemberVO result;
         try {
-            result = mapper.selectOneMember(member);
-            if (result != null)
+            result = mapper.selectOneMemberByNickname(member);
+            if (result == null)
                 return true;
         } catch (Exception e) {
             return false;
@@ -87,7 +84,7 @@ public class MemberServiceImpl implements MemberService {
     public MemberVO loginService(MemberVO member) {
         MemberVO result = new MemberVO();
         try {
-            result = mapper.selectOneMember(member);
+            result = mapper.selectOneMemberByEmail(member);
             return result;
         } catch (Exception e) {
             // false
