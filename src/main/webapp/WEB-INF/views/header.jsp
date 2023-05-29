@@ -5,6 +5,9 @@
 
             <head>
                 <title>Home</title>
+                <style type="/text/css">
+                    @import url("/resources/css/common/header.css");
+                </style>
             </head>
 
             <body>
@@ -40,9 +43,6 @@
 
                                                 <a
                                                     href="javascript:GA_Event('PC_공통','헤더_메뉴','로그인/회원'); openLoginPopup();">로그인/회원</a>
-
-
-
                                             </div>
 
                                             <!-- 20190118 추가 레이어팝업 -->
