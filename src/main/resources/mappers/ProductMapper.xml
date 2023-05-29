@@ -23,7 +23,7 @@
         ]]>
     </select>
 
-    <select id="selectOneProduct" parameterType="Product" resultMap="productResult">
+    <select id="selectOneProductByCode" parameterType="Product" resultMap="productResult">
     <![CDATA[
         select product_code, product_name, product_brand, product_category, product_price_won, product_image_path
         from product
