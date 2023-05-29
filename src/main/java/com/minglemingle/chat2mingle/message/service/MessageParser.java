@@ -18,12 +18,16 @@ public class MessageParser {
         this.gson = gson;
     }
 
-    public MessageDTO toDto(TextMessage textMessage) {
-        return gson.fromJson(textMessage.getPayload(), MessageDTO.class);
-    }
     public MessageDTO toDto(String message) {
         return gson.fromJson(message, MessageDTO.class);
     }
+
+    public MessageDTO toDto(TextMessage textMessage) {
+        return toDto(textMessage.getPayload());
+    }
+
+
+
     public String toJson(MessageDTO messageDTO) {
         return gson.toJson(messageDTO, MessageDTO.class);
     }
