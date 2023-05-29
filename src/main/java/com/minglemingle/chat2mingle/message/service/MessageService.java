@@ -3,6 +3,7 @@ package com.minglemingle.chat2mingle.message.service;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import org.springframework.lang.NonNull;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface MessageService {
@@ -51,7 +52,8 @@ public interface MessageService {
      * @return 삽입된 메시지의 ID. 삽입에 실패한 경우 -1을 반환합니다.
      * @throws NullPointerException MessageDTO가 null일 경우
      */
-    Integer insertOneMessage(@NonNull MessageDTO messageDTO);
+    Integer insertOneMessage(@NonNull MessageDTO messageDTO) throws SQLException;
+    Integer insertOneMessage(@NonNull String messageString) throws SQLException;
 
     /**
      * 주어진 MessageDTO를 사용하여 단일 메시지를 삭제합니다.

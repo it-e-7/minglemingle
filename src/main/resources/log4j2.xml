@@ -17,6 +17,10 @@
         <Console name="stdout_2" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd:HH:mm} >> %m%n" />
         </Console>
+        <File name="FILE_transaction" fileName="C:/dev/minglemingle/log/transaction.log"
+              append="true">
+            <PatternLayout pattern="%p == %m == %d%n" />
+        </File>
     </Appenders>
 
     <Loggers>
@@ -36,6 +40,10 @@
             <AppenderRef ref="stdout_1" />
         </Logger>
 
+        <Logger name="transaction" level="debug" additivity="false">
+            <AppenderRef ref="FILE_transaction" />
+            <AppenderRef ref="stdout_1" />
+        </Logger>
 
         <Root level="INFO">
             <AppenderRef ref="stdout_2" />
