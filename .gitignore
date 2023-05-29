@@ -4,3 +4,4 @@ libraries/
 workspace.xml
 .idea
 chat2mingle.iml
+log/
