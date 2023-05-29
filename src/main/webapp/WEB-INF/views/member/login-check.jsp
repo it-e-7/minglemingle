@@ -7,10 +7,9 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+  <h1>Membership Registration</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+    <h1>${member}</h1>
+
 </body>
 </html>

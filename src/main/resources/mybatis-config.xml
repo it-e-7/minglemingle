@@ -17,7 +17,8 @@
 		위해 사용합니다. -->
 	<typeAliases>
 		<typeAlias alias="Message" type="com.minglemingle.chat2mingle.message.vo.MessageDTO" />
-<!--		<typeAlias alias="Post" type="com.sa46lll.board.post.vo.Post" />-->
+		<typeAlias alias="Member"
+				   type="com.minglemingle.chat2mingle.member.vo.MemberVO" />
 	</typeAliases>
 
 </configuration>
