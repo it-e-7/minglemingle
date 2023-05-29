@@ -42,5 +42,4 @@
    </bean>
 
    <mybatis:scan base-package="com.minglemingle.chat2mingle.*.mapper" />
-
 </beans>
