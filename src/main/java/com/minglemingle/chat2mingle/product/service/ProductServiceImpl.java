@@ -12,7 +12,6 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService{
     private ProductMapper mapper;
 
-     Logger logger = LogManager.getLogger("case3");
 
     public ProductServiceImpl(ProductMapper mapper) {
         this.mapper = mapper;
@@ -21,22 +20,13 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductVO> getProductList(ProductVO productVO) {
         List<ProductVO> result = null;
-        try {
-            result = mapper.selectAllProductFromCategory(productVO);
-        } catch(Exception e) {
-            logger.error(e);
-        }
-
+        result = mapper.selectAllProductFromCategory(productVO);
         return result;
     }
     @Override
     public ProductVO getProductInfo(ProductVO productVO) {
         ProductVO result = null;
-        try {
-            result = mapper.selectOneProduct(productVO);
-        } catch (Exception e) {
-            logger.error(e);
-        }
+        result = mapper.selectOneProductByCode(productVO);
         return result;
     }
 
