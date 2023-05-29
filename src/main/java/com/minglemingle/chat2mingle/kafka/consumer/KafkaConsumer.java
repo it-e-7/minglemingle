@@ -15,8 +15,6 @@ class KafkaConsumer {
         this.messageService = messageService;
     }
 
-//    public void parseAndSendMessage
-
     @KafkaListener(topics = "channel1")
     public void listenerChannel1(@Payload String message) {
         messageService.broadcast(message);
