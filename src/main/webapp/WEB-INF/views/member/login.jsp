@@ -32,9 +32,18 @@
 					</span>
         <span><a href="/chat2mingle/member/signup">회원가입</a></span>
     </div>
-    <c:if test="${incorrectPw eq true}" >
-        <div class="message" id="login-message">이메일 또는 비밀번호가 올바르지 않습니다</div>
-    </c:if>
+    <c:choose>
+        <c:when test="${loginMessage eq 'notMember'}">
+            <div class="message" id="login-message">존재하지 않는 계정입니다</div>
+        </c:when>
+        <c:when test="${loginMessage eq 'passwordFail'}">
+            <div class="message" id="login-message">비밀번호가 올바르지 않습니다</div>
+        </c:when>
+        <c:when test="${loginMessage eq 'account suspended'}">
+            <div class="message" id="login-message">로그인 정지된 계정입니다</div>
+        </c:when>
+    </c:choose>
+
     <input type="submit" value="로그인" />
 
 </form>

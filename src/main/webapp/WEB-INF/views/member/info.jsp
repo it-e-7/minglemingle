@@ -8,8 +8,9 @@
 </head>
 <body>
   <h1>Membership Registration</h1>
+
   <form action="info" method="post">
-    <label for="name">Name:</label>
+    <label for="nickname">Name:</label>
     <input type="text" id="nickname" name="nickname" required><br>
 
     <label for="email">Email:</label>
