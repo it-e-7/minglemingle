@@ -1,0 +1,25 @@
+* {
+    /* color: red; */
+}
+
+h3 {
+    display: inline;
+}
+
+form {
+    width: 60%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-container {
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+
+.category-columns {
+    /* flex-basis: 50%; */
+    display: flex;
+    /*flex-direction: column;*/
+}
