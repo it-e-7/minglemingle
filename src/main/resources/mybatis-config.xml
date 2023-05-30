@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration 
-   PUBLIC "-//mybatis.org/DTD Config 3.0//EN" 
-   "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
 	<!-- MyBatis가 동작할 때 어떻게 동작할지를 설정하는 내용포함 상당히 많은 설정이 들어가 있지만 대부분 기본값으로 설정된 

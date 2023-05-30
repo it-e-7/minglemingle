@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 400;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 700;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 300;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+ font-family: 'NanumBarunGothic', sans-serif;
+}
+
+.top-wrap{
+    width: 100%;
+    min-width: 1120px;
+    max-width: 1120px;
+    margin: 0 auto 20px auto;
+    position: relative;
+}
+
+.top-con {
+    display : flex;
+    height: 116px;
+}
+
+.top-wrap.main .top-con .top-con-logo {
+    width: 20.535%;
+    height: 100%;
+    float: left;
+}
+
+.top-wrap.main .top-con .top-con-search {
+    width: 42.2%;
+    margin-left: 3.016%;
+    height: 100%;
+    float: left;
+}
+
+.top-wrap.main .top-con .top-con-quick {
+    width: 29.09%;
+}
+
+.top-wrap.main .top-con .top-con-quick {
+    width: 32.144%;
+    height: 100%;
+    font-size: 16px;
+    color: #231f20;
+    float: right;
+}
+
+.top-wrap.main .top-con .top-con-quick > ul {
+    padding-top: 54px;
+    float: right;
+}
+
+/*.top-con-quick ul {
+  display: flex;
+}*/
+.top-wrap.main .top-con .top-con-quick > ul > li {
+    padding: 0 9px 0 10px;
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.top-wrap.main .top-con .top-con-logo h1 a {
+    width: 100%;
+    height: 100%;
+    background: url(https://image.thehyundai.com/hdmall/images/co/logo_new.png) left center no-repeat;
+    background-size: 230px;
+    display: block;
+}
+
+.top-wrap.main .top-con .top-con-logo h1 {
+    position: relative;
+    z-index: 10;
+        width: 100%;
+        height: 40px;
+        margin-top: 36px;
+}
+
+.gf-dropdown-btn {
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: 0;
+    position: absolute;
+    left: 275px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.top-wrap.main .top-con .top-con-search .top-con-search-input {
+    width: 100%;
+    padding-top: 4px;
+    height: 40px;
+    font-size: 15px;
+    color: #333;
+    border: 0;
+    border-bottom: 2px solid #36433b;
+}
+
+.top-nav-area2 > ul > li {
+    float: left;
+}
+
+.top-nav-area2 > ul > li > a {
+    display: inline-block;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 13px 0 13px;
+    font-size: 16px;
+    color: #231f20;
+    text-decoration: none;
+}
+
+.top-nav-area2 > ul > li > a:hover {
+    color : #bfae90;
+}
+
+.top-nav-area2 > ul > li > a:hover {
+
+}
+
+.top-wrap.main .top-nav-area2 {
+    padding-bottom: 20px;
+    border-bottom: 0;
+        width: 100%;
+
+    border-bottom: 1px solid #bababa;
+}
+
+li {
+    list-style: none;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+body {
+    font-family: 'NanumBarunGothic', sans-serif !important;
+}
+
+.top-wrap.main #header-area.top-nav {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 102;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    word-break: break-all;
+}
+.top-wrap.main .top-con .top-con-search .top-con-search-btn {
+    width: 32px;
+    height: 40px;
+    border: none;
+    background: url(https://image.thehyundai.com/hdmall/images/co/icon_search.png) left top no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: none;
+}
+.top-wrap.main .top-con .top-con-search .top-con-search-unit {
+    width: 85%;
+    margin: 36px auto 0;
+    position: relative;
+}
+
+ul, ol, p {
+    margin: 0;
+    padding: 0;
+}
+
+.top-wrap .top-con .top-con-quick a {
+    font-size: 14px;
+    color: #231f20;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-wrap.main .top-con .top-con-quick .top-con-quick-my:after {
+    content: "";
+    width: 11px;
+    height: 6px;
+    background: url(https://image.thehyundai.com/hdmall/images/co/icon_down_new.png) no-repeat;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 7px;
+}
+
+.top-wrap.main .top-con .top-con-quick .top-con-quick-my {
+    padding-right: 17px;
+    position: relative;
+}
+
+.in-depth-area.type-category {
+    display : none;
+    position : absolute;
+    z-index : 3;
+    margin-top : 20px;
+}
+
+.top-nav-area2 > ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.top-nav-area2 .nav-menu {
+  border: 0;
+  background-color: transparent;
+    background-image: url("/chat2mingle/resources/image/menu.png");
+      background-size: cover; /* 이미지를 버튼에 맞게 조절 */
+      background-position: center; /* 이미지를 가운데 정렬 */
+}
+
+#in-depth-banner{
+    width: 100%;
+    min-width: 1120px;
+    max-width: 1120px;
+}
+
+.top-nav-area2 .in-depth-area.type-category {
+    padding-left: 0;
+    min-height: 485px;
+}
+
+.top-nav-area2 .in-depth-area.type-category > ul {
+    width: 180px;
+    padding-bottom: 10px;
+    border-right: 1px solid #777;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area {
+    position: absolute;
+    z-index: 1;
+    left: 180px;
+    top: 1;
+    height: 100%;
+    width: calc(100% - 180px);
+    padding: 15px 40px 30px 0;
+    background-color: #fff;
+    display: none;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .menu {
+    float: left;
+    width: 220px;
+    width: 25%;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .brand {
+    float: left;
+    width: 400px;
+    width: 50%;
+    height: 100%;
+}
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .banner {
+    float: right;
+    max-width: 200px;
+    width: 25%;
+}
+
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .menu ul {
+    padding-left: 20px;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .menu ul li a {
+    display: inline-block;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .menu ul li {
+        padding-left: 40px;
+        margin-top: 15px;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .menu ul li:first-child {
+    margin-top: 0;
+}
+
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .brand ul {
+    display: inline-flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .brand ul li {
+    margin-bottom: 15px;
+    padding-right: 10px;
+    width: 50%;
+}
+#first-child-menu {
+    margin-top: 0;
+}
+
+
+.top-nav-area2 .in-depth-area.type-category .in-cate-area .brand ul li a {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+.top-nav-area2 .in-depth-area.type-category > ul > li > a {
+    display: inline-block;
+    font-size: 16px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.top-nav-area2 .in-depth-area.type-category > ul > li > a.hover {
+    padding-right: 13px;
+    color: #231f20;
+    background: url(https://image.thehyundai.com/hdmall/images/co/ic_gnb_category_arrow.png) no-repeat right 6px;
+}
+
+.top-nav-area2 .in-depth-area.type-category > ul {
+    width: 180px;
+    padding-bottom: 10px;
+    border-right: 1px solid #777;
+}
+
+.top-nav-area2 .in-depth-area.type-category > ul > li {
+    padding-left: 40px;
+    margin-top: 15px;
+}

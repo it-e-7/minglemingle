@@ -15,6 +15,4 @@
 
   <%-- 푸터 포함 --%>
   <%@ include file="footer.jsp" %>
-
 </body>
-</html>

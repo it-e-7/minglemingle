@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 400;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 700;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 300;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+ font-family: 'NanumBarunGothic', sans-serif;
+}
+a {
+    color: #666;
+    text-underline-position: under;
+}
+#footer {
+    margin-top: 100px;
+    background: #eee4ee;
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+    position: relative;
+}
+
+.blind {
+    position: absolute!important;
+    left: -10000px!important;
+    top: -10000px!important;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    display: block;
+    visibility: hidden;
+}
+
+#footer .top {
+    background: #fff;
+    line-height: 40px;
+    height: 40px;
+}
+
+#footer .row {
+    width: 1120px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#footer .top .row {
+    padding-right: 140px;
+}
+
+#footer .hyundai-menu {
+    position: relative;
+    padding-left: 100px;
+}
+
+#footer .hyundai-menu span.tit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    font-size: 13px;
+    color: #333;
+}
+
+#footer .hyundai-menu ul li {
+    float: left;
+    font-size: 13px;
+    color: #666;
+}
+
+#footer .hyundai-menu ul li a {
+    float: left;
+    font-size: 13px;
+    color: #666;
+}
+
+#footer .hyundai-menu ul li + li {
+    margin-left: 20px;
+}
+
+#footer .family {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 40px;
+}
+
+#footer .family > a {
+    display: block;
+    width: 140px;
+    height: 40px;
+    width: 140px;
+    line-height: 42px;
+    font-size: 13px;
+    color: #666;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+#footer .family > a i {
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    right: 10px;
+    background: url(https://image.thehyundai.com/hdmall/images/co/ic_footer.png) no-repeat 0 0;
+    width: 9px;
+    height: 5px;
+}
+
+#footer .family-site {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    width: 145px;
+    padding: 5px 10px 5px 10px;
+    line-height: 16px;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #666;
+    z-index: 100;
+}
+
+#footer .family-site .scrollable {
+    padding: 5px 0;
+}
+
+#footer .family-site .scrollable ul {
+    font-size: 11px;
+    color: #666;
+    font-family: 'Dotum','돋움';
+}
+
+#footer .family-site .scrollable li {
+    line-height: 16px;
+}
+
+#footer .family-site h4 {
+    font-size: 11px;
+    color: #666;
+    line-height: 20px;
+    height: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+#footer .family-site .scrollable {
+    padding: 5px 0;
+}
+
+#footer .family-site .scrollable ul {
+    font-size: 11px;
+    color: #666;
+    font-family: 'Dotum','돋움';
+}
+
+#footer .bottom {
+    border-top: 1px solid #bbc4c1;
+    background: #fff;
+}
+
+#footer .bottom .logo {
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+
+#footer .bottom .logo a {
+    display: block;
+    background: url(https://image.thehyundai.com/hdmall/images/co/img_bottom_logo.png) no-repeat 0 0;
+    width: 113px;
+    height: 54px;
+}
+
+#footer .bottom .row {
+    padding: 27px 160px 0 175px;
+    position: relative;
+    overflow: hidden;
+}
+
+#footer .bottom .info {
+    color: #72656c;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+#footer .bottom .sns-quickgo {
+    position: absolute;
+    top: 28px
+;
+    right: 4px;
+    width: 150px;
+}
+
+#footer .bottom .sns-quickgo ul {
+    margin: 0 -7px;
+    overflow: hidden;
+}
+
+#footer .bottom .sns-quickgo li {
+    float: left;
+    padding: 0 7px;
+}
+
+#footer .bottom .sns-quickgo a {
+    display: block;
+    width: 27px;
+    height: 27px;
+}
+#footer .bottom .sns-quickgo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#footer .row:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#footer .bottom .certi-wrap {
+    overflow: hidden;
+    *zoom: 1;
+    padding: 0 0 30px 175px;
+}
+
+#footer .bottom .certi {
+    margin-top: 34px;
+    float: left;
+}
+
+#footer .bottom .certi a {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+#footer .bottom .checkguarantee {
+    position: relative;
+    margin-top: 34px;
+    background: url(https://image.thehyundai.com/hdmall/images/co/txt_bottom_checkguarantee.png) no-repeat 0 0;
+    font-size: 0;
+    line-height: 0;
+    float: right;
+    width: 272px;
+    height: 26px;
+}
