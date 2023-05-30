@@ -2,11 +2,10 @@ package com.minglemingle.chat2mingle.member.controller;
 
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -41,10 +40,8 @@ public class MemberController {
     public String loginPageHandler(HttpServletRequest request, Model model)
     {
         try {
-            boolean incorrectPw = (boolean) request.getSession(true).getAttribute("incorrectPw");
-            if (incorrectPw) {
-                model.addAttribute("incorrectPw", true);
-            }
+            String loginMessage = (String) request.getSession(true).getAttribute("loginMessage");
+            model.addAttribute("loginMessage", loginMessage);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +52,7 @@ public class MemberController {
     public String loginHandler(@SessionAttribute("member") MemberVO member,
                                Model model) {
         model.addAttribute("member", member);
-        return "member/login-check";
+        return "product/home";
     }
 
     @GetMapping(value = "info")
@@ -73,6 +70,11 @@ public class MemberController {
         return  sessionMember;
     }
 
+    @PostMapping("logout")
+    public String logoutHandler (SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        return "member/login";
+    }
 
 
 }

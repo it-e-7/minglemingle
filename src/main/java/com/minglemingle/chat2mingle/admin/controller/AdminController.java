@@ -1,5 +1,6 @@
 package com.minglemingle.chat2mingle.admin.controller;
 
+import com.minglemingle.chat2mingle.auth.Auth;
 import com.minglemingle.chat2mingle.message.service.MessageService;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import org.springframework.stereotype.Controller;
@@ -18,22 +19,20 @@ public class AdminController {
         this.service = service;
     }
 
-    @GetMapping(value="")
-    public String adminPageHome() {
-        return "admin/home";
-    }
-
     @GetMapping(value="notice")
+    @Auth(role= Auth.Role.ADMIN)
     public String adminPageNotice() {
         return "admin/notice";
     }
 
     @GetMapping(value="reporthistory")
+    @Auth(role= Auth.Role.ADMIN)
     public String adminPageAllReport() {
         return "admin/report-list";
     }
 
     @GetMapping(value="reporthistory/detail/{messageId}")
+    @Auth(role= Auth.Role.ADMIN)
     public String adminPageReportDetail(@PathVariable("messageId") int messageId,
                                         Model model) {
         MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);

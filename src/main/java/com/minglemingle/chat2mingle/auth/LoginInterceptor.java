@@ -26,33 +26,39 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String email = request.getParameter("email");
-        String password =  request.getParameter("password");
+        String password = request.getParameter("password");
 
         MemberVO checkUser = new MemberVO(null, null, email, null, 0, null, 0);
 
         MemberVO member = service.loginService(checkUser);
-        
-        // 입력받은 plaintext 비밀번호랑 hash 비교
-        boolean validPassword = BCrypt.checkpw(password, member.getPassword());
-        HttpSession session;
-        if (!Objects.isNull(member)&& validPassword) {
-            session = request.getSession(true);
-            //해시 되어있는 유저의 비밀번호로 해시를 한번 더 해서 authToken 생성
-            String authToken = BCrypt.hashpw(member.getPassword(), BCrypt.gensalt());
-            member.setPassword(null);
-            session.setAttribute("authToken", authToken);
-            session.setAttribute("member", member);
-            session.setAttribute("incorrectPw", false);
+        HttpSession session = request.getSession(true);
 
-
-            return true;
-        } else {
-            session=request.getSession(true);
-            session.setAttribute("incorrectPw", true);
+        if (Objects.isNull(member)) {
+            session.setAttribute("loginMessage", "notMember");
             response.sendRedirect("/chat2mingle/member/login");
-
             return false;
         }
+        boolean validPassword = BCrypt.checkpw(password, member.getPassword());
+        if (!validPassword) {
+            session.setAttribute("loginMessage", "passwordFail");
+            response.sendRedirect("/chat2mingle/member/login");
+            return false;
+        }
+        if (member.getAccountStatus() == 11) {
+            session.setAttribute("loginMessage", "account suspended");
+            response.sendRedirect("/chat2mingle/member/login");
+            return false;
+        }
+
+        member.setPassword(null);
+        session.setAttribute("member", member);
+        session.setAttribute("loginMessage", "success");
+
+        if (member.getAccountType() == 99) {
+            response.sendRedirect("/chat2mingle/admin/notice");
+        }
+        return true;
+
     }
 
 

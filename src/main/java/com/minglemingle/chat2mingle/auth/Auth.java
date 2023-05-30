@@ -10,4 +10,10 @@ import java.lang.annotation.RetentionPolicy;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Auth {
+
+    public enum Role { ADMIN, VIP, USER }
+
+    public Role role() default Role.USER;
+
+
 }

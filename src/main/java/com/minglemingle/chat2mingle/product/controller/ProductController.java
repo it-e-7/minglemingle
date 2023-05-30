@@ -19,6 +19,11 @@ public class ProductController {
         this.service = service;
     }
 
+    @GetMapping("/home")
+    public String pageProductHome() {
+        return "product/home";
+    }
+
     @GetMapping("")
     public String pageForOneProductCategory(@RequestParam("category") String productCategory, Model model) {
         ProductVO productVO = new ProductVO(null, null, null, Integer.parseInt(productCategory), 0, null);
