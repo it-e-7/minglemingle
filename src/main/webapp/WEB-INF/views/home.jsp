@@ -8,11 +8,10 @@
 </head>
 <body>
   <%-- 헤더 포함 --%>
-  <%@ include file="header.jsp" %>
-
+ <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
   <!-- 다른 내용 -->
   <h1>본문 내용</h1>
 
   <%-- 푸터 포함 --%>
-  <%@ include file="footer.jsp" %>
+<%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </body>
