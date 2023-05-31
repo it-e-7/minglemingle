@@ -14,9 +14,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-    private ProductService service;
-    public ProductController(ProductService service) {
-        this.service = service;
+    private ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/home")
@@ -27,7 +27,7 @@ public class ProductController {
     @GetMapping("")
     public String pageForOneProductCategory(@RequestParam("category") String productCategory, Model model) {
         ProductVO productVO = new ProductVO(null, null, null, Integer.parseInt(productCategory), 0, null);
-        List<ProductVO> result = service.getProductList(productVO);
+        List<ProductVO> result = productService.getProductList(productVO);
         model.addAttribute("productList", result);
         return "product/category";
     }
@@ -35,7 +35,7 @@ public class ProductController {
     @GetMapping("/{productCode}")
     public String pageDetailForOneProductCode(@PathVariable("productCode") String productCode, Model model) {
         ProductVO productVO = new ProductVO(productCode, null, null, 0, 0, null);
-        ProductVO result = service.getProductInfo(productVO);
+        ProductVO result = productService.getProductInfo(productVO);
         model.addAttribute("productDetail", result);
         return "product/product-detail";
     }

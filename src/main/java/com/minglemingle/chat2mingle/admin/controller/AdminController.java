@@ -22,21 +22,21 @@ import java.util.List;
 public class AdminController {
 
 
-    MessageService service;
+    MessageService messageService;
     KafkaProducer producer;
 
     public AdminController(KafkaProducer producer, MessageService service) {
         this.producer = producer;
-        this.service = service;
+        this.messageService = service;
     }
 
-    @GetMapping(value="notice")
-    @Auth(role= Auth.Role.ADMIN)
+    @GetMapping(value = "notice")
+    @Auth(role = Auth.Role.ADMIN)
     public String adminPageNotice() {
         return "admin/notice";
     }
 
-    @PostMapping(value="sendNotice")
+    @PostMapping(value = "sendNotice")
     @DebugLog
     @ResponseBody
     public ResponseEntity<Boolean> postNoticeToChannels(HttpServletRequest request, @RequestBody NoticeDTO noticeDtO) {
@@ -52,25 +52,27 @@ public class AdminController {
             MessageDTO newMessage = new MessageDTO(null, adminNickname, channel, content, 5, null);
             noticeMessageList.add(newMessage);
         }
-
         producer.sendMessage(noticeMessageList);
 
         return ResponseEntity.ok(true);
     }
 
-    @GetMapping(value="reporthistory")
-    @Auth(role= Auth.Role.ADMIN)
-    public String adminPageAllReport() {
+    @GetMapping(value = "reporthistory")
+    @Auth(role = Auth.Role.ADMIN)
+    public String adminPageAllReport(Model model) {
+//      List<ReportDTO> reportList =   reportService.getReportList();
+//        model.addAttrbiute("reportList", reportList);
         return "admin/report-list";
     }
 
-    @GetMapping(value="reporthistory/detail/{messageId}")
-    @Auth(role= Auth.Role.ADMIN)
+
+    @GetMapping(value = "reporthistory/{messageId}")
+    @Auth(role = Auth.Role.ADMIN)
     public String adminPageReportDetail(@PathVariable("messageId") int messageId,
                                         Model model) {
         MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
-        MessageDTO result = service.getOneMessageByMessageId(messageDTO);
-        model.addAttribute("message", result);
+        MessageDTO reportDetail = messageService.getOneMessageByMessageId(messageDTO);
+        model.addAttribute("reportList", reportDetail);
         return "admin/report-detail";
     }
 
