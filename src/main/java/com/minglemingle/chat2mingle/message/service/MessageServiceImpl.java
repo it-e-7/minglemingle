@@ -54,9 +54,10 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public MessageDTO getOneMessage(@NonNull MessageDTO messageDTO) {
-        return messageMapper.selectOneMessage(messageDTO);
+    public MessageDTO getOneMessageByMessageId(@NonNull MessageDTO messageDTO) {
+        return messageMapper.selectOneMessageByMessageId(messageDTO);
     }
+
     @DebugLog
     @Override
     public List<MessageDTO> getMessageListAfterMessageId(@NonNull MessageDTO messageDTO) {
@@ -77,6 +78,7 @@ public class MessageServiceImpl implements MessageService {
     public Integer insertOneMessage(@NonNull String messageString) throws SQLException {
         return insertOneMessage(messageParser.toDto(messageString));
     }
+
     @Override
     public Integer deleteMessageSent(@NonNull MessageDTO messageDTO) {
 //        Session Attribute

@@ -52,7 +52,7 @@ public class TransactionAspect {
                 OracleDatabaseException oracleDatabaseException = (OracleDatabaseException) sqlException.getCause();
                 error_msg += "Error Msg: " + oracleDatabaseException.getMessage()
                         + "SQL Error Code: " + sqlException.getErrorCode()
-                        + "SQL: " + oracleDatabaseException.getSql();
+                        + "\nSQL: " + oracleDatabaseException.getSql();
             }
             else {
                 error_msg += "Error Msg" + e.getMessage()

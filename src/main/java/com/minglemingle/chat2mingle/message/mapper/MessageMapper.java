@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface MessageMapper {
-    MessageDTO selectOneMessage(@NonNull MessageDTO messageDTO);
+    MessageDTO selectOneMessageByMessageId(@NonNull MessageDTO messageDTO);
     List<MessageDTO> selectMessageListAfterMessageId(@NonNull MessageDTO messageDTO);
     int insertOneMessage(@NonNull MessageDTO messageDTO);
     int deleteOneMessage(@NonNull MessageDTO messageDTO);
