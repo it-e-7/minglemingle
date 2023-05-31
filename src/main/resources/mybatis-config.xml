@@ -4,21 +4,18 @@
 		"http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
-	<!-- MyBatis가 동작할 때 어떻게 동작할지를 설정하는 내용포함 상당히 많은 설정이 들어가 있지만 대부분 기본값으로 설정된 
-		내용을 그대로 사용 아래부분만 일반적으로 설정해서 사용한다 -->
+
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />
-
-		<!-- Log4J설정 Query가 실행될때마다 실행되는 SQL Query와 그 결과를 Log로 출력! 자동으로 해준다 -->
 		<setting name="logImpl" value="LOG4J2" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 
-	<!-- 타입 별칭은 자바 타입에 대한 좀더 짧은 이름을 설정하기 위해 사용합니다. 오직 XML 설정에서만 사용되며, 타이핑을 줄이기 
-		위해 사용합니다. -->
 	<typeAliases>
 		<typeAlias alias="Message" type="com.minglemingle.chat2mingle.message.vo.MessageDTO" />
 		<typeAlias alias="Member" type="com.minglemingle.chat2mingle.member.vo.MemberVO" />
 		<typeAlias alias="Product" type="com.minglemingle.chat2mingle.product.vo.ProductVO" />
+		<typeAlias alias="Report" type="com.minglemingle.chat2mingle.report.vo.ReportVO" />
 	</typeAliases>
 
 </configuration>
