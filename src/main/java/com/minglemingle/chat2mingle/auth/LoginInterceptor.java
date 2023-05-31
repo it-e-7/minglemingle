@@ -34,25 +34,21 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession(true);
 
         if (Objects.isNull(member)) {
-            session.setAttribute("loginMessage", "notMember");
-            response.sendRedirect("/chat2mingle/member/login");
+            response.sendRedirect("/chat2mingle/member/login?loginMessage=notMember");
             return false;
         }
         boolean validPassword = BCrypt.checkpw(password, member.getPassword());
         if (!validPassword) {
-            session.setAttribute("loginMessage", "passwordFail");
-            response.sendRedirect("/chat2mingle/member/login");
+            response.sendRedirect("/chat2mingle/member/login?loginMessage=passwordFail");
             return false;
         }
         if (member.getAccountStatus() == 11) {
-            session.setAttribute("loginMessage", "account suspended");
-            response.sendRedirect("/chat2mingle/member/login");
+            response.sendRedirect("/chat2mingle/member/login?loginMessage=accountSuspended");
             return false;
         }
 
         member.setPassword(null);
         session.setAttribute("member", member);
-        session.setAttribute("loginMessage", "success");
 
         if (member.getAccountType() == 99) {
             response.sendRedirect("/chat2mingle/admin/notice");

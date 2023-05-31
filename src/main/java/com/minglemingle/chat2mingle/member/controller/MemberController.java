@@ -31,20 +31,16 @@ public class MemberController {
     }
 
     @PostMapping(value = "signup")
-    public String signupHandler(@ModelAttribute MemberVO member) {
+    public String signupHandler(Model model, HttpServletRequest request, @ModelAttribute MemberVO member) {
         boolean result = service.registerMember(member);
+        model.addAttribute("loginMessage", "signUpComplete");
         return "redirect:/member/login";
     }
 
     @GetMapping(value = "login")
-    public String loginPageHandler(HttpServletRequest request, Model model)
-    {
-        try {
-            String loginMessage = (String) request.getSession(true).getAttribute("loginMessage");
+    public String loginPageHandler(Model model,
+                                   @RequestParam(value="loginMessage", required = false) String loginMessage) {
             model.addAttribute("loginMessage", loginMessage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return "member/login";
     }
 
@@ -56,22 +52,22 @@ public class MemberController {
     }
 
     @GetMapping(value = "info")
-    public String infoHandler(){
+    public String infoHandler() {
         return "member/info";
     }
 
     @PostMapping(value = "info")
     @ResponseBody
-    public MemberVO infoEditHandler(HttpServletRequest request, @ModelAttribute(value ="member") MemberVO nicknameMember){
+    public MemberVO infoEditHandler(HttpServletRequest request, @ModelAttribute(value = "member") MemberVO nicknameMember) {
         HttpSession session = request.getSession();
         MemberVO sessionMember = (MemberVO) session.getAttribute("member");
         sessionMember.setNickname(nicknameMember.getNickname());
         service.infoEditService(sessionMember);
-        return  sessionMember;
+        return sessionMember;
     }
 
     @PostMapping("logout")
-    public String logoutHandler (SessionStatus sessionStatus) {
+    public String logoutHandler(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
         return "member/login";
     }
