@@ -15,17 +15,17 @@ var categoryToPreviewDict = {
 }
 
 var categoryToChannelDict = {
-    "cosmetics" : 0,
-    "young-casual" : 1,
-    "children" : 2,
-    "food" : 3,
-    "luxury" : 4,
-    "mens-fashion" : 5,
-    "sports" : 6,
-    "pet" : 7,
-    "womens-fashion" : 8,
-    "jean" : 9,
-    "electronics":10,
+    "cosmetics" : 1,
+    "young-casual" : 2,
+    "children" : 3,
+    "food" : 4,
+    "luxury" : 5,
+    "mens-fashion" : 6,
+    "sports" : 7,
+    "pet" : 8,
+    "womens-fashion" : 9,
+    "jean" : 10,
+    "electronics":11,
     "all" :"모두선택"
 }
 $(document).ready(function() {

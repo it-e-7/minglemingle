@@ -1,7 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%--<%@ page session="false"%>--%>
 <html>
 
 <head>
@@ -171,7 +172,7 @@
 					</ul>
 					</li>
 					<li><a href="/chat2mingle/admin/notice" class="nav-gift">공지</a></li>
-					<li><a href="/chat2mingle/admin/report-list" class="nav-new">신고</a></li>
+					<li><a href="/chat2mingle/admin/reporthistory" class="nav-new">신고</a></li>
 					</ul>
 				</div>
 			</div>

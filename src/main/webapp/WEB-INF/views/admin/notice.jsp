@@ -5,28 +5,23 @@
   Time: 오후 5:24
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>공지</title>
 </head>
+<style>
+    @import url("/chat2mingle/resources/css/global/common.css");
+    @import url("/chat2mingle/resources/css/admin/admin.css");
+
+</style>
 <script
         src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
         crossorigin="anonymous"
 ></script>
 <body>
-<%--    <%@ include file="header.jsp" %>--%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/chat2mingle/resources/css/admin/admin.css"/>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 
 <form action="/your-action-endpoint" method="post">
     <h2>새로운 공지</h2>
@@ -158,14 +153,9 @@
 </div>
 
 
+<%@ include file="/WEB-INF/views/global/footer.jsp" %>
 
 </body>
-<script src="/chat2mingle/resources/js/admin/admin.js" async defer></script>
+<script src="/chat2mingle/resources/js/admin/admin.js" ></script>
 
-</html>
-
-
-<%--    <%@ include file="header.jsp" %>--%>
-
-</body>
 </html>
