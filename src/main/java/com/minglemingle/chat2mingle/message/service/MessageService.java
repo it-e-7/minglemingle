@@ -28,7 +28,7 @@ public interface MessageService {
      * @return 조회된 단일 메시지의 정보를 포함하는 {@link MessageDTO} 객체. 메시지가 없는 경우 null을 반환할 수 있습니다.
      * @throws NullPointerException MessageDTO가 null일 경우
      */
-    MessageDTO getOneMessage(@NonNull MessageDTO messageDTO);
+    MessageDTO getOneMessageByMessageId(@NonNull MessageDTO messageDTO);
 
 
     /**
