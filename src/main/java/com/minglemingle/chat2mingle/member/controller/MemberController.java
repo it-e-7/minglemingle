@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/member")
 //@SessionAttributes(value = {"member"})
 public class MemberController {
-    public MemberController(MemberService Memberservice) {
-        this.MemberService = MemberService;
+    private final MemberService memberService;
+
+    public MemberController(MemberService memberservice) {
+        this.memberService = memberService;
     }
-
-    private MemberService MemberService;
-
+    
     @ModelAttribute("member")
     public MemberVO setEmptyMember() {
         return new MemberVO();
@@ -32,7 +32,7 @@ public class MemberController {
 
     @PostMapping(value = "signup")
     public String signupHandler(Model model, HttpServletRequest request, @ModelAttribute MemberVO member) {
-        boolean result = MemberService.registerMember(member);
+        boolean result = memberService.registerMember(member);
         model.addAttribute("loginMessage", "signUpComplete");
         return "redirect:/member/login";
     }
@@ -62,7 +62,7 @@ public class MemberController {
         HttpSession session = request.getSession();
         MemberVO sessionMember = (MemberVO) session.getAttribute("member");
         sessionMember.setNickname(nicknameMember.getNickname());
-        MemberService.infoEditService(sessionMember);
+        memberService.infoEditService(sessionMember);
         return sessionMember;
     }
 
