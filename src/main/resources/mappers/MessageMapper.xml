@@ -3,16 +3,8 @@
 
 
 <mapper namespace="com.minglemingle.chat2mingle.message.mapper.MessageMapper">
-    <resultMap id="messageResultMap" type="Message">
-        <id property="messageId" column="message_id"/>
-        <result property="nickname" column="nickname"/>
-        <result property="channel" column="channel"/>
-        <result property="content" column="content"/>
-        <result property="messageType" column="message_type"/>
-        <result property="sentAt" column="sent_at"/>
-    </resultMap>
 
-    <select id="selectOneMessageByMessageId" parameterType="Message" resultMap="messageResultMap">
+    <select id="selectOneMessageByMessageId" parameterType="Message" resultType="Message">
         SELECT message_id,
                nickname,
                channel,
@@ -23,7 +15,7 @@
         WHERE message_id = #{messageId}
     </select>
 
-    <select id="selectMessageWithOffset" parameterType="Integer" resultMap="messageResultMap">
+    <select id="selectMessageWithOffset" parameterType="Integer" resultType="Message">
         SELECT message_id,
                nickname,
                channel,
@@ -35,7 +27,7 @@
         OFFSET #{offset} ROWS FETCH NEXT 5 ROWS ONLY
     </select>
 
-    <select id="selectMessageListAfterMessageId" parameterType="Message" resultMap="messageResultMap">
+    <select id="selectMessageListAfterMessageId" parameterType="Message" resultType="Message">
         SELECT message_id,
             nickname,
             channel,
