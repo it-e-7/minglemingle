@@ -1,30 +1,33 @@
 package com.minglemingle.chat2mingle.message.controller;
 
+import com.google.gson.Gson;
 import com.minglemingle.chat2mingle.message.service.MessageService;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping(value="/message", produces="text/plain;charset=UTF-8")
 public class MessageController {
 
     private final MessageService messageService;
 
-    public MessageController(MessageService messageService) {
+    private final Gson gson;
+
+    public MessageController(MessageService messageService, Gson gson) {
         this.messageService = messageService;
+        this.gson = gson;
     }
 
-    @GetMapping(value="/message", produces = "application/json")
-    public MessageDTO getMessage(@NonNull MessageDTO messageDTO) {
-        return messageService.getOneMessage(messageDTO);
-    }
+    @GetMapping(value="")
+    public ResponseEntity<String> getMessages(@NonNull MessageDTO messageDTO) {
+        List<MessageDTO> result = messageService.getMessageListAfterMessageId(messageDTO);
 
-    @GetMapping(value="/messages")
-    public List<MessageDTO> getMessages(@NonNull MessageDTO messageDTO) {
-        return messageService.getMessageListAfterMessageId(messageDTO);
+        return ResponseEntity.ok().body(gson.toJson(result, ArrayList.class));
     }
 
     @DeleteMapping(value="/message/{messageId}")

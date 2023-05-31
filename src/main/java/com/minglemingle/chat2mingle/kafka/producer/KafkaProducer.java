@@ -7,10 +7,13 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 
+import java.util.List;
+
 @Service
 public class KafkaProducer {
     private final KafkaTemplate<String, MessageDTO> kafkaTemplate;
     private final MessageParser messageParser;
+
 
     @Value("${kafka.database_topic}")
     private String databaseTopic;
@@ -20,10 +23,17 @@ public class KafkaProducer {
         this.messageParser = messageParser;
     }
 
-    public void sendMessage(TextMessage message) {
-        MessageDTO messageDto = messageParser.toDto(message);
-        String topic = messageParser.parseTopic(messageDto);
-        kafkaTemplate.send(topic, messageDto);
-        kafkaTemplate.send(databaseTopic, messageDto);
+    public void sendMessage(MessageDTO messageDTO) {
+        String topic = messageParser.parseTopic(messageDTO);
+        kafkaTemplate.send(topic, messageDTO);
+        kafkaTemplate.send(databaseTopic, messageDTO);
+    }
+    public void sendMessage(TextMessage textMessage) {
+        sendMessage(messageParser.toDto(textMessage));
+    }
+    public void sendMessage(List<MessageDTO> messageDTOList) {
+        for (MessageDTO messageDTO : messageDTOList) {
+            sendMessage(messageDTO);
+        }
     }
 }
