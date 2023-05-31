@@ -1,20 +1,20 @@
 
-// var categoryDict = {
-//     "cosmetics" : "화장품",
-//     "young-casual" : "영캐주얼",
-//     "children" : "유아동/문화",
-//     "food" : "식품",
-//     "luxury" : "명품/잡화",
-//     "mens-fashion" : "남성패션",
-//     "sports" : "스포츠/레저",
-//     "pet" : "반려동물",
-//     "womens-fashion" : "여성패션",
-//     "jeans" : "진/이지",
-//     "electronics":"리빙/가전",
-//     "all" :"모두선택"
-// }
+var categoryToPreviewDict = {
+    "cosmetics" : "화장품",
+    "young-casual" : "영캐주얼",
+    "children" : "유아동/문화",
+    "food" : "식품",
+    "luxury" : "명품/잡화",
+    "mens-fashion" : "남성패션",
+    "sports" : "스포츠/레저",
+    "pet" : "반려동물",
+    "womens-fashion" : "여성패션",
+    "jean" : "진/이지",
+    "electronics":"리빙/가전",
+    "all" :"모두선택"
+}
 
-var categoryDict = {
+var categoryToChannelDict = {
     "cosmetics" : 0,
     "young-casual" : 1,
     "children" : 2,
@@ -62,7 +62,7 @@ $('form').on('submit', function(e) {
                 previewText = field.value
             } else {
                 if (field.name=="all"){continue;}
-                previewCategories += field.value;
+                previewCategories += '<li>' + categoryToPreviewDict[field.value] + '</li>';
             }
         }
         $('#notice-text-preview').html(previewText)
@@ -83,7 +83,7 @@ function sendFormData(form) {
         if(field.name=='textInput'){
             obj['content'] = field.value
         } else {
-            channels.push(categoryDict[field.value])
+            channels.push(categoryToChannelDict[field.value])
             // obj[field.name] = categoryDict[field.value]
         }
     }
@@ -106,9 +106,16 @@ function sendFormData(form) {
     return result
 }
 
-$('#confirm-form-btn').on('click', function() {
+$('#confirm-accept-btn').on('click', function() {
 
     let isNoticeSent = sendFormData($('form'))
+    $('#confirmationModal').hide()
+})
+
+$('#confirm-cancel-btn').on('click', function() {
+  $('form').reset()
+    $('#notice-text-preview').html('')
+    $('#notice-category-preview').html('')
     $('#confirmationModal').hide()
 
 })

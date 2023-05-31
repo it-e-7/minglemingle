@@ -147,11 +147,11 @@
             <div class="modal-body">
                 <p>다음 공지글을 게시하겠습니까?</p>
                 <p id="notice-text-preview"></p>
-                <p id="notice-category-preview"></p>
+                <ul id="notice-category-preview"></ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <button id="confirm-form-btn" type="button">확인</button>
+                <button id="confirm-cancel-btn" type="button">취소</button>
+                <button id="confirm-accept-btn" type="button">확인</button>
             </div>
         </div>
     </div>
