@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 <html>
 <head>
-	<title>Home</title>
+    <title>Home</title>
 </head>
 <body>
-  <%-- 헤더 포함 --%>
- <%@ include file="/WEB-INF/views/global/header.jsp" %>
-  <!-- 다른 내용 -->
-  <h1>본문 내용</h1>
-
-  <%-- 푸터 포함 --%>
-<%@ include file="/WEB-INF/views/global/footer.jsp" %>
+    <%-- 헤더 포함 --%>
+    <%@ include file="/WEB-INF/views/global/header.jsp" %>
+    <!-- 다른 내용 -->
+    <h1>본문 내용</h1>
+    <%-- 푸터 포함 --%>
+    <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </body>
