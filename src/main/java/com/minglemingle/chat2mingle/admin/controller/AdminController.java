@@ -72,7 +72,7 @@ public class AdminController {
                                         Model model) {
         MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
         MessageDTO reportDetail = messageService.getOneMessageByMessageId(messageDTO);
-        model.addAttribute("reportList", reportDetail);
+        model.addAttribute("reportDetail", reportDetail);
         return "admin/report-detail";
     }
 

@@ -17,8 +17,43 @@
 </style>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
+<div id="report-detail">
+    <form class="table" action="" method="post">
+        <div class="table-row">
+            <div class="table-cell" id="table-head">신고상세내용</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">보낸아이디</div>
+            <div class="table-cell">${reportDetail.nickname}</div>
+            <div class="table-cell table-label">정지유형</div>
+            <div class="table-cell">
+                <select class="dropdown">
+                    <option value="option1">채팅정지</option>
+                    <option value="option2">로그인정지</option>
+                </select>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">신고자</div>
+            <div class="table-cell">${report.reporterNickname}</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">메시지</div>
+            <div class="table-cell">${reportDetail.content}</div>
+            <div class="table-cell table-label"><span>메시지 삭제</span></div>
+            <div class="table-cell">
+                <input type="checkbox" class="checkbox" />
+            </div>
+        </div>
 
-  <h1>${message}</h1>
+        <div class="btn-container">
+            <input type="submit" class="report-btn" value="신고처리"></input>
+            <button class="report-btn">취소</button>
+        </div>
+    </form>
+</div>
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 
 </body>

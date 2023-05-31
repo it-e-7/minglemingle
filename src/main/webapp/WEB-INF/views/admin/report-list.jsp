@@ -17,12 +17,15 @@
 </style>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
+<div id="report-list">
 
-  <h1>신고 리스트</h1>
+
+</div>
+<h1>신고 리스트</h1>
 
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 
 </body>
-<script src="/chat2mingle/resources/js/admin/admin.js" ></script>
+<script src="/chat2mingle/resources/js/admin/admin.js"></script>
 
 </html>

@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+header {
+    margin-bottom: 5rem;
+}
 .nanumbarungothic * {
  font-family: 'NanumBarunGothic', sans-serif;
 }
@@ -320,4 +322,10 @@
 .top-nav-area2 .in-depth-area.type-category > ul > li {
     padding-left: 40px;
     margin-top: 15px;
+}
+
+.admin-header-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
