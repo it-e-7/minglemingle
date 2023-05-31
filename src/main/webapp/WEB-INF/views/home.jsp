@@ -8,7 +8,7 @@
 </head>
 <body>
   <%-- 헤더 포함 --%>
- <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
+ <%@ include file="/WEB-INF/views/global/header.jsp" %>
   <!-- 다른 내용 -->
   <h1>본문 내용</h1>
 

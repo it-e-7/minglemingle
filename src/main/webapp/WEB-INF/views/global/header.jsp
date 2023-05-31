@@ -8,6 +8,7 @@
 <title>Home</title>
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/header.css");
+@import url("/chat2mingle/resources/css/global/common.css");
 </style>
 </head>
 

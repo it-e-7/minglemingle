@@ -8,6 +8,7 @@
 <title>Home</title>
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/header.css");
+@import url("/chat2mingle/resources/css/global/common.css");
 </style>
 </head>
 
@@ -74,7 +75,7 @@
 					<div class="top-nav-area2">
 						<ul>
 							<li onmouseover="showBanner()"><a class="nav-menu"
-								id="banner-button"></a>
+								id="banner-button" style="background-image: none;"></a>
 								<div class="in-depth-area type-category" id="in-depth-banner"
 									onmouseout="hideBanner()">
 									<ul>
@@ -169,8 +170,8 @@
 					<li><a ></a></li>
 					</ul>
 					</li>
-					<li><a href="/chat2mingle/..공지" class="nav-gift">공지</a></li>
-					<li><a href="/chat2mingle/..신고" class="nav-new">신고</a></li>
+					<li><a href="/chat2mingle/admin/notice" class="nav-gift">공지</a></li>
+					<li><a href="/chat2mingle/admin/report-list" class="nav-new">신고</a></li>
 					</ul>
 				</div>
 			</div>

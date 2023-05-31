@@ -1,29 +1,5 @@
 @charset "utf-8";
 
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 400;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
-}
-
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 700;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
-}
-
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 300;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
-}
-
 .nanumbarungothic * {
  font-family: 'NanumBarunGothic', sans-serif;
 }
@@ -150,18 +126,6 @@
     border-bottom: 1px solid #bababa;
 }
 
-li {
-    list-style: none;
-}
-
-button, input, optgroup, select, textarea {
-    font-family: 'NanumBarunGothic', sans-serif;
-}
-
-body {
-    font-family: 'NanumBarunGothic', sans-serif !important;
-}
-
 .top-wrap.main #header-area.top-nav {
     position: relative;
     top: auto;
@@ -169,12 +133,13 @@ body {
     z-index: 102;
 }
 
-* {
+.top-wrap.main * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     word-break: break-all;
 }
+
 .top-wrap.main .top-con .top-con-search .top-con-search-btn {
     width: 32px;
     height: 40px;
@@ -191,7 +156,7 @@ body {
     position: relative;
 }
 
-ul, ol, p {
+.top-wrap.main ul, ol, p {
     margin: 0;
     padding: 0;
 }
@@ -199,10 +164,6 @@ ul, ol, p {
 .top-wrap .top-con .top-con-quick a {
     font-size: 14px;
     color: #231f20;
-}
-
-a {
-    text-decoration: none;
 }
 
 .top-wrap.main .top-con .top-con-quick .top-con-quick-my:after {
