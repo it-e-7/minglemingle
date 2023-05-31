@@ -12,7 +12,7 @@
         <result property="sentAt" column="sent_at"/>
     </resultMap>
 
-    <select id="selectOneMessage" parameterType="Message" resultMap="messageResultMap">
+    <select id="selectOneMessageByMessageId" parameterType="Message" resultMap="messageResultMap">
         SELECT message_id,
                nickname,
                channel,
@@ -36,18 +36,18 @@
     </select>
 
     <select id="selectMessageListAfterMessageId" parameterType="Message" resultMap="messageResultMap">
-        <![CDATA[
         SELECT message_id,
-                nickname,
-                channel,
-                content,
-                message_type,
-                sent_at
+            nickname,
+            channel,
+            content,
+            message_type,
+            sent_at
         FROM MESSAGE
-        WHERE message_id < #{messageId}
+        <if test='messageId != 0'>
+            WHERE message_id &lt; #{messageId}
+        </if>
         ORDER BY message_id DESC
         FETCH FIRST 5 ROWS ONLY
-        ]]>
     </select>
 
 
