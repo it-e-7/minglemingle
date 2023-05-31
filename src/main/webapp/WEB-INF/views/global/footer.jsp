@@ -4,6 +4,7 @@
 <%@ page session="false" %>
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/footer.css");
+@import url("/chat2mingle/resources/css/global/common.css");
 </style>
 <html>
 <head>

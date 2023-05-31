@@ -8,6 +8,7 @@
 <title>Home</title>
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/header.css");
+@import url("/chat2mingle/resources/css/global/common.css");
 </style>
 </head>
 
@@ -74,7 +75,7 @@
 					<div class="top-nav-area2">
 						<ul>
 							<li onmouseover="showBanner()"><a class="nav-menu"
-								id="banner-button"></a>
+								id="banner-button" style="background-image: none;"></a>
 								<div class="in-depth-area type-category" id="in-depth-banner"
 									onmouseout="hideBanner()">
 									<ul>
@@ -166,24 +167,11 @@
 								</div>
 					</div>
 					</li>
-					<li><a href="#">여성패션</a></li>
-					<li><a href="#">영캐주얼</a></li>
-					<li><a href="#">남성패션</a></li>
-					<li><a href="#">진/이지</a></li>
-					<li><a href="#">유아동/문화</a></li>
-					<li><a href="#">스포츠/레저</a></li>
-					<li><a href="#">리빙/가전</a></li>
-					<li><a href="#">식품</a></li>
-					<li><a href="#">반려동물</a></li>
+					<li><a ></a></li>
 					</ul>
-					<script src="/chat2mingle/resources/js/banner-script.js"></script>
 					</li>
-					<li><a href="해당주소로이동" class="nav-gift">Gift</a></li>
-					<li><a href="해당주소로이동" class="nav-new">New</a></li>
-					<li><a href="해당주소로이동" class="nav-store">Store In</a></li>
-					<li><a href="해당주소로이동" class="nav-show">Show-Room</a></li>
-					<li><a href="해당주소로이동" class="nav-green">Re.Green</a></li>
-					<li><a href="해당주소로이동" class="nav-event">Event</a></li>
+					<li><a href="/chat2mingle/admin/notice" class="nav-gift">공지</a></li>
+					<li><a href="/chat2mingle/admin/report-list" class="nav-new">신고</a></li>
 					</ul>
 				</div>
 			</div>
