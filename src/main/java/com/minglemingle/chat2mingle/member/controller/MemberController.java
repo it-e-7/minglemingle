@@ -32,7 +32,7 @@ public class MemberController {
 
     @PostMapping(value = "signup")
     public String signupHandler(Model model, HttpServletRequest request, @ModelAttribute MemberVO member) {
-        boolean result = service.registerMember(member);
+        boolean result = memberService.registerMember(member);
         model.addAttribute("loginMessage", "signUpComplete");
         return "redirect:/member/login";
     }
