@@ -8,7 +8,6 @@
 <style>
     @import url("/chat2mingle/resources/css/global/common.css");
     @import url("/chat2mingle/resources/css/member/member.css");
-
 </style>
 <script
         src="https://code.jquery.com/jquery-3.6.4.min.js"

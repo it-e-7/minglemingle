@@ -12,7 +12,7 @@ public class MemberVO {
     private String nickname;
     private String email;
     private String password;
-    private int accountType;
+    private Integer accountType;
     private String profileImagePath;
-    private int accountStatus;
+    private Integer accountStatus;
 }
