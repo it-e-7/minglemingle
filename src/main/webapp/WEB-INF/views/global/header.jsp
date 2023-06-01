@@ -81,7 +81,7 @@
 									onmouseout="hideBanner()">
 									<ul>
 										<li onmouseover="showLeftBarCosmetic()"><a
-											href="/chat2mingle/product">화장품</a>
+											href="/chat2mingle/product/home">화장품</a>
 											<div class="in-cate-area cosmetic">
 												<div class="menu">
 													<ul>
