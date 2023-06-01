@@ -23,8 +23,8 @@
             <div class="table-cell" id="table-head">신고상세내용</div>
         </div>
         <div class="table-row">
-            <div class="table-cell">보낸아이디</div>
-            <div class="table-cell">${reportDetail.nickname}</div>
+            <div class="table-cell">메세지를 보낸 아이디</div>
+            <div class="table-cell">${reportDetail.reporteeNickname}</div>
             <div class="table-cell table-label">정지유형</div>
             <div class="table-cell">
                 <select class="dropdown">
@@ -33,21 +33,33 @@
                 </select>
             </div>
         </div>
+
         <div class="table-row">
-            <div class="table-cell">신고자</div>
-            <div class="table-cell">${report.reporterNickname}</div>
-            <div class="table-cell"></div>
-            <div class="table-cell"></div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">메시지</div>
-            <div class="table-cell">${reportDetail.content}</div>
+            <div class="table-cell">메세지</div>
+            <div class="table-cell">${reportDetail.messageContent}</div>
             <div class="table-cell table-label"><span>메시지 삭제</span></div>
             <div class="table-cell">
                 <input type="checkbox" class="checkbox" />
             </div>
         </div>
-
+        <div class="table-row">
+            <div class="table-cell">메세지 전송시간</div>
+            <div class="table-cell">${reportDetail.messageSentAt}</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">신고시간</div>
+            <div class="table-cell">${reportDetail.reportedAt}</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">신고자</div>
+            <div class="table-cell">${reportDetail.reporterNickname}</div>
+            <div class="table-cell"></div>
+            <div class="table-cell"></div>
+        </div>
         <div class="btn-container">
             <input type="submit" class="report-btn" value="신고처리"></input>
             <button class="report-btn">취소</button>

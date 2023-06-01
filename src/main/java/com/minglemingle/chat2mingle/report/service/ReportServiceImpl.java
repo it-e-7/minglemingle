@@ -19,4 +19,11 @@ public class ReportServiceImpl implements ReportService {
     public List<ReportVO> selectReportListByReportedDate(ReportVO reportVO) {
         return reportMapper.selectReportListByReportedDate(reportVO);
     }
+
+    @Override
+    public ReportVO selectReportDetailByMessageId(ReportVO reportVO) {
+        return reportMapper.selectReportDetailByMessageId(reportVO);
+    }
+
+
 }

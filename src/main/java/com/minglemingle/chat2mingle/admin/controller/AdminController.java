@@ -73,7 +73,7 @@ public class AdminController {
         ReportVO reportVO = new ReportVO(timestamp, null, null, null, null, null, null);
 
         List<ReportVO> reportList = reportService.selectReportListByReportedDate(reportVO);
-
+        System.out.println(reportList);
         model.addAttribute("reportList", reportList);
         return "admin/report-list";
     }
@@ -83,7 +83,8 @@ public class AdminController {
     @Auth(role = Auth.Role.ADMIN)
     public String adminPageReportDetail(@PathVariable("messageId") int messageId,
                                         Model model) {
-        ReportVO reportVO = reportService.selectReportDetailByMessageId
+        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null,null);
+        ReportVO reportDetail = reportService.selectReportDetailByMessageId(reportVO);
         //        MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
 //        MessageDTO reportDetail = messageService.getOneMessageByMessageId(messageDTO);
         model.addAttribute("reportDetail", reportDetail);
@@ -93,7 +94,8 @@ public class AdminController {
     @ResponseBody
     @PostMapping("sendReport")
     public ResponseEntity<Boolean> processReportDetail(@RequestBody MultiValueMap<String, String> formData) {
-//        ReportVO reportVO = reportService.g
+        System.out.println(formData);
+        //        ReportVO reportVO = reportService.g
         return ResponseEntity.ok(true);
     }
 

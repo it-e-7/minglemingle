@@ -20,7 +20,6 @@
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 
-
 <div id="report-list">
     <h3 id="test">신고 리스트</h3>
     <div id="report-container">
@@ -28,16 +27,17 @@
             <div class="column title">신고자 닉네임</div>
             <div class="column title">메세지를 보낸 닉네임</div>
             <div class="column title">메세지 내용</div>
+            <div class="column title">메세지 전송 시간</div>
         </div>
         <c:forEach items="${reportList}" var="report">
             <div class="report-list-item">
                 <div class="column">${report.reporterNickname}</div>
                 <div class="column">${report.reporteeNickname}</div>
-                <div class="column"><a href="/reportDetail?messageId=${report.messageId}">${report.messageContent}</a></div>
+                <div class="column"><a href="reporthistory/${report.messageId}">${report.messageContent}</a></div>
 
                 <div class="column">${report.reportedAt}</div>
-                <div class="column">${report.memberId}</div>
-                <div class="column>${report.messageId}</div>
+<%--                <div class="column">${report.memberId}</div>--%>
+<%--                <div class="column>${report.messageId}</div>--%>
                 <div class="column">${report.messageSentAt}</div>
 
             </div>

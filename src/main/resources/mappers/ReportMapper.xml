@@ -9,7 +9,7 @@
             select
                 rep.reported_at,
                 rep.member_id ,
-                m.nickname as reported_nickname,
+                m.nickname as reporter_nickname,
                 msg.nickname as reportee_nickname,
                 rep.message_id,
                 msg.content as message_content,
@@ -31,7 +31,7 @@
             select
                 rep.reported_at,
                 rep.member_id ,
-                m.nickname as reported_nickname,
+                m.nickname as reporter_nickname,
                 msg.nickname as reportee_nickname,
                 rep.message_id,
                 msg.content as message_content,
