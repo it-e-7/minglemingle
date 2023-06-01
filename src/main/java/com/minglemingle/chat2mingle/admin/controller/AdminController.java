@@ -4,11 +4,14 @@ import com.minglemingle.chat2mingle.admin.vo.NoticeDTO;
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.auth.Auth;
 import com.minglemingle.chat2mingle.kafka.producer.KafkaProducer;
+import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import com.minglemingle.chat2mingle.message.service.MessageService;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import com.minglemingle.chat2mingle.report.service.ReportService;
+import com.minglemingle.chat2mingle.report.vo.ReportDetailVO;
 import com.minglemingle.chat2mingle.report.vo.ReportVO;
+import oracle.net.ns.Message;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +32,12 @@ public class AdminController {
 
     ReportService reportService;
     MessageService messageService;
+    MemberService memberService;
     KafkaProducer producer;
 
-    public AdminController(KafkaProducer producer, ReportService reportService, MessageService service) {
+    public AdminController(KafkaProducer producer, MemberService memberService, ReportService reportService, MessageService service) {
         this.producer = producer;
+        this.memberService = memberService;
         this.reportService = reportService;
         this.messageService = service;
     }
@@ -70,10 +75,10 @@ public class AdminController {
         LocalDate currentDate = LocalDate.now();
         Timestamp timestamp = Timestamp.valueOf(currentDate.atStartOfDay());
 
-        ReportVO reportVO = new ReportVO(timestamp, null, null, null, null, null, null);
+        ReportVO reportVO = new ReportVO(timestamp, null, null, null, null, null);
 
         List<ReportVO> reportList = reportService.selectReportListByReportedDate(reportVO);
-        System.out.println(reportList);
+//        System.out.println(reportList);
         model.addAttribute("reportList", reportList);
         return "admin/report-list";
     }
@@ -83,20 +88,52 @@ public class AdminController {
     @Auth(role = Auth.Role.ADMIN)
     public String adminPageReportDetail(@PathVariable("messageId") int messageId,
                                         Model model) {
-        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null,null);
-        ReportVO reportDetail = reportService.selectReportDetailByMessageId(reportVO);
+        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null);
+        ReportDetailVO reportDetail = reportService.selectReportDetailByMessageId(reportVO);
         //        MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
 //        MessageDTO reportDetail = messageService.getOneMessageByMessageId(messageDTO);
+        System.out.println("REPORT DETAIL == " + reportDetail);
         model.addAttribute("reportDetail", reportDetail);
         return "admin/report-detail";
     }
 
-    @ResponseBody
+    //    @ResponseBody
     @PostMapping("sendReport")
-    public ResponseEntity<Boolean> processReportDetail(@RequestBody MultiValueMap<String, String> formData) {
+    public String processReportDetail(
+            HttpServletRequest request,
+            ReportDetailVO reportDetailVO,
+            @RequestBody MultiValueMap<String, String> formData
+    ) {
+
+        System.out.println(reportDetailVO);
         System.out.println(formData);
-        //        ReportVO reportVO = reportService.g
-        return ResponseEntity.ok(true);
+        HttpSession session = request.getSession();
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+        String adminNickname = sessionMember.getNickname();
+
+        List<String> deleteMessageList = formData.get("delete-message");
+        List<String> accountPunishmentList = formData.get("account-punishment");
+
+
+        if (deleteMessageList != null) {
+            MessageDTO messageDTO = new MessageDTO(reportDetailVO.getMessageId(), adminNickname, reportDetailVO.getChannel(), null, null, null);
+            int result = messageService.deleteMessageSent(messageDTO);
+        }
+
+        if (accountPunishmentList != null) {
+            String suspendType = accountPunishmentList.get(0);
+            MemberVO memberVO = new MemberVO(null, reportDetailVO.getReporteeNickname(), null, null, 0, null, 11);
+            switch (suspendType) {
+                case "no-stop":
+                case "chatting-stop":
+                case "login-stop":
+                    boolean result = memberService.changeAccountStatus(memberVO);
+                default:
+
+            }
+        }
+
+        return "redirect:/admin/reporthistory";
     }
 
 }

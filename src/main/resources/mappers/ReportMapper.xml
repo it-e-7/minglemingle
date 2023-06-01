@@ -12,8 +12,7 @@
                 m.nickname as reporter_nickname,
                 msg.nickname as reportee_nickname,
                 rep.message_id,
-                msg.content as message_content,
-                msg.sent_at as message_sent_at
+                msg.content as message_content
             from (
                 SELECT member_id, message_id, reported_at
                 FROM member_report
@@ -25,7 +24,7 @@
     </select>
 
 
-    <select id="selectReportDetailByMessageId" parameterType="Report" resultType="Report">
+    <select id="selectReportDetailByMessageId" parameterType="Report" resultType="ReportDetail">
         <!-- TODO -->
         <![CDATA[
             select
@@ -35,7 +34,8 @@
                 msg.nickname as reportee_nickname,
                 rep.message_id,
                 msg.content as message_content,
-                msg.sent_at as message_sent_at
+                msg.sent_at as message_sent_at,
+                msg.channel
             from (
                 SELECT member_id, message_id, reported_at
                 FROM member_report

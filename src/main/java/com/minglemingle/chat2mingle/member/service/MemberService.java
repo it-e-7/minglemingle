@@ -31,4 +31,5 @@ public interface MemberService {
 
     MemberVO loginService(MemberVO member);
 
+    boolean changeAccountStatus(MemberVO member);
 }

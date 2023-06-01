@@ -62,14 +62,13 @@
     flex-direction: row;
 }
 
-.table-cell {
+.table-row > td {
     flex: 1;
     border-top: 1px solid #ccc;
-    /* border: 1px solid #ccc; */
     padding: 1.2rem 0.5rem;
 }
 
-.table-cell:nth-child(2) {
+.table-row > td:nth-child(2) {
     flex: 3;
 }
 

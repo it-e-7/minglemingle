@@ -18,50 +18,58 @@
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 <div id="report-detail">
-    <form class="table" action="sendReport" method="post">
-        <div class="table-row">
-            <div class="table-cell" id="table-head">신고상세내용</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">메세지를 보낸 아이디</div>
-            <div class="table-cell">${reportDetail.reporteeNickname}</div>
-            <div class="table-cell table-label">정지유형</div>
-            <div class="table-cell">
-                <select class="dropdown">
-                    <option value="chatting-stop">채팅정지</option>
-                    <option value="login-stop">로그인정지</option>
-                </select>
-            </div>
-        </div>
+    <form class="table" action="/chat2mingle/admin/sendReport" method="post">
 
-        <div class="table-row">
-            <div class="table-cell">메세지</div>
-            <div class="table-cell">${reportDetail.messageContent}</div>
-            <div class="table-cell table-label"><span>메시지 삭제</span></div>
-            <div class="table-cell">
-                <input type="checkbox" class="checkbox" />
-            </div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">메세지 전송시간</div>
-            <div class="table-cell">${reportDetail.messageSentAt}</div>
-            <div class="table-cell"></div>
-            <div class="table-cell"></div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">신고시간</div>
-            <div class="table-cell">${reportDetail.reportedAt}</div>
-            <div class="table-cell"></div>
-            <div class="table-cell"></div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">신고자</div>
-            <div class="table-cell">${reportDetail.reporterNickname}</div>
-            <div class="table-cell"></div>
-            <div class="table-cell"></div>
-        </div>
+        <input hidden type="number" name="messageId" value="${reportDetail.messageId}" />
+        <input hidden type="number" name="channel" value="${reportDetail.channel}" />
+        <input hidden type="text" name="reporteeNickname" value="${reportDetail.reporteeNickname}" />
+
+        <table class="report-table">
+            <tr class="table-row">
+                <th colspan="4" id="table-head">신고상세내용</th>
+            </tr>
+            <tr class="table-row">
+                <td>메세지를 보낸 아이디</td>
+                <td>${reportDetail.reporteeNickname}</td>
+                <td class="table-label">정지유형</td>
+                <td>
+                    <select name="account-punishment" class="dropdown">
+                        <option value="no-stop">해당없음</option>
+                        <option value="chatting-stop">채팅정지</option>
+                        <option value="login-stop">로그인정지</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td>메세지</td>
+                <td>${reportDetail.messageContent}</td>
+                <td class="table-label">메시지 삭제</td>
+                <td>
+                    <input type="checkbox" name="delete-message" class="checkbox" />
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td>메세지 전송시간</td>
+                <td>${reportDetail.messageSentAt}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="table-row">
+                <td>신고시간</td>
+                <td>${reportDetail.reportedAt}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="table-row">
+                <td>신고자</td>
+                <td>${reportDetail.reporterNickname}</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
         <div class="btn-container">
-            <input type="submit" class="report-btn" value="신고처리"></input>
+            <input type="submit" class="report-btn" value="신고처리"/>
             <button class="report-btn">취소</button>
         </div>
     </form>

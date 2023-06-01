@@ -1,6 +1,7 @@
 package com.minglemingle.chat2mingle.report.service;
 
 import com.minglemingle.chat2mingle.report.mapper.ReportMapper;
+import com.minglemingle.chat2mingle.report.vo.ReportDetailVO;
 import com.minglemingle.chat2mingle.report.vo.ReportVO;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public ReportVO selectReportDetailByMessageId(ReportVO reportVO) {
+    public ReportDetailVO selectReportDetailByMessageId(ReportVO reportVO) {
         return reportMapper.selectReportDetailByMessageId(reportVO);
     }
 

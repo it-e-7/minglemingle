@@ -36,9 +36,7 @@
                 <div class="column"><a href="reporthistory/${report.messageId}">${report.messageContent}</a></div>
 
                 <div class="column">${report.reportedAt}</div>
-<%--                <div class="column">${report.memberId}</div>--%>
-<%--                <div class="column>${report.messageId}</div>--%>
-                <div class="column">${report.messageSentAt}</div>
+<%--                <div class="column">${report.messageSentAt}</div>--%>
 
             </div>
 

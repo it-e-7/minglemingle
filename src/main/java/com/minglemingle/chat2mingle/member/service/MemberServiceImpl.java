@@ -93,5 +93,18 @@ public class MemberServiceImpl implements MemberService {
         }
         return result;
     }
+
+    public boolean changeAccountStatus(MemberVO member) {
+        try {
+            int result = mapper.updateAccountStatus(member);
+            if (result == 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
 
