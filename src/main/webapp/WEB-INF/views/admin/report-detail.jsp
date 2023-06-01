@@ -18,7 +18,7 @@
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 <div id="report-detail">
-    <form class="table" action="" method="post">
+    <form class="table" action="sendReport" method="post">
         <div class="table-row">
             <div class="table-cell" id="table-head">신고상세내용</div>
         </div>
@@ -28,8 +28,8 @@
             <div class="table-cell table-label">정지유형</div>
             <div class="table-cell">
                 <select class="dropdown">
-                    <option value="option1">채팅정지</option>
-                    <option value="option2">로그인정지</option>
+                    <option value="chatting-stop">채팅정지</option>
+                    <option value="login-stop">로그인정지</option>
                 </select>
             </div>
         </div>

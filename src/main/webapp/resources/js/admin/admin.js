@@ -124,3 +124,11 @@ $('#all').on('click', function() {
     var isChecked = $(this).is(':checked');
     $('input[type="checkbox"]').prop('checked', isChecked);
 });
+
+
+$('.table').on('submit', function() {
+    e.preventDefault()
+    if($('#dropdown').value()=='chatting-stop'){
+        alert('no 기능')
+    }
+})
