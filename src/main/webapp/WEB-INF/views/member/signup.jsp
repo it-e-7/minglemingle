@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 <html>
 <head>
     <title>회원가입</title>
@@ -10,7 +10,6 @@
 <style>
     @import url("/chat2mingle/resources/css/global/common.css");
     @import url("/chat2mingle/resources/css/member/member.css");
-
 </style>
 <script
         src="https://code.jquery.com/jquery-3.6.4.min.js"

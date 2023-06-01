@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: KOSA
-  Date: 2023-05-30
-  Time: 오전 11:09
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 <html>
 <head>
     <title>Title</title>
