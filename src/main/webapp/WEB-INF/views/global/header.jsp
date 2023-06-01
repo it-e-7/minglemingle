@@ -9,6 +9,7 @@
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/header.css");
 @import url("/chat2mingle/resources/css/global/common.css");
+@import url("/chat2mingle/resources/css/home/home.css");
 </style>
 </head>
 
@@ -177,7 +178,7 @@
 					<li><a href="#">식품</a></li>
 					<li><a href="#">반려동물</a></li>
 					</ul>
-					<script src="/chat2mingle/resources/js/banner-script.js"></script>
+					<script src="/chat2mingle/resources/js/global/banner-script.js"></script>
 					</li>
 					<li><a href="해당주소로이동" class="nav-gift">Gift</a></li>
 					<li><a href="해당주소로이동" class="nav-new">New</a></li>
