@@ -33,13 +33,10 @@ public class LoginInterceptor implements HandlerInterceptor {
         MemberVO member = memberService.loginService(checkUser);
         HttpSession session = request.getSession(true);
 
-        System.out.println("LOGIN MEMBER" + member);
         if (Objects.isNull(member)) {
             response.sendRedirect("/chat2mingle/member/login?loginMessage=notMember");
             return false;
         }
-//        System.out.println(password);
-//        System.out.println(member.getPassword());
         boolean validPassword;
         try {
             validPassword= BCrypt.checkpw(password, member.getPassword());
