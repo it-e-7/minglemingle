@@ -10,4 +10,5 @@ import java.util.List;
 public interface ReportMapper {
     List<ReportVO> selectReportListByReportedDate(ReportVO reportVO);
     ReportDetailVO selectReportDetailByMessageId(ReportVO reportVO);
+    boolean updateReportStatus(ReportVO reportVO);
 }

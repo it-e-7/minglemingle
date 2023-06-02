@@ -26,5 +26,10 @@ public class ReportServiceImpl implements ReportService {
         return reportMapper.selectReportDetailByMessageId(reportVO);
     }
 
+    @Override
+    public boolean changeReportStatus(ReportVO reportVO) {
+        return reportMapper.updateReportStatus(reportVO);
+    }
+
 
 }

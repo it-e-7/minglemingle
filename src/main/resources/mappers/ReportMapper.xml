@@ -16,7 +16,7 @@
             from (
                 SELECT member_id, message_id, reported_at
                 FROM member_report
-                WHERE TRUNC(reported_at) = TRUNC(SYSDATE)
+                WHERE TRUNC(reported_at) = TRUNC(SYSDATE) and process_status=#{processStatus}
             ) rep
                 join member m on m.member_id = rep.member_id
                 join message msg on msg.message_id = rep.message_id
@@ -46,4 +46,9 @@
         ]]>
     </select>
 
+    <update id="updateReportStatus" parameterType="Report" >
+        update member_report
+        set process_status = 1
+        where member_id=#{memberId} and message_id=#{messageId}
+    </update>
 </mapper>

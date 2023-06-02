@@ -11,7 +11,6 @@ import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import com.minglemingle.chat2mingle.report.service.ReportService;
 import com.minglemingle.chat2mingle.report.vo.ReportDetailVO;
 import com.minglemingle.chat2mingle.report.vo.ReportVO;
-import oracle.net.ns.Message;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,21 +47,17 @@ public class AdminController {
     }
 
     @PostMapping(value = "sendNotice")
-    @DebugLog
     @ResponseBody
-    public ResponseEntity<Boolean> postNoticeToChannels(HttpServletRequest request, @RequestBody NoticeDTO noticeDtO) {
-        HttpSession session = request.getSession();
-        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
-        String adminNickname = sessionMember.getNickname();
-
+    public ResponseEntity<Boolean> postNoticeToChannels(HttpServletRequest request, @RequestBody NoticeDTO noticeDTO) {
         List<MessageDTO> noticeMessageList = new ArrayList<>();
-        List<Integer> channels = noticeDtO.getChannels();
-        String content = noticeDtO.getContent();
+        List<Integer> channels = noticeDTO.getChannels();
+        String content = noticeDTO.getContent();
 
         for (int channel : channels) {
-            MessageDTO newMessage = new MessageDTO(null, adminNickname, channel, content, 5, null);
+            MessageDTO newMessage = new MessageDTO(null, getAdminNickname(request), channel, content, 5, null);
             noticeMessageList.add(newMessage);
         }
+
         producer.sendMessage(noticeMessageList);
 
         return ResponseEntity.ok(true);
@@ -74,49 +68,37 @@ public class AdminController {
     public String adminPageAllReport(Model model) {
         LocalDate currentDate = LocalDate.now();
         Timestamp timestamp = Timestamp.valueOf(currentDate.atStartOfDay());
-
-        ReportVO reportVO = new ReportVO(timestamp, null, null, null, null, null);
+        ReportVO reportVO = new ReportVO(timestamp, null, null, null, null, null, 0);
 
         List<ReportVO> reportList = reportService.selectReportListByReportedDate(reportVO);
-//        System.out.println(reportList);
         model.addAttribute("reportList", reportList);
+
         return "admin/report-list";
     }
-
 
     @GetMapping(value = "reporthistory/{messageId}")
     @Auth(role = Auth.Role.ADMIN)
     public String adminPageReportDetail(@PathVariable("messageId") int messageId,
                                         Model model) {
-        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null);
+        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null, null);
+
         ReportDetailVO reportDetail = reportService.selectReportDetailByMessageId(reportVO);
-        //        MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
-//        MessageDTO reportDetail = messageService.getOneMessageByMessageId(messageDTO);
-        System.out.println("REPORT DETAIL == " + reportDetail);
         model.addAttribute("reportDetail", reportDetail);
+
         return "admin/report-detail";
     }
 
-    //    @ResponseBody
     @PostMapping("sendReport")
     public String processReportDetail(
             HttpServletRequest request,
             ReportDetailVO reportDetailVO,
             @RequestBody MultiValueMap<String, String> formData
     ) {
-
-        System.out.println(reportDetailVO);
-        System.out.println(formData);
-        HttpSession session = request.getSession();
-        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
-        String adminNickname = sessionMember.getNickname();
-
         List<String> deleteMessageList = formData.get("delete-message");
         List<String> accountPunishmentList = formData.get("account-punishment");
 
-
         if (deleteMessageList != null) {
-            MessageDTO messageDTO = new MessageDTO(reportDetailVO.getMessageId(), adminNickname, reportDetailVO.getChannel(), null, null, null);
+            MessageDTO messageDTO = new MessageDTO(reportDetailVO.getMessageId(), getAdminNickname(request), reportDetailVO.getChannel(), null, null, null);
             int result = messageService.deleteMessageSent(messageDTO);
         }
 
@@ -129,11 +111,20 @@ public class AdminController {
                 case "login-stop":
                     boolean result = memberService.changeAccountStatus(memberVO);
                 default:
-
             }
         }
 
+        ReportVO reportVO = new ReportVO(null, reportDetailVO.getMemberId(),null, null, reportDetailVO.getMessageId(), null, null);
+        boolean result = reportService.changeReportStatus(reportVO);
+
         return "redirect:/admin/reporthistory";
+    }
+
+    private String getAdminNickname(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+        String adminNickname = sessionMember.getNickname();
+        return adminNickname;
     }
 
 }

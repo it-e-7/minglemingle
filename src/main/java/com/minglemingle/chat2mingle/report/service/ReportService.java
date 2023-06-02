@@ -9,4 +9,6 @@ public interface ReportService {
     List<ReportVO> selectReportListByReportedDate(ReportVO reportVO);
 
     ReportDetailVO selectReportDetailByMessageId(ReportVO reportVO);
+
+    boolean changeReportStatus(ReportVO reportVO);
 }

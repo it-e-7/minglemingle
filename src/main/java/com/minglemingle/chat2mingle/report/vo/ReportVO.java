@@ -16,4 +16,5 @@ public class ReportVO {
     private String reporteeNickname; // 신고당한 사람 닉네임
     private Integer messageId; // 메세지 ID
     private String messageContent; // 신고당한 메시지 내용
+    private Integer processStatus;
 }

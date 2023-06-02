@@ -17,5 +17,5 @@ public class ReportDetailVO {
     private Integer messageId; // 메세지 ID
     private String messageContent; // 신고당한 메시지 내용
     private Timestamp messageSentAt;
-    private int channel;
+    private Integer channel;
 }

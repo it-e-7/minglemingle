@@ -19,7 +19,7 @@
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 <div id="report-detail">
     <form class="table" action="/chat2mingle/admin/sendReport" method="post">
-
+        <input hidden type="text" name="memberId" value="${reportDetail.memberId}"/>
         <input hidden type="number" name="messageId" value="${reportDetail.messageId}" />
         <input hidden type="number" name="channel" value="${reportDetail.channel}" />
         <input hidden type="text" name="reporteeNickname" value="${reportDetail.reporteeNickname}" />
