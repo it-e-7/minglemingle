@@ -1,0 +1,60 @@
+/*
+-- 해당 형태의 div를 아무곳에나 삽입하세요!
+<div id="myModal" class="modal">
+   <div class="modal-content">
+     <p>정말 신고하시겠습니까?</p>
+     <div class="modal-buttons">
+       <button class="modal-button" id="confirmButton">확인</button>
+       <button class="modal-button cancel" id="cancelButton">취소</button>
+     </div>
+   </div>
+ </div>
+ */
+
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .modal-buttons {
+    margin-top: 20px;
+  }
+
+  .modal-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal-button.cancel {
+    background-color: #ccc;
+  }
+
+  .modal-button:hover {
+    background-color: #45a049;
+  }

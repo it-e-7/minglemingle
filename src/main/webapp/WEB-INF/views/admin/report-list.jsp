@@ -14,7 +14,16 @@
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 
-<body>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <p>정말 신고하시겠습니까?</p>
+    <div class="modal-buttons">
+      <button class="modal-button" id="confirmButton">확인</button>
+      <button class="modal-button cancel" id="cancelButton">취소</button>
+    </div>
+  </div>
+</div>
+
     <div class="report-list-wrap" id="report-list">
     <div class="report-list-content">
   <h2>신고자 내역</h2>
@@ -35,7 +44,8 @@
         <td class="reportee-nickname">${report.reporteeNickname}</td>
         <td class="message-content">${report.messageContent}</td>
         <td class="reported-at">${report.reportedAt}</td>
-        <td class="report-button-td"><button class="report-button"onclick="report('신고자1', '피신고자1')">신고</button></td>
+        <td class="report-button-td">
+        <button class="report-button"onclick="openModal('${report.reporterNickname}', '${report.reporteeNickname}')">신고</button></td>
       </tr>
     </c:forEach>
     </tbody>
@@ -49,6 +59,6 @@
 
 
 </body>
-<script src="/chat2mingle/resources/js/admin/admin.js"></script>
+<script src="/chat2mingle/resources/js/report/report-list.js"></script>
 
 </html>
