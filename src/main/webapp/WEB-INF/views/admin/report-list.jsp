@@ -1,12 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: KOSA
-  Date: 2023-05-29
-  Time: 오후 5:24
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 
 <html>
 <head>
@@ -14,35 +9,41 @@
 </head>
 <style>
     @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/admin/admin.css");
-
+    @import url("/chat2mingle/resources/css/report/report-list.css");
 </style>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 
-<div id="report-list">
-    <h3 id="test">신고 리스트</h3>
-    <div id="report-container">
-        <div class="report-list-item title-container">
-            <div class="column title">신고자 닉네임</div>
-            <div class="column title">메세지를 보낸 닉네임</div>
-            <div class="column title">메세지 내용</div>
-            <div class="column title">메세지 전송 시간</div>
-        </div>
-        <c:forEach items="${reportList}" var="report">
-            <div class="report-list-item">
-                <div class="column">${report.reporterNickname}</div>
-                <div class="column">${report.reporteeNickname}</div>
-                <div class="column"><a href="reporthistory/${report.messageId}">${report.messageContent}</a></div>
+<body>
+    <div class="report-list-wrap" id="report-list">
+    <div class="report-list-content">
+  <h2>신고자 내역</h2>
+  <table>
+    <thead class="top-thead">
+      <tr>
+        <th>신고자 이름</th>
+        <th>피신고자 이름</th>
+        <th>신고된 메세지 내역</th>
+        <th>메세지 보낸 시간</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="report" items="${reportList}">
+      <tr id="report-tr">
+        <td class="reporter-nickname">${report.reporterNickname}</td>
+        <td class="reportee-nickname">${report.reporteeNickname}</td>
+        <td class="message-content">${report.messageContent}</td>
+        <td class="reported-at">${report.reportedAt}</td>
+        <td class="report-button-td"><button class="report-button"onclick="report('신고자1', '피신고자1')">신고</button></td>
+      </tr>
+    </c:forEach>
+    </tbody>
+  </table>
 
-                <div class="column">${report.reportedAt}</div>
-<%--                <div class="column">${report.messageSentAt}</div>--%>
-
-            </div>
-
-        </c:forEach>
-    </div>
-
+      </div>
+      </div>
+</body>
 
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 

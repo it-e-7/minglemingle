@@ -1,0 +1,69 @@
+    #report-list{
+        min-width: 1120px;
+        max-width: 1120px;
+        margin: auto;
+    }
+
+    #report-list table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    width=100%;
+    }
+
+    #report-list th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #report-list th {
+      background-color: #f2f2f2;
+    }
+
+    #report-list .reportee-nickname{
+    width : 15%
+    }
+
+    #report-list .reporter-nickname{
+    width : 15%
+    }
+
+    #report-list .reported-at {
+    width : 20%
+    }
+
+    #report-list .message-content {
+    width : 40%
+    }
+
+    #report-list .report-button-td {
+    width : 10%
+    }
+
+  #report-list .report-button {
+    background-color: #1C9885;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  #report-list .report-button:hover {
+    background-color: #39594E;
+  }
+
+  #report-list .top-thead{
+    height: 50px;
+  }
+
+  #report-tr:hover {
+  background-color : #e2e7e2;
+  }
