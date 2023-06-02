@@ -10,7 +10,7 @@ header {
     width: 100%;
     min-width: 1120px;
     max-width: 1120px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 0px auto;
     position: relative;
 }
 
@@ -209,6 +209,7 @@ header {
     width: 100%;
     min-width: 1120px;
     max-width: 1120px;
+    background-color: white;
 }
 
 .top-nav-area2 .in-depth-area.type-category {

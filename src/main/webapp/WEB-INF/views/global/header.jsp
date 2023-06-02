@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 
+<html>
 <head>
 <title>Home</title>
 <style type="text/css">
 @import url("/chat2mingle/resources/css/global/header.css");
 @import url("/chat2mingle/resources/css/global/common.css");
+@import url("/chat2mingle/resources/css/home/home.css");
 </style>
 </head>
 
@@ -80,7 +81,7 @@
 									onmouseout="hideBanner()">
 									<ul>
 										<li onmouseover="showLeftBarCosmetic()"><a
-											href="/chat2mingle/product">화장품</a>
+											href="/chat2mingle/product/home">화장품</a>
 											<div class="in-cate-area cosmetic">
 												<div class="menu">
 													<ul>
@@ -177,7 +178,7 @@
 					<li><a href="#">식품</a></li>
 					<li><a href="#">반려동물</a></li>
 					</ul>
-					<script src="/chat2mingle/resources/js/banner-script.js"></script>
+					<script src="/chat2mingle/resources/js/global/banner-script.js"></script>
 					</li>
 					<li><a href="해당주소로이동" class="nav-gift">Gift</a></li>
 					<li><a href="해당주소로이동" class="nav-new">New</a></li>

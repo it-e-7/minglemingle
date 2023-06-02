@@ -19,7 +19,7 @@ public class MemberController {
     }
 
     private MemberService memberService;
-
+    
     @ModelAttribute("member")
     public MemberVO setEmptyMember() {
         return new MemberVO();
@@ -48,7 +48,7 @@ public class MemberController {
     public String loginHandler(@SessionAttribute("member") MemberVO member,
                                Model model) {
         model.addAttribute("member", member);
-        return "product/home";
+        return "redirect:/product/home";
     }
 
     @GetMapping(value = "info")
