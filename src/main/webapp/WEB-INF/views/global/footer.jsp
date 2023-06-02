@@ -4,8 +4,8 @@
 <%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
 
 <style type="text/css">
-@import url("/chat2mingle/resources/css/global/footer.css");
-@import url("/chat2mingle/resources/css/global/common.css");
+@import url("${pageContext.request.contextPath}/resources/css/global/footer.css");
+@import url("${pageContext.request.contextPath}/resources/css/global/common.css");
 </style>
 <html>
 <head>
@@ -41,7 +41,7 @@
         <div class="bottom">
                 <div class="row">
                         <div class="logo">
-                                <a href="/chat2mingle"><img src="https://image.thehyundai.com/hdmall/images/co/img_bottom_logo.png" alt="THE HYUNDAI"></a>
+                                <a href="/"><img src="https://image.thehyundai.com/hdmall/images/co/img_bottom_logo.png" alt="THE HYUNDAI"></a>
                         </div>
                         <div class="info">
                                 <p>주식회사 현대백화점 대표이사 : 김형종 외 2인 서울시 강남구 테헤란로98길 12</p>

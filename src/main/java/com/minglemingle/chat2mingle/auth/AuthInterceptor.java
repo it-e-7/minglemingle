@@ -31,7 +31,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         HttpSession session = request.getSession(false);
         if(session==null){
-            response.sendRedirect("/chat2mingle/member/login");
+            response.sendRedirect("/member/login");
             return false;
         }
 
@@ -41,7 +41,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         String role = auth.role().toString();
 
         if(Objects.isNull(registeredMember)) {
-            response.sendRedirect("/chat2mingle/member/login");
+            response.sendRedirect("/member/login");
             return false;
         }
         if (accountType==99 && "ADMIN".equals(role)) {
@@ -49,7 +49,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         } else if (accountType==1 && "USER".equals(role)){
             return true;
         }
-        response.sendRedirect("/chat2mingle/product/home");
+        response.sendRedirect("/product/home");
         return false;
 
     }

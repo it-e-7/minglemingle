@@ -7,8 +7,8 @@
     <title>로그인</title>
 </head>
 <style>
-    @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/member/member.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+    @import url("${pageContext.request.contextPath}/resources/css/member/member.css");
 
 </style>
 <body>
@@ -16,7 +16,7 @@
 <div class="member">
 
     <div class="logo">
-        <img src="/chat2mingle/resources/images/logo_thyundai.png"/>
+        <img src="${pageContext.request.contextPath}/resources/images/logo_thyundai.png"/>
     </div>
 
     <div class="member-container">
@@ -37,7 +37,7 @@
                 <span><a  class="login-anchor" href="">비밀번호 찾기</a>
                             <span class="dot">&nbsp;&#x2022;&nbsp;</span>
 					</span>
-                <span><a class="login-anchor" href="/chat2mingle/member/signup">회원가입</a></span>
+                <span><a class="login-anchor" href="/member/signup">회원가입</a></span>
             </div>
             <c:choose>
                 <c:when test="${loginMessage eq 'notMember'}">
@@ -65,6 +65,6 @@
 </div>
 
 </body>
-<script src="/chat2mingle/resources/js/member/login.js" async defer></script>
+<script src="${pageContext.request.contextPath}/resources/js/member/login.js" async defer></script>
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </html>

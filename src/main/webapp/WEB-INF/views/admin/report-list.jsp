@@ -8,8 +8,8 @@
     <title>신고</title>
 </head>
 <style>
-    @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/report/report-list.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+    @import url("${pageContext.request.contextPath}/resources/css/report/report-list.css");
 </style>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
@@ -59,6 +59,6 @@
 
 
 </body>
-<script src="/chat2mingle/resources/js/report/report-list.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/report/report-list.js"></script>
 
 </html>
