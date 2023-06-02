@@ -62,6 +62,10 @@ public interface MessageService {
      * @author : Daniel Choi
      *
      * @param messageDTO 삭제할 메시지의 정보를 포함하는 {@link MessageDTO} 객체
+     *                   messageId: 삭제할 메시지 아이디,
+     *                   channel: 메시지를 삭제할 채널,
+     *                   nickname: 메시지 삭제를 하는 관리자 계정의 닉네임
+     *                   
      * @return 삭제된 메시지의 ID. 삭제에 실패한 경우 -1을 반환합니다.
      * @throws NullPointerException MessageDTO가 null일 경우
      */
