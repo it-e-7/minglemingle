@@ -70,7 +70,7 @@
 
         <div class="btn-container">
             <input type="submit" class="report-btn" value="신고처리"/>
-            <button class="report-btn">취소</button>
+            <button class="report-btn"><a id="report-detail-cancel-link" href="${header.referer}">취소</a></button>
         </div>
     </form>
 </div>

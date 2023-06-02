@@ -29,7 +29,7 @@ var categoryToChannelDict = {
     "all" :"모두선택"
 }
 $(document).ready(function() {
-    $('#confirmationModal').hide();
+    $('#confirmation-modal').hide();
 
 });
 
@@ -52,7 +52,7 @@ $('form').on('submit', function(e) {
     } else if (noticeVal == "") {
         alert("공지가 비었습니다.")
     } else {
-        $('#confirmationModal').show();
+        $('#confirmation-modal').show();
         var formDataArray = $(this).serializeArray();
         var previewCategories = '';
         var previewText = ''
@@ -109,14 +109,14 @@ function sendFormData(form) {
 $('#confirm-accept-btn').on('click', function() {
 
     let isNoticeSent = sendFormData($('form'))
-    $('#confirmationModal').hide()
+    $('#confirmation-modal').hide()
 })
 
 $('#confirm-cancel-btn').on('click', function() {
   $('form').reset()
     $('#notice-text-preview').html('')
     $('#notice-category-preview').html('')
-    $('#confirmationModal').hide()
+    $('#confirmation-modal').hide()
 
 })
 

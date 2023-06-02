@@ -12,6 +12,7 @@
 </head>
 <style>
     @import url("/chat2mingle/resources/css/global/common.css");
+    @import url("/chat2mingle/resources/css/global/modal.css");
     @import url("/chat2mingle/resources/css/admin/admin.css");
 
 </style>
@@ -24,23 +25,28 @@
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 
 <div id="notice">
-    <form action="/your-action-endpoint" method="post">
-        <h2>새로운 공지</h2>
+    <%--    <div class="overlay">--%>
+    <form action="" method="post">
+        <div class="notice-h2">
+            <h2>새로운 공지</h2>
+        </div>
         <div class="notice-container">
-            <h3><label for="text-input">공지</label></h3>
-            <input type="text" id="text-input" name="textInput"/>
+            <h3 class="notice-h3"><label for="text-input">공지</label></h3>
+            <textarea id="text-input" rows="5" required="true" autofocus="true" maxlength="255"
+                      name="textInput"></textarea>
         </div>
 
         <div class="category-container">
-            <h3>카테고리</h3>
+            <h3 class="notice-h3">카테고리</h3>
             <div class="category-columns">
-                <div class="category-column-1">
+                <div class="category-column-row">
                     <div>
                         <input
                                 type="checkbox"
                                 id="cosmetics"
                                 name="cosmetics"
                                 value="cosmetics"
+                                class="category-checkbox"
                         />
                         <label for="cosmetics">화장품</label>
                     </div>
@@ -50,6 +56,8 @@
                                 id="young-casual"
                                 name="young-casual"
                                 value="young-casual"
+                                class="category-checkbox"
+
                         />
                         <label for="young-casual">영캐주얼</label>
                     </div>
@@ -60,17 +68,19 @@
                                 id="children"
                                 name="children"
                                 value="children"
+                                class="category-checkbox"
+
                         />
                         <label for="children">유아동/문화</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="food" name="food" value="food"/>
+                        <input type="checkbox" id="food" name="food" value="food" class="category-checkbox"/>
                         <label for="food">식품</label>
                     </div>
                 </div>
-                <div class="category-column-2">
+                <div class="category-column-row">
                     <div>
-                        <input type="checkbox" id="luxury" name="luxury" value="luxury"/>
+                        <input type="checkbox" id="luxury" name="luxury" value="luxury" class="category-checkbox"/>
                         <label for="luxury">명품/잡화</label>
                     </div>
 
@@ -80,34 +90,36 @@
                                 id="mens-fashion"
                                 name="mens-fashion"
                                 value="mens-fashion"
+                                class="category-checkbox"
                         />
                         <label for="mens-fashion">남성패션</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" id="sports" name="sports" value="sports"/>
+                        <input type="checkbox" id="sports" name="sports" value="sports" class="category-checkbox"/>
                         <label for="sports">스포츠/레저</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" id="pet" name="pet" value="pet"/>
+                        <input type="checkbox" id="pet" name="pet" value="pet" class="category-checkbox"/>
                         <label for="pet">반려동물</label>
                     </div>
                 </div>
 
-                <div class="category-column-2">
+                <div class="category-column-row">
                     <div>
                         <input
                                 type="checkbox"
                                 id="womens-fashion"
                                 name="womens-fashion"
                                 value="womens-fashion"
+                                class="category-checkbox"
                         />
                         <label for="womens-fashion">여성패션</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" id="jean" name="jean" value="jean"/>
+                        <input type="checkbox" id="jean" name="jean" value="jean" class="category-checkbox"/>
                         <label for="jean">진/이지</label>
                     </div>
 
@@ -117,44 +129,42 @@
                                 id="electronics"
                                 name="electronics"
                                 value="electronics"
+                                class="category-checkbox"
                         />
                         <label for="electronics">리빙/가전</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" id="all" name="all" value="all"/>
+                        <input type="checkbox" id="all" name="all" value="all" class="category-checkbox"/>
                         <label for="all">모두선택</label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            <input id="notice-submit" type="submit" value="Submit"/>
+        <div id="submit-container">
+            <input class="report-btn" type="submit" value="확인"/>
         </div>
     </form>
 
 
-    <div id="confirmationModal" class="modal fade" tabindex="-1" role="dialog">
+    <div id="confirmation-modal" class="modal-content">
         <div id="result"></div>
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>다음 공지글을 게시하겠습니까?</p>
-                    <p id="notice-text-preview"></p>
-                    <ul id="notice-category-preview"></ul>
-                </div>
-                <div class="modal-footer">
-                    <button id="confirm-cancel-btn" type="button">취소</button>
-                    <button id="confirm-accept-btn" type="button">확인</button>
-                </div>
-            </div>
+        <div class="modal-body">
+            <p>다음 공지글을 게시하겠습니까?</p>
+            <p id="notice-text-preview"></p>
+            <ul id="notice-category-preview"></ul>
+        </div>
+        <div class="modal-buttons">
+            <button id="confirm-cancel-btn" class="modal-button" type="button">취소</button>
+            <button id="confirm-accept-btn" class="modal-button" type="button">확인</button>
         </div>
     </div>
 
 
     <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </div>
+<%--</div>--%>
 </body>
 <script src="/chat2mingle/resources/js/admin/admin.js"></script>
 
