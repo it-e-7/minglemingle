@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
     private final MemberService memberService;
 
-    public MemberController(MemberService memberservice) {
+    public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
     
