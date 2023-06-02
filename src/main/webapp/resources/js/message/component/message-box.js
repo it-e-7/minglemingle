@@ -17,21 +17,26 @@ class MessageBox extends HTMLElement {
 
     render() {
         const isMyMessage = this.getAttribute('isMyMessage') === 'true';
+        const messageType = parseInt(this.getAttribute('messageType'));
         const content = this.getAttribute('content') || 'Error';
         const nickname = this.getAttribute('nickname') || 'Error';
         const sentAt = this.getAttribute('sentAt') || '00:00';
 
+        let profileHTML = `<div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 mr-2"></div>`
+        let timeHTML = `<span class="text-xxs text-gray-500 leading-none self-end mb-1 whitespace-nowrap">${sentAt}</span>`
+        let nicknameHTML = `<p class="text-xs pb-1">${nickname}</p>`
+
         this.innerHTML = `
-            <div class="flex w-full mt-2 space-x-3 max-w-xs ${!isMyMessage ? '' : 'ml-auto justify-end'}">
-                ${!isMyMessage ? '<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>' : ''}
-                <div> 
-                    ${!isMyMessage ? '<p class="text-xs pb-1">' + nickname + '</p>' : ''}
-                    <div class="p-3 ${isMyMessage ? 'bg-blue-600 text-white rounded-l-lg rounded-br-lg' : 'bg-gray-300 rounded-r-lg rounded-bl-lg'}">
-                        <p class="text-sm">${content}</p>
+                <div class="flex w-full mt-2 max-w-sm mb-3 ${isMyMessage ? 'ml-auto justify-end' : ''}">
+                    ${isMyMessage ? timeHTML : profileHTML}
+                    <div class="${isMyMessage ? 'ml-1' : 'mr-1'}">
+                        ${isMyMessage ? '' : nicknameHTML}
+                        <div class="p-2 ${isMyMessage ? 'bg-hyundai-600 text-white rounded-l-lg rounded-br-lg' : 'bg-gray-100 rounded-r-lg rounded-bl-lg'}">
+                            <p class="text-sm">${messageType === 50 ? '😮' : ''} ${content}</p>
+                        </div>
                     </div>
-                    <span class="text-xs text-gray-500 leading-none">${sentAt}</span>
-                </div>
-            </div>`;
+                    ${isMyMessage ? '' : timeHTML}
+                </div>`
     }
 }
 

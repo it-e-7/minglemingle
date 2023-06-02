@@ -14,6 +14,6 @@ public class WebSocketController {
     public String chattingRoom(@PathVariable String id, @RequestParam Integer channel, Model model){
         model.addAttribute("nickname", id);
         model.addAttribute("channel", channel);
-        return "chat/chattingRoom";
+        return "message/chattingRoom";
     }
 }

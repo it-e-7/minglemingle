@@ -1,0 +1,71 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc;
+}
+
+.text-gray-800 {
+    color: #2d3748;
+}
+
+.p-10 {
+    padding: 2.5rem;
+}
+
+
+.text-xxs {
+    font-size: 0.5rem; /* 12px */
+    line-height: 1rem; /* 16px */
+}
+.bg-hyundai-500 {
+    background-color: rgb(97, 136, 120);
+}
+.bg-hyundai-600 {
+    background-color: rgb(71 101 89);
+}
+.border-t-1 {
+    border-top-width: 1px;
+}
+
+/* Firefox */
+#chatbox-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: transparent;
+}
+
+/* Chrome, Edge, and Safari */
+#chatbox-wrap::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatbox-wrap::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#chatbox-wrap::-webkit-scrollbar-thumb {
+    background-color: #656565;
+    border-radius: 5px;
+}
