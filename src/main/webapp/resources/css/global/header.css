@@ -200,7 +200,7 @@ header {
 .top-nav-area2 .nav-menu {
   border: 0;
   background-color: transparent;
-    background-image: url("/chat2mingle/resources/image/menu.png");
+    background-image: url("/resources/image/menu.png");
       background-size: cover; /* 이미지를 버튼에 맞게 조절 */
       background-position: center; /* 이미지를 가운데 정렬 */
 }

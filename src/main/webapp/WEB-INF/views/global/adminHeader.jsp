@@ -7,8 +7,8 @@
 <head>
     <title>Home</title>
     <style type="text/css">
-        @import url("/chat2mingle/resources/css/global/header.css");
-        @import url("/chat2mingle/resources/css/global/common.css");
+        @import url("${pageContext.request.contextPath}/resources/css/global/header.css");
+        @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
     </style>
 </head>
 
@@ -51,12 +51,12 @@
                             <c:choose>
                                 <c:when test="${member==null}">
                                     <div class="top-con-quick-my">
-                                        <a href="/chat2mingle/member/login">로그인/회원</a>
+                                        <a href="/member/login">로그인/회원</a>
                                     </div>
                                 </c:when>
                                 <c:when test="${member!=null}">
                                     <div class="top-con-quick-my">
-                                        <a href="/chat2mingle/member/logout">로그아웃</a>
+                                        <a href="/member/logout">로그아웃</a>
                                     </div>
                                 </c:when>
                             </c:choose>
@@ -67,8 +67,8 @@
             <div class="top-nav" id="header-area">
                 <div class="top-nav-area2">
                     <ul>
-                        <li><a href="/chat2mingle/admin/notice" class="nav-gift">공지</a></li>
-                        <li><a href="/chat2mingle/admin/reporthistory" class="nav-new">신고</a></li>
+                        <li><a href="/admin/notice" class="nav-gift">공지</a></li>
+                        <li><a href="/admin/reporthistory" class="nav-new">신고</a></li>
                     </ul>
                     <div class="admin-header-container">
                         <h1 class="admin-header">관리페이지</h1>

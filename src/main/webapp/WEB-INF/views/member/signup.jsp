@@ -8,8 +8,8 @@
 
 </head>
 <style>
-    @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/member/member.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+    @import url("${pageContext.request.contextPath}/resources/css/member/member.css");
 </style>
 <script
         src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -19,11 +19,11 @@
 <body>
 <div class="member">
     <div class="logo">
-        <img src="/chat2mingle/resources/images/logo_thyundai.png"/>
+        <img src="${pageContext.request.contextPath}/resources/images/logo_thyundai.png"/>
     </div>
     <div class="member-container">
 
-        <form action="/chat2mingle/member/signup" method="post">
+        <form action="/member/signup" method="post">
             <h1>회원가입</h1>
             <hr/>
 
@@ -57,7 +57,7 @@
     </div>
 </div>
 </body>
-<script src="/chat2mingle/resources/js/member/signup.js" async defer></script>
+<script src="${pageContext.request.contextPath}/resources/js/member/signup.js" async defer></script>
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 
 </html>
