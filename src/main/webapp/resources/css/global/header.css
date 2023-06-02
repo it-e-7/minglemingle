@@ -172,7 +172,6 @@ header {
     content: "";
     width: 11px;
     height: 6px;
-    background: url(https://image.thehyundai.com/hdmall/images/co/icon_down_new.png) no-repeat;
     display: block;
     position: absolute;
     right: 0;
@@ -180,7 +179,7 @@ header {
 }
 
 .top-wrap.main .top-con .top-con-quick .top-con-quick-my {
-    padding-right: 17px;
+    /*padding-right: 17px;*/
     position: relative;
 }
 

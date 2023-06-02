@@ -48,10 +48,20 @@
 					<div class="top-con-quick">
 
 						<ul>
-							<li class="myshop-i nfo">
-								<div class="top-con-quick-my">
-									<a href="/chat2mingle/member/login">로그인/회원</a>
-								</div>
+							<li class="myshop-info">
+								<c:choose>
+									<c:when test="${member==null}">
+										<div class="top-con-quick-my">
+											<a href="/chat2mingle/member/login">로그인/회원</a>
+										</div>
+									</c:when>
+									<c:when test="${member!=null}">
+										<div class="top-con-quick-my">
+											<a href="/chat2mingle/member/logout">로그아웃</a>
+										</div>
+									</c:when>
+								</c:choose>
+
 							</li>
 							<li class="user-info">
 								<div class="top-con-quick-user">

@@ -48,9 +48,18 @@
 
                     <ul>
                         <li class="myshop-i nfo">
-                            <div class="top-con-quick-my">
-                                <a href="/chat2mingle/member/login">로그인/회원</a>
-                            </div>
+                            <c:choose>
+                                <c:when test="${member==null}">
+                                    <div class="top-con-quick-my">
+                                        <a href="/chat2mingle/member/login">로그인/회원</a>
+                                    </div>
+                                </c:when>
+                                <c:when test="${member!=null}">
+                                    <div class="top-con-quick-my">
+                                        <a href="/chat2mingle/member/logout">로그아웃</a>
+                                    </div>
+                                </c:when>
+                            </c:choose>
                         </li>
                     </ul>
                 </div>
