@@ -12,7 +12,7 @@ public class ProductVO {
     private String productCode;
     private String productName;
     private String productBrand;
-    private int productCategory;
-    private int productPriceWon;
+    private Integer productCategory;
+    private Integer productPriceWon;
     private String productImagePath;
 }
