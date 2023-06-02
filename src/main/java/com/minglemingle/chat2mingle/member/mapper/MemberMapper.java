@@ -16,4 +16,7 @@ public interface MemberMapper {
     MemberVO updateMember(MemberVO member) throws Exception;
 
     MemberVO selectOneMemberByNickname(MemberVO member);
+
+    int updateAccountStatus(MemberVO member);
+
 }
