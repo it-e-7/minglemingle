@@ -12,6 +12,8 @@ import org.springframework.web.socket.WebSocketSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -35,11 +37,11 @@ public class MessageServiceImpl implements MessageService {
 
 
     @Override
-    public void broadcast(@NonNull MessageDTO messageDto) {
-
-        TextMessage textMessage = new TextMessage(messageParser.toJson(messageDto));
+    public void broadcast(@NonNull MessageDTO messageDTO) {
+        setMessageSentAtNow(messageDTO);
+        TextMessage textMessage = new TextMessage(messageParser.toJson(messageDTO));
         try {
-            Integer channel = messageDto.getChannel();
+            Integer channel = messageDTO.getChannel();
             for (WebSocketSession session : webSocketSessionManager.getSessions(channel)) {
                 session.sendMessage(textMessage);
             }
@@ -70,6 +72,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     @Transactional
     public Integer insertOneMessage(@NonNull MessageDTO messageDTO) throws SQLException {
+        setMessageSentAtNow(messageDTO);
         return messageMapper.insertOneMessage(messageDTO);
     }
 
@@ -86,5 +89,9 @@ public class MessageServiceImpl implements MessageService {
                 "sychoi");
         broadcast(admin_message);
         return messageMapper.deleteOneMessage(messageDTO);
+    }
+
+    public void setMessageSentAtNow(@NonNull MessageDTO messageDTO){
+        messageDTO.setSentAt(Timestamp.from(Instant.now()));
     }
 }
