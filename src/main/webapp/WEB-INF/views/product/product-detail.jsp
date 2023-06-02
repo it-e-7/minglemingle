@@ -5,9 +5,15 @@
 <html>
 <head>
     <title>Title</title>
+    <style type="text/css">
+    @import url("/chat2mingle/resources/css/product/product-detail.css");
+    </style>
 </head>
 <body>
-<div class="product-detail-wrap">
+  <%-- 헤더 포함 --%>
+ <%@ include file="/WEB-INF/views/global/header.jsp" %>
+  <!-- 다른 내용 -->
+<div class="product-detail-wrap wrap">
     <div class="brand-crumb">
     </div>
     <div class="prd-info">
@@ -115,7 +121,8 @@
     					</div>
     				</div>
 </div>
-  <h1>상품 상세정보</h1>
 <h3>${productDetail}</h3>
+  <%-- 푸터 포함 --%>
+<%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </body>
 </html>

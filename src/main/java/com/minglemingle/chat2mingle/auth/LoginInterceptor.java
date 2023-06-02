@@ -16,10 +16,10 @@ import java.util.Objects;
 
 public class LoginInterceptor implements HandlerInterceptor {
 
-    private MemberService service;
+    private MemberService memberService;
 
-    public LoginInterceptor(MemberService service) {
-        this.service = service;
+    public LoginInterceptor(MemberService memberService) {
+        this.memberService = memberService;
     }
 
     @Override
@@ -30,14 +30,23 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         MemberVO checkUser = new MemberVO(null, null, email, null, 0, null, 0);
 
-        MemberVO member = service.loginService(checkUser);
+        MemberVO member = memberService.loginService(checkUser);
         HttpSession session = request.getSession(true);
+
 
         if (Objects.isNull(member)) {
             response.sendRedirect("/chat2mingle/member/login?loginMessage=notMember");
             return false;
         }
-        boolean validPassword = BCrypt.checkpw(password, member.getPassword());
+//        System.out.println(password);
+//        System.out.println(member.getPassword());
+        boolean validPassword;
+        try {
+            validPassword= BCrypt.checkpw(password, member.getPassword());
+        } catch (Exception e) {
+            response.sendRedirect("/chat2mingle/member/login?loginMessage=passwordFail");
+            return false;
+        }
         if (!validPassword) {
             response.sendRedirect("/chat2mingle/member/login?loginMessage=passwordFail");
             return false;

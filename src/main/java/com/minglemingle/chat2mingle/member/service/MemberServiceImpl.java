@@ -86,12 +86,26 @@ public class MemberServiceImpl implements MemberService {
         try {
             result = mapper.selectOneMemberByEmail(member);
             System.out.println("dzdz");
+            System.out.println("service" + result);
             return result;
         } catch (Exception e) {
+            e.printStackTrace();
             // false
             e.printStackTrace();
         }
         return result;
     }
-}
 
+    public boolean changeAccountStatus(MemberVO member) {
+        try {
+            int result = mapper.updateAccountStatus(member);
+            if (result == 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}

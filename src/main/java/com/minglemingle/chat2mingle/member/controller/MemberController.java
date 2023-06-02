@@ -14,11 +14,11 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/member")
 //@SessionAttributes(value = {"member"})
 public class MemberController {
-    private final MemberService memberService;
-
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
+
+    private MemberService memberService;
     
     @ModelAttribute("member")
     public MemberVO setEmptyMember() {

@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
+    <mapper namespace="com.minglemingle.chat2mingle.report.mapper.ReportMapper">
 
-<mapper namespace="com.minglemingle.chat2mingle.report.mapper.ReportMapper">
-
-    <select id="selectReportListByReportedDate" parameterType="Report" resultMap="Report">
+    <select id="selectReportListByReportedDate" parameterType="Report" resultType="Report">
         <!-- TODO -->
         <![CDATA[
-
-
+            select
+                rep.reported_at,
+                rep.member_id ,
+                m.nickname as reporter_nickname,
+                msg.nickname as reportee_nickname,
+                rep.message_id,
+                msg.content as message_content
+            from (
+                SELECT member_id, message_id, reported_at
+                FROM member_report
+                WHERE TRUNC(reported_at) = TRUNC(SYSDATE) and process_status=#{processStatus}
+            ) rep
+                join member m on m.member_id = rep.member_id
+                join message msg on msg.message_id = rep.message_id
         ]]>
     </select>
 
+
+    <select id="selectReportDetailByMessageId" parameterType="Report" resultType="ReportDetail">
+        <!-- TODO -->
+        <![CDATA[
+            select
+                rep.reported_at,
+                rep.member_id ,
+                m.nickname as reporter_nickname,
+                msg.nickname as reportee_nickname,
+                rep.message_id,
+                msg.content as message_content,
+                msg.sent_at as message_sent_at,
+                msg.channel
+            from (
+                SELECT member_id, message_id, reported_at
+                FROM member_report
+                WHERE message_id = #{messageId}
+            ) rep
+                join member m on m.member_id = rep.member_id
+                join message msg on msg.message_id = rep.message_id
+        ]]>
+    </select>
+
+    <update id="updateReportStatus" parameterType="Report" >
+        update member_report
+        set process_status = 1
+        where member_id=#{memberId} and message_id=#{messageId}
+    </update>
 </mapper>

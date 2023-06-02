@@ -30,11 +30,11 @@ public class MessageController {
         return ResponseEntity.ok().body(gson.toJson(result, ArrayList.class));
     }
 
-    @DeleteMapping(value="/message/{messageId}")
-    public int deleteMessage(@NonNull @PathVariable("messageId") int messageId){
-        MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
-        return messageService.deleteMessageSent(messageDTO);
-    }
-
+//    @DeleteMapping(value="/message/{messageId}")
+//    public int deleteMessage(@NonNull @PathVariable("messageId") int messageId){
+//        MessageDTO messageDTO = new MessageDTO(messageId, null, 0, null, 0, null);
+//        return messageService.(messageDTO);
+//    }
+//
 
 }

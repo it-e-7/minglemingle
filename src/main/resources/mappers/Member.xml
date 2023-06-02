@@ -39,6 +39,15 @@
         ]]>
     </update>
 
+    <update id="updateAccountStatus" parameterType="Member">
+        <![CDATA[
+        UPDATE member
+        SET
+            account_status = #{accountStatus}
+        WHERE nickname = #{nickname}
+        ]]>
+    </update>
+
     <resultMap type="Member" id="memberResult">
         <result column="member_id" property="memberId"/>
         <result column="nickname" property="nickname"/>
