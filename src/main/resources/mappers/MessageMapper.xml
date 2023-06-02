@@ -36,9 +36,9 @@
             sent_at
         FROM MESSAGE
         <if test='messageId != 0'>
-            WHERE message_id &lt; #{messageId}
+            WHERE message_id &lt; #{messageId} AND channel=${channel}
         </if>
-        ORDER BY message_id DESC
+        ORDER BY sent_at DESC
         FETCH FIRST 5 ROWS ONLY
     </select>
 
