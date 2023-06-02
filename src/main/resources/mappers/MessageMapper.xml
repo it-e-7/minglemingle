@@ -53,6 +53,6 @@
     </insert>
 
     <delete id="deleteOneMessage" parameterType="Message">
-        DELETE FROM MESSAGE WHERE message_id = #{messageId};
+        DELETE FROM MESSAGE WHERE message_id = #{messageId}
     </delete>
 </mapper>
