@@ -5,7 +5,6 @@ import com.minglemingle.chat2mingle.member.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,7 +47,7 @@ public class MemberController {
     public String loginHandler(@SessionAttribute("member") MemberVO member,
                                Model model) {
         model.addAttribute("member", member);
-        return "redirect:/product/home";
+        return "home";
     }
 
     @GetMapping(value = "info")
@@ -66,10 +65,11 @@ public class MemberController {
         return sessionMember;
     }
 
-    @PostMapping("logout")
-    public String logoutHandler(SessionStatus sessionStatus) {
-        sessionStatus.setComplete();
-        return "member/login";
+    @GetMapping("logout")
+    public String logoutHandler(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.removeAttribute("member");
+        return "redirect:/";
     }
 
 

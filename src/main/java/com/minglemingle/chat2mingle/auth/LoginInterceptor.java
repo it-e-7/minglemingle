@@ -33,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         MemberVO member = memberService.loginService(checkUser);
         HttpSession session = request.getSession(true);
 
-
+        System.out.println("LOGIN MEMBER" + member);
         if (Objects.isNull(member)) {
             response.sendRedirect("/chat2mingle/member/login?loginMessage=notMember");
             return false;
