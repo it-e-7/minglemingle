@@ -113,10 +113,11 @@ $('#confirm-accept-btn').on('click', function() {
 })
 
 $('#confirm-cancel-btn').on('click', function() {
-  $('form').reset()
+    $('#confirmation-modal').hide()
+
+    $('form').reset()
     $('#notice-text-preview').html('')
     $('#notice-category-preview').html('')
-    $('#confirmation-modal').hide()
 
 })
 

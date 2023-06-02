@@ -11,9 +11,9 @@
     <title>공지</title>
 </head>
 <style>
-    @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/global/modal.css");
-    @import url("/chat2mingle/resources/css/admin/admin.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/modal.css");
+    @import url("${pageContext.request.contextPath}/resources/css/admin/admin.css");
 
 </style>
 <script
@@ -166,6 +166,6 @@
 </div>
 <%--</div>--%>
 </body>
-<script src="/chat2mingle/resources/js/admin/admin.js"></script>
+<script src="/resources/js/admin/admin.js"></script>
 
 </html>
