@@ -11,7 +11,7 @@ function checkNickname(nicknameText) {
 	$.ajax({
 		data: JSON.stringify(obj),
 		dataType: 'json',
-		url: '/chat2mingle/member/checkNickname',
+		url: '/member/checkNickname',
 		type: 'post',
 		contentType: 'application/json',
 		async: false,
@@ -31,7 +31,7 @@ function checkEmail(emailText) {
 
 	$.ajax({
 		data: JSON.stringify(obj),
-		url: '/chat2mingle/member/checkEmail',
+		url: '/member/checkEmail',
 		type: 'post',
 		contentType: 'application/json',
 		async: false,

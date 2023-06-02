@@ -92,7 +92,7 @@ function sendFormData(form) {
     let result = false
     $.ajax({
         data: JSON.stringify(obj),
-        url: '/chat2mingle/admin/sendNotice',
+        url: '/admin/sendNotice',
         type: 'post',
         contentType: 'application/json',
         async: false,

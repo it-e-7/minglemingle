@@ -7,9 +7,9 @@
 <head>
 <title>Home</title>
 <style type="text/css">
-@import url("/chat2mingle/resources/css/global/header.css");
-@import url("/chat2mingle/resources/css/global/common.css");
-@import url("/chat2mingle/resources/css/home/home.css");
+@import url("${pageContext.request.contextPath}/resources/css/global/header.css");
+@import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+@import url("${pageContext.request.contextPath}/resources/css/home/home.css");
 </style>
 </head>
 
@@ -52,12 +52,12 @@
 								<c:choose>
 									<c:when test="${member==null}">
 										<div class="top-con-quick-my">
-											<a href="/chat2mingle/member/login">로그인/회원</a>
+											<a href="/member/login">로그인/회원</a>
 										</div>
 									</c:when>
 									<c:when test="${member!=null}">
 										<div class="top-con-quick-my">
-											<a href="/chat2mingle/member/logout">로그아웃</a>
+											<a href="/member/logout">로그아웃</a>
 										</div>
 									</c:when>
 								</c:choose>
@@ -91,7 +91,7 @@
 									onmouseout="hideBanner()">
 									<ul>
 										<li onmouseover="showLeftBarCosmetic()"><a
-											href="/chat2mingle/product/home">화장품</a>
+											href="/product/home">화장품</a>
 											<div class="in-cate-area cosmetic">
 												<div class="menu">
 													<ul>
@@ -188,7 +188,7 @@
 					<li><a href="#">식품</a></li>
 					<li><a href="#">반려동물</a></li>
 					</ul>
-					<script src="/chat2mingle/resources/js/global/banner-script.js"></script>
+					<script src="${pageContext.request.contextPath}/resources/js/global/banner-script.js"></script>
 					</li>
 					<li><a href="해당주소로이동" class="nav-gift">Gift</a></li>
 					<li><a href="해당주소로이동" class="nav-new">New</a></li>

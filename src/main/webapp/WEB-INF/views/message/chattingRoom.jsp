@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>채팅</title>
-    <link rel="stylesheet"  href="${pageContext.request.contextPath}/resources/css/chat/chat.css">
+    <link rel="stylesheet"  href="${pageContext.request.contextPath}/resources/css/message/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,10 +43,9 @@
 
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/chat/component/message-box.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/chat/chat.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/chat/component/chat-header.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/component/message-box.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/message.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/component/chat-header.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" >
@@ -65,7 +64,7 @@
 
 
     async function connectSocket() {
-        sock = new WebSocket("ws://192.168.0.29:8080/chat2mingle/ws/chat?channel=${channel}");
+        sock = new WebSocket("ws://192.168.0.29:8080/ws/chat?channel=${channel}");
         sock.onerror = function (e) {
             alert('연결에 실패하였습니다.');
             console.log(e)
@@ -120,7 +119,7 @@
     async function getMessages(nickname, messageId) {
         return await $.ajax({
             type: 'GET',
-            url: '/chat2mingle/message?messageId='+messageId + '&channel=' + ${channel},
+            url: '/message?messageId='+messageId + '&channel=' + ${channel},
             dataType: "json",
             success: function(data) {
                 return data;

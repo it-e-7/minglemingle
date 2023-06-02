@@ -22,7 +22,7 @@
       <ul class="slide_pagination"></ul>
     </div>
     </div>
-	<script src="/chat2mingle/resources/js/home/home-script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/home/home-script.js"></script>
 
 <div class="body-wrapper section">
 <div class="inner" id="home">

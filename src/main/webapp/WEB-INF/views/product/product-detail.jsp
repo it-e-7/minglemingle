@@ -6,7 +6,7 @@
 <head>
     <title>Title</title>
     <style type="text/css">
-    @import url("/chat2mingle/resources/css/product/product-detail.css");
+    @import url("${pageContext.request.contextPath}/resources/css/product/product-detail.css");
     </style>
 </head>
 <body>

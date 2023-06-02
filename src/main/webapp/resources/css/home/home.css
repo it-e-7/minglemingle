@@ -64,23 +64,23 @@
 
 /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
 .slide_item.item1 {
-  background-image: url("/chat2mingle/resources/image/luxury-perfume.jpg");
+  background-image: url("/resources/image/luxury-perfume.jpg");
   background-size:cover;
 }
 .slide_item.item2 {
-  background-image: url("/chat2mingle/resources/image/luxury-blue.jpg");
+  background-image: url("/resources/image/luxury-blue.jpg");
   background-size:cover;
 }
 .slide_item.item3 {
-  background-image: url("/chat2mingle/resources/image/luxury-car.jpg");
+  background-image: url("/resources/image/luxury-car.jpg");
   background-size:cover;
 }
 .slide_item.item4 {
-  background-image: url("/chat2mingle/resources/image/luxury-bath.jpg");
+  background-image: url("/resources/image/luxury-bath.jpg");
   background-size:cover;
 }
 .slide_item.item5 {
-  background-image: url("/chat2mingle/resources/image/luxury-beach.jpg");
+  background-image: url("/resources/image/luxury-beach.jpg");
   background-size:cover;
 }
 
@@ -166,14 +166,14 @@ allign : center;}
 }
 
 .inner .left-image-box {
-      background-image: url("/chat2mingle/resources/image/left-image-box.jpg");
+      background-image: url("/resources/image/left-image-box.jpg");
       background-size:cover;
           width: 640px;
           height: 720px;
 }
 
 .inner .right-image-box {
-  background-image: url("/chat2mingle/resources/image/right-image-box.jpg");
+  background-image: url("/resources/image/right-image-box.jpg");
   background-size:cover;
          width: 640px;
          height: 720px;

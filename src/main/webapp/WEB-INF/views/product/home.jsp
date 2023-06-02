@@ -5,7 +5,7 @@
 
 <html>
 <style type="text/css">
-@import url("/chat2mingle/resources/css/product/product-home.css");
+@import url("${pageContext.request.contextPath}/resources/css/product/product-home.css");
 </style>
 
 <head>
@@ -119,7 +119,7 @@
 
 
                                                 <li>
-                                                <a class="btn-to-link" href="/chat2mingle/product/{1}"
+                                                <a class="btn-to-link" href="/product/{1}"
                                                                                                             onclick="javascript:sendGAEvent('선물하기', '상품', '[불리][선물포장] 레 비지날 바디로션 190ml (7종 택1)');
                                                                                                             itemDetailView('186124','40A0761805', 'N');return false;">
                                                         <div class="img-box">

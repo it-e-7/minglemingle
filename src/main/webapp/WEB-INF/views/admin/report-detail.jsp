@@ -11,14 +11,14 @@
     <title>Title</title>
 </head>
 <style>
-    @import url("/chat2mingle/resources/css/global/common.css");
-    @import url("/chat2mingle/resources/css/admin/admin.css");
+    @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
+    @import url("${pageContext.request.contextPath}/resources/css/admin/admin.css");
 
 </style>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 <div id="report-detail">
-    <form class="table" action="/chat2mingle/admin/sendReport" method="post">
+    <form class="table" action="/admin/sendReport" method="post">
         <input hidden type="text" name="memberId" value="${reportDetail.memberId}"/>
         <input hidden type="number" name="messageId" value="${reportDetail.messageId}" />
         <input hidden type="number" name="channel" value="${reportDetail.channel}" />
@@ -78,6 +78,6 @@
 
 </body>
 
-<script src="/chat2mingle/resources/js/admin/admin.js" ></script>
+<script src="${pageContext.request.contextPath}/resources/js/admin/admin.js" ></script>
 
 </html>
