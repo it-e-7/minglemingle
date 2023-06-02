@@ -85,11 +85,11 @@ public class MemberServiceImpl implements MemberService {
         MemberVO result = new MemberVO();
         try {
             result = mapper.selectOneMemberByEmail(member);
-//            System.out.println("service" + result);
             return result;
         } catch (Exception e) {
             e.printStackTrace();
             // false
+            e.printStackTrace();
         }
         return result;
     }
@@ -107,4 +107,3 @@ public class MemberServiceImpl implements MemberService {
         }
     }
 }
-

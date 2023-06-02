@@ -1,0 +1,365 @@
+.product-detail-wrap {
+    width: 1360px;
+    margin-bottom: 150px;
+    max-width: 1360px;
+    margin: auto;
+}
+
+.prd-info {
+    padding-top: 10px;
+    min-height: 600px;
+}
+
+.prd-info .prd-info-box.left {
+    margin-right: 20px;
+}
+
+.prd-info .prd-info-box {
+    float: left;
+    width: 550px;
+    padding: 0 10px;
+}
+
+.prd-info .imgview {
+    position: relative;
+    width: 530px;
+    height: 530px;
+    background: #f9f9f9;
+}
+
+.prd-info .prd-info-box {
+    float: left;
+    width: 550px;
+    padding: 0 10px;
+}
+
+.prd-info .prd-title {
+    padding: 20px 0;
+    line-height: 36px;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+.sb-shop-type4 .prd-info .prd-title h2 {
+    font-size: 25px;
+}
+
+.sb-shop-type4 .prd-price-info-wrap {
+    padding: 20px 20px 10px 20px;
+    /* border-top: 1px solid #ddd; */
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item .txt {
+    width: 80px;
+    font-size: 13px;
+    color: #555;
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item .txt span {
+    font-size: 17px;
+    color: #000;
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item .info {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item .info .price {
+    font-size: 27px;
+    color: #000;
+    font-weight: 600;
+}
+.sb-shop-type4 .prd-price-info-wrap .item.last {
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #e6e6e6;
+}
+
+
+.sb-shop-type4 .prd-price-info-wrap .item .txt {
+    width: 80px;
+    font-size: 13px;
+    color: #555;
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item .info {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+.sb-shop-type4 .prd-price-info-wrap .item:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.option-floating-btn {
+    display: none;
+    position: absolute;
+    top: -50px;
+    right: -2px;
+    width: 300px;
+    height: 50px;
+    background: #46675c;
+}
+
+.btn-opt-toggle {
+    font-size: 17px;
+    color: #fff;
+    background: url(https://image.thehyundai.com/hdmall/images/co/icon_opt_selc_arrow2.png) no-repeat right bottom;
+    width: 100%;
+    height: 50px;
+    display: block;
+    line-height: 50px;
+    text-indent: 30px;
+}
+
+.sb-shop-type4 .opt-sel-wrap {
+    margin-top: 0;
+}
+
+.sb-shop-type4 .opt-sel-wrap .opt-sel-box {
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.sb-shop-type4 .opt-sel-box .selected-uitm-wrap {
+    border: 0;
+}
+
+.opt-sel-box .selected-uitm {
+    position: relative;
+    padding: 8px 19px;
+}
+
+.opt-sel-box p.name {
+    float: left;
+    width: 270px;
+    padding: 2px 10px 0 0;
+}
+
+.cnt-ctrl {
+    display: inline-block;
+    line-height: 0;
+    width: 78px;
+}
+
+.opt-sel-wrap .opt-sel-box p.name {
+    width: 85px;
+}
+
+
+input:read-only {
+    color: #888;
+    box-shadow: none;
+}
+
+.opt-sel-wrap .opt-sel-box .cnt-ctrl {
+    float: left;
+}
+
+.cnt-ctrl .cnt-up {
+    border-right: 0;
+    background-position: -13px center;
+}
+
+.cnt-ctrl input {
+    float: left;
+    width: 32px;
+    height: 24px;
+    line-height: 21px;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    padding: 0 3px;
+}
+
+.cnt-ctrl:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.opt-sel-wrap .opt-sel-box p.price {
+    float: left;
+    width: 125px;
+    padding: 2px 20px 0 10px;
+    text-align: right;
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+.sb-shop-type4 .opt-sel-wrap .sumprice {
+    color: #000;
+}
+
+.opt-sel-wrap .sumprice em {
+    margin: 0 2px 0 7px;
+    vertical-align: baseline;
+    font-size: 28px;
+}
+
+.prd-btn {
+    clear: both;
+    padding-top: 20px;
+    text-align: right;
+}
+
+.prd-btn .optinalbtn {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.prd-btn .optinalbtn .optinalbtn-box {
+    width: auto;
+    margin-left: 25px;
+}
+
+.prd-btn > div:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.prd-btn .optinalbtn a {
+    color: #333;
+    text-decoration: none;
+}
+
+.prd-btn .mainbtn {
+    margin: 0;
+    padding: 5px 0 0;
+}
+
+.prd-btn .mainbtn.type1 .btn.color4 {
+    width: 122px;
+    background-color: #919191;
+    border: 1px solid #919191;
+    height : 50px;
+}
+
+.prd-btn .mainbtn.type1 .type-share-box {
+    float: left;
+    position: relative;
+    z-index: 10;
+    margin-left: 1%;
+}
+
+.prd-btn .mainbtn.type1 .btn.type-share {
+    width: 75px;
+}
+
+.prd-btn .mainbtn.type1 .btn.type-share .ico {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 20px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background: url(https://image.thehyundai.com/hdmall/images/specialshop/sb_type4_detail_share_ico.png) no-repeat 0 0;
+}
+
+.prd-btn .mainbtn.type1 .btn.color9 {
+    color: #fff!important;
+    height: 50px;
+    width: 195px;
+    background-color: #000;
+    border: 1px solid #000;
+    font-size: 16px;
+}
+
+.prd-btn .mainbtn + .description {
+    margin-top: 15px;
+}
+
+.prd-btn > div:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.prd-price-info-wrap .item .txt {
+    width: 80px;
+    font-size: 13px;
+    color: #555;
+    display: inline-block;
+}
+
+.prd-price-info-wrap .item .info {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.prd-price-info-wrap .item .txt span {
+    font-size: 17px;
+    color: #000;
+}
+
+.prd-price-info-wrap .item .info .price {
+    font-size: 27px;
+    color: #000;
+    font-weight: 600;
+}
+
+
+.opt-sel-box .cnt-ctrl {
+    float: left;
+}
+
+.cnt-ctrl .cnt-up {
+    border-right: 0;
+    background-position: -13px center;
+}
+
+.cnt-ctrl input {
+    float: left;
+    width: 32px;
+    height: 24px;
+    line-height: 21px;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    padding: 0 3px;
+}
+
+.cnt-ctrl .cnt-down {
+    margin: 0!important;
+    border-left: 0;
+    background-position: -33px center;
+}
+
+.cnt-ctrl {
+  display: flex;
+  align-items: center;
+}
+
+.cnt-ctrl a,
+.cnt-ctrl input {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.option-floating-scroll {
+margin-bottom : 50px;
+}
+
+.sumprice {
+margin-top : 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn.color4 {
+    color: #fff!important;
+    border: 1px solid #45675b;
+    background: #45675b;
+    font-size: 16px;
+}
