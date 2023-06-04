@@ -38,7 +38,7 @@
   }
 
   .modal-button {
-    background-color: #4CAF50;
+    background-color: #999999;
     border: none;
     color: white;
     padding: 8px 16px;
@@ -56,5 +56,5 @@
   }
 
   .modal-button:hover {
-    background-color: #45a049;
+    background-color: #999999;
   }
