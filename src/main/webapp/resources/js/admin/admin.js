@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 });
 
-$('form').on('submit', function(e) {
+$('#notice-form').on('submit', function(e) {
 
     e.preventDefault()
     var checkboxes = $('input[type="checkbox"]');
@@ -108,14 +108,14 @@ function sendFormData(form) {
 
 $('#confirm-accept-btn').on('click', function() {
 
-    let isNoticeSent = sendFormData($('form'))
+    let isNoticeSent = sendFormData($('#notice-form'))
     $('#confirmation-modal').hide()
 })
 
 $('#confirm-cancel-btn').on('click', function() {
     $('#confirmation-modal').hide()
 
-    $('form').reset()
+    $('#notice-form')[0].reset()
     $('#notice-text-preview').html('')
     $('#notice-category-preview').html('')
 
