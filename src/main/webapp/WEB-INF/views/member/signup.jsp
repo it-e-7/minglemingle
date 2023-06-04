@@ -23,9 +23,9 @@
     </div>
     <div class="member-container">
 
-        <form action="/member/signup" method="post">
+        <form class="member-form" action="/member/signup" method="post">
             <h1>회원가입</h1>
-            <hr/>
+            <hr class="member-hr"/>
 
             <label class="form-label" for="nickname">아이디</label>
             <input class="member-input" type="text" id="nickname" name="nickname" required/>
