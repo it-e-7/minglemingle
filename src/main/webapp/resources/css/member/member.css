@@ -8,7 +8,7 @@
 	padding-bottom: 5rem;
 }
 
-hr {
+.member-hr {
 	display: block;
 	height: 1px;
 	border: 0;
@@ -21,7 +21,7 @@ hr {
 	padding: 2rem 0 4rem;
 }
 
-form {
+.member-form {
 	display: flex;
 	flex-direction: column;
 }
@@ -29,13 +29,6 @@ form {
 .form-label {
 	margin-top: 1.3rem;
 	margin-bottom: 0.5rem;
-}
-
-form > h1 {
-	align-self: center;
-}
-
-label {
 	font-size: 16px;
 	font-weight: 700;
 	color: #171a19;
@@ -44,11 +37,13 @@ label {
 	font-family: 'Happiness-Sans';
 }
 
+.member-form > h1 {
+	align-self: center;
+}
+
+
 .member-container {
 	width: 40%;
-
-	/* margin-bottom: 10rem; */
-	/* padding: 10rem; */
 }
 
 .buttons-list {
