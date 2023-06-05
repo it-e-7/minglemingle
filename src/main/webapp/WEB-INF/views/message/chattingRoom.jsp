@@ -57,7 +57,7 @@
         sendBtn = $("#sendBtn")
         chatBoxWrap = $("#chatBox-wrap")
 
-        connectSocket("${nickname}", ${channel}, ${accountType});
+        await connectSocket("${nickname}", ${channel}, ${accountType});
 
     })
 
