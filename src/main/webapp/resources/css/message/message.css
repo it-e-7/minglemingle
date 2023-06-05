@@ -49,23 +49,57 @@
     border-top-width: 1px;
 }
 
+.message-box-container .menu-dots {
+    display:none;
+    cursor: pointer;
+}
+
+.message-box-container:hover .menu-dots {
+    display:block;
+}
+
+.message-box-container:hover .sent-at-wrapper {
+    display:none;
+}
+
 /* Firefox */
-#chatbox-wrap {
+#chatBox-wrap {
     scrollbar-width: thin;
     scrollbar-color: transparent;
 }
-
 /* Chrome, Edge, and Safari */
-#chatbox-wrap::-webkit-scrollbar {
+#chatBox-wrap::-webkit-scrollbar {
     width: 6px;
 }
 
-#chatbox-wrap::-webkit-scrollbar-track {
+#chatBox-wrap::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 5px;
 }
 
-#chatbox-wrap::-webkit-scrollbar-thumb {
+#chatBox-wrap::-webkit-scrollbar-thumb {
     background-color: #656565;
     border-radius: 5px;
 }
+
+/* modal*/
+#modalBackdrop {
+    display: none;
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.message-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
