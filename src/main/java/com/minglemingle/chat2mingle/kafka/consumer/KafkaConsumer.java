@@ -31,10 +31,48 @@ class KafkaConsumer {
 //        messageService.broadcast(message);
 //    }
 //
+//    @KafkaListener(topics = "channel4")
+//    public void listenerChannel4(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel5")
+//    public void listenerChannel5(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel6")
+//    public void listenerChannel6(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel7")
+//    public void listenerChannel7(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel8")
+//    public void listenerChannel8(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel9")
+//    public void listenerChannel9(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel10")
+//    public void listenerChannel10(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
+//    @KafkaListener(topics = "channel11")
+//    public void listenerChannel11(@Payload String message) {
+//        messageService.broadcast(message);
+//    }
+//
 //    @KafkaListener(topics = "database")
 //    public void listenerDatabase(@Payload String message) throws SQLException {
 //        messageService.insertOneMessage(message);
 //    }
-
-
 }
