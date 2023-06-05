@@ -36,4 +36,7 @@ public class KafkaProducer {
             sendMessage(messageDTO);
         }
     }
+    public void sendMessageToDataBase(MessageDTO messageDTO) {
+        kafkaTemplate.send(databaseTopic, messageDTO);
+    }
 }
