@@ -330,3 +330,14 @@ header {
     display: flex;
     justify-content: center;
 }
+
+.chat-text {
+        color: #231f20;
+}
+
+.chat-background {
+    padding-right: 29px;
+    background: url("/resources/image/message.png") calc(100% - 1px) center no-repeat;
+    position: relative;
+    background-size: 20px 20px;
+}
