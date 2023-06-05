@@ -10,6 +10,7 @@ import com.minglemingle.chat2mingle.message.service.MessageService;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
 import com.minglemingle.chat2mingle.report.service.ReportService;
 import com.minglemingle.chat2mingle.report.vo.ReportDetailVO;
+import com.minglemingle.chat2mingle.report.vo.ReportStatisticVO;
 import com.minglemingle.chat2mingle.report.vo.ReportVO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,7 +55,7 @@ public class AdminController {
         String content = noticeDTO.getContent();
 
         for (int channel : channels) {
-            MessageDTO newMessage = new MessageDTO(null, getAdminNickname(request), channel, content, 5, null);
+            MessageDTO newMessage = new MessageDTO(null, getAdminNickname(request), channel, content, 10, null);
             noticeMessageList.add(newMessage);
         }
 
@@ -76,15 +77,17 @@ public class AdminController {
         return "admin/report-list";
     }
 
-    @GetMapping(value = "reporthistory/{messageId}")
+    @GetMapping(value = "reportdetail")
     @Auth(role = Auth.Role.ADMIN)
-    public String adminPageReportDetail(@PathVariable("messageId") int messageId,
+    public String adminPageReportDetail(@RequestParam("messageId") int messageId,
+                                        @RequestParam("memberId") String memberId,
                                         Model model) {
-        ReportVO reportVO = new ReportVO(null, null, null, null, messageId, null, null);
+        ReportVO reportVO = new ReportVO(null, memberId, null, null, messageId, null, null);
 
-        ReportDetailVO reportDetail = reportService.selectReportDetailByMessageId(reportVO);
-        model.addAttribute("reportDetail", reportDetail);
-
+        ReportDetailVO reportDetailVO = reportService.selectReportDetailByMessageId(reportVO);
+        ReportStatisticVO reportStatisticVO = reportService.selectReportStatisticByMessageId(reportVO);
+        model.addAttribute("reportDetail", reportDetailVO);
+        model.addAttribute("reportStatistic", reportStatisticVO);
         return "admin/report-detail";
     }
 
@@ -99,7 +102,7 @@ public class AdminController {
 
         if (deleteMessageList != null) {
             MessageDTO messageDTO = new MessageDTO(reportDetailVO.getMessageId(), getAdminNickname(request), reportDetailVO.getChannel(), null, null, null);
-            int result = messageService.deleteMessageSent(messageDTO);
+            int result = messageService.updateMessageSent(messageDTO);
         }
 
         if (accountPunishmentList != null) {
@@ -115,7 +118,7 @@ public class AdminController {
         }
 
         ReportVO reportVO = new ReportVO(null, reportDetailVO.getMemberId(),null, null, reportDetailVO.getMessageId(), null, null);
-        boolean result = reportService.changeReportStatus(reportVO);
+        boolean result = reportService.setReportStatusDone(reportVO);
 
         return "redirect:/admin/reporthistory";
     }

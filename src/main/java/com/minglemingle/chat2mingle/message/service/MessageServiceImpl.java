@@ -83,12 +83,14 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Integer deleteMessageSent(@NonNull MessageDTO messageDTO) {
+    public Integer updateMessageSent(@NonNull MessageDTO messageDTO) {
 //        Session Attribute
+        messageDTO.setContent("블라인드 처리된 메세지입니다.");
+        messageDTO.setMessageType(0);
         MessageDTO admin_message = commandFormatter.makeDeleteCommandMessage(messageDTO,
-                "sychoi");
+                messageDTO.getNickname());
         broadcast(admin_message);
-        return messageMapper.deleteOneMessage(messageDTO);
+        return messageMapper.updateOneMessage(messageDTO);
     }
 
     public void setMessageSentAtNow(@NonNull MessageDTO messageDTO){

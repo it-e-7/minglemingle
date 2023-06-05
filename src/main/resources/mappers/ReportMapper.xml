@@ -39,16 +39,30 @@
             from (
                 SELECT member_id, message_id, reported_at
                 FROM member_report
-                WHERE message_id = #{messageId}
+                WHERE message_id = #{messageId} and member_id = #{memberId}
             ) rep
                 join member m on m.member_id = rep.member_id
                 join message msg on msg.message_id = rep.message_id
         ]]>
     </select>
 
-    <update id="updateReportStatus" parameterType="Report" >
+
+    <select id="selectReportStatisticByMessageId" parameterType="Report" resultType="ReportStatistic">
+        <!-- TODO -->
+        <![CDATA[
+            select count(member_id) as report_count, max(reported_at) as last_reported_at
+            from member_report
+            where message_id = #{messageId}
+            group by message_id
+        ]]>
+    </select>
+
+    <update id="updateReportStatusByMessageId" parameterType="Report" >
         update member_report
         set process_status = 1
-        where member_id=#{memberId} and message_id=#{messageId}
+        where message_id=#{messageId}
     </update>
+
+
+
 </mapper>

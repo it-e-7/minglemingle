@@ -6,13 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>신고상세내용</title>
 </head>
 <style>
     @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
-    @import url("${pageContext.request.contextPath}/resources/css/admin/admin.css");
+    @import url("${pageContext.request.contextPath}/resources/css/report/report-detail.css");
 
 </style>
 <body>
@@ -24,10 +26,10 @@
         <input hidden type="number" name="channel" value="${reportDetail.channel}" />
         <input hidden type="text" name="reporteeNickname" value="${reportDetail.reporteeNickname}" />
 
+        <div class="report-detail-h2">
+            <h2>신고 상세 내용</h2>
+        </div>
         <table class="report-table">
-            <tr class="table-row">
-                <th colspan="4" id="table-head">신고상세내용</th>
-            </tr>
             <tr class="table-row">
                 <td>메세지를 보낸 아이디</td>
                 <td>${reportDetail.reporteeNickname}</td>
@@ -50,13 +52,15 @@
             </tr>
             <tr class="table-row">
                 <td>메세지 전송시간</td>
-                <td>${reportDetail.messageSentAt}</td>
+                <fmt:formatDate value="${reportDetail.messageSentAt}" pattern="yyyy-MM-dd HH:mm" var="formattedMessageSentAt"/>
+                <td>${formattedMessageSentAt}</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr class="table-row">
                 <td>신고시간</td>
-                <td>${reportDetail.reportedAt}</td>
+                <fmt:formatDate value="${reportDetail.reportedAt}" pattern="yyyy-MM-dd HH:mm" var="formattedReportedAt"/>
+                <td>${formattedReportedAt}</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -68,9 +72,24 @@
             </tr>
         </table>
 
+
+        <div class="report-detail-h2">
+            <h2>메세지 통계</h2>
+        </div>
+        <table class="report-table">
+            <tr class="table-row">
+                <td>신고건수</td>
+                <td>${reportStatistic.reportCount}</td>
+            </tr>
+            <tr class="table-row">
+                <td>마지막으로 신고된 날짜</td>
+                <fmt:formatDate value="${reportStatistic.lastReportedAt}" pattern="yyyy-MM-dd HH:mm" var="formattedLastReportedAt"/>
+                <td>${formattedLastReportedAt}</td>
+            </tr>
+        </table>
+
         <div class="btn-container">
             <input type="submit" class="report-btn" value="신고처리"/>
-            <button class="report-btn"><a id="report-detail-cancel-link" href="${header.referer}">취소</a></button>
         </div>
     </form>
 </div>
