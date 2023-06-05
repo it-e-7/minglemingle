@@ -20,7 +20,7 @@
 				<div class="top-con">
 					<div class="top-con-logo">
 						<h1>
-							<a href=""><span class="blind"></span></a>
+							<a href="/"><span class="blind"></span></a>
 						</h1>
 						<button class="gf-dropdown-btn">
 							<span></span>
