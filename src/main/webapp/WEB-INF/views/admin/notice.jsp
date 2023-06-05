@@ -23,10 +23,20 @@
 ></script>
 <body>
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
-
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <p>다음 공지글을 게시하겠습니까?</p>
+        <p id="notice-text-preview"></p>
+        <ul id="notice-category-preview"></ul>
+        <div class="modal-buttons">
+            <button id="confirm-cancel-btn" class="modal-button" type="button">취소</button>
+            <button id="confirm-accept-btn" class="modal-button" type="button">확인</button>
+        </div>
+    </div>
+</div>
 <div id="notice">
     <%--    <div class="overlay">--%>
-    <form action="" method="post">
+    <form id="notice-form" action="" method="post">
         <div class="notice-h2">
             <h2>새로운 공지</h2>
         </div>
@@ -148,23 +158,25 @@
     </form>
 
 
-    <div id="confirmation-modal" class="modal-content">
-        <div id="result"></div>
-        <div class="modal-body">
-            <p>다음 공지글을 게시하겠습니까?</p>
-            <p id="notice-text-preview"></p>
-            <ul id="notice-category-preview"></ul>
-        </div>
-        <div class="modal-buttons">
-            <button id="confirm-cancel-btn" class="modal-button" type="button">취소</button>
-            <button id="confirm-accept-btn" class="modal-button" type="button">확인</button>
-        </div>
-    </div>
+
+<%--        <div id="myModal" class="modal">--%>
+<%--            <div class="modal-content">--%>
+<%--                <p>정말 신고하시겠습니까?</p>--%>
+<%--                <div class="modal-buttons">--%>
+<%--                    <button class="modal-button" id="confirmButton">확인</button>--%>
+<%--                    <button class="modal-button cancel" id="cancelButton">취소</button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+
 
 
     <%@ include file="/WEB-INF/views/global/footer.jsp" %>
 </div>
 <%--</div>--%>
+
+
+
 </body>
 <script src="/resources/js/admin/admin.js"></script>
 

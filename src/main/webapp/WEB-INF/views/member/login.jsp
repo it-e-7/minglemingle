@@ -21,9 +21,9 @@
 
     <div class="member-container">
 
-        <form action="processLogin" method="post">
+        <form class="member-form" action="processLogin" method="post">
             <h1>로그인</h1>
-            <hr/>
+            <hr class="member-hr"/>
 
             <label class="form-label" for="email">이메일</label>
             <input class="member-input" type="email" id="email" name="email" required/>

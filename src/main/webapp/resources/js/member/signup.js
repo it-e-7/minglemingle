@@ -130,7 +130,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$('form').submit(function (e) {
+	$('#signup-form').submit(function (e) {
 		e.preventDefault();
 		if (isNicknameValid && isEmailValid && isPasswordValid) {
 			// alert('true');
