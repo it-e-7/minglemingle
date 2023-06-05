@@ -54,7 +54,9 @@
         </selectKey>
     </insert>
 
-    <delete id="deleteOneMessage" parameterType="Message">
-        DELETE FROM MESSAGE WHERE message_id = #{messageId}
-    </delete>
+    <update id="updateOneMessage" parameterType="Message">
+        UPDATE message
+        set content = #{content}
+        WHERE message_id = #{messageId}
+    </update>
 </mapper>

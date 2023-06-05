@@ -11,5 +11,5 @@ public interface MessageMapper {
     MessageDTO selectOneMessageByMessageId(@NonNull MessageDTO messageDTO);
     List<MessageDTO> selectMessageListAfterMessageId(@NonNull MessageDTO messageDTO);
     int insertOneMessage(@NonNull MessageDTO messageDTO);
-    int deleteOneMessage(@NonNull MessageDTO messageDTO);
+    int updateOneMessage(@NonNull MessageDTO messageDTO);
 }

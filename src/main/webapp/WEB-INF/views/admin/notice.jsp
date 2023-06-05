@@ -13,7 +13,7 @@
 <style>
     @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
     @import url("${pageContext.request.contextPath}/resources/css/global/modal.css");
-    @import url("${pageContext.request.contextPath}/resources/css/admin/admin.css");
+    @import url("${pageContext.request.contextPath}/resources/css/report/notice.css");
 
 </style>
 <script
@@ -25,9 +25,10 @@
 <%@ include file="/WEB-INF/views/global/adminHeader.jsp" %>
 <div id="confirmation-modal" class="modal">
     <div class="modal-content">
-        <p>다음 공지글을 게시하겠습니까?</p>
+        <p>다음 공지글을 게시하겠습니까?</p><br>
         <p id="notice-text-preview"></p>
-        <ul id="notice-category-preview"></ul>
+        <hr>
+        <div id="notice-category-preview"></div>
         <div class="modal-buttons">
             <button id="confirm-cancel-btn" class="modal-button" type="button">취소</button>
             <button id="confirm-accept-btn" class="modal-button" type="button">확인</button>

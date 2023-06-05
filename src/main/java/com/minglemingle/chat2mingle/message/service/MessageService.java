@@ -69,6 +69,6 @@ public interface MessageService {
      * @return 삭제된 메시지의 ID. 삭제에 실패한 경우 -1을 반환합니다.
      * @throws NullPointerException MessageDTO가 null일 경우
      */
-    Integer deleteMessageSent(@NonNull MessageDTO messageDTO);
+    Integer updateMessageSent(@NonNull MessageDTO messageDTO);
 
 }

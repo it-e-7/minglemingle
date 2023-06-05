@@ -1,0 +1,77 @@
+
+#report-detail {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-row > td {
+    flex: 1;
+    border-top: 1px solid #ccc;
+    padding: 1.2rem 0.5rem;
+}
+
+.table-row > td:nth-child(2) {
+    flex: 3;
+}
+
+.button {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    padding: 5px;
+    width: 100%;
+}
+
+.checkbox {
+    margin-left: 10px;
+}
+
+#table-head {
+    border-top: none;
+    font-weight: bold;
+}
+
+.table-label {
+    display: flex;
+    justify-content: start;
+}
+
+.btn-container {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* padding-bottom: 20px; */
+}
+
+.report-btn {
+    margin: 0.5rem;
+    padding: 0.7em 2rem;
+    background-color: #999999;
+    border: none;
+    color: white;
+
+}
+
+#report-detail-cancel-link {
+     text-decoration: none;
+     color: white;
+
+ }
