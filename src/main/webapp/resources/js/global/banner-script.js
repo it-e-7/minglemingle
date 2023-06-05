@@ -37,3 +37,9 @@ function hideLeftBarLuxury() {
   const leftbar = document.querySelector('.top-nav-area2 .in-depth-area.type-category .in-cate-area.luxury');
   leftbar.style.display = 'none';
 }
+
+function openChatWindow(url, width, height) {
+    var left = (window.innerWidth - width);
+    var top = (window.innerHeight - height) / 2;
+    window.open(url, '', 'width=' + 500 + ', height=' + window.innerHeight + ', left=' + 500 + ', top=' + 500);
+}
