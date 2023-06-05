@@ -1,4 +1,4 @@
-const options = { hour: 'numeric', minute: 'numeric' };
+const options = {hour: 'numeric', minute: 'numeric'};
 
 let documentSelector;
 let sock;
@@ -12,6 +12,8 @@ let sendBtn;
 let nickname;
 let channel;
 let accountType;
+let noticeContainer;
+let removeNoticeBtn;
 
 let seeMoreModal;
 let chatModalBackdrop;
@@ -79,12 +81,13 @@ async function loadMessages(messageId) {
 async function getMessages(messageId) {
     return await $.ajax({
         type: 'GET',
-        url: '/message?messageId='+messageId + '&channel=' + channel,
+        url: '/message?messageId=' + messageId + '&channel=' + channel,
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
+            console.log(data)
             return data;
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert('에러')
             console.log(error)
             return error;
@@ -94,7 +97,7 @@ async function getMessages(messageId) {
 
 function assignEventListeners() {
     // 마우스 휠을 움직이거나, 스크롤을 움직일 경우 메시지를 불러오고 위치조정
-    chatBoxWrap.on('wheel scroll', async function(event) {
+    chatBoxWrap.on('wheel scroll', async function (event) {
         let previousY = $(this).data('previousScrollY') || 0;
         let currentY = $(this).scrollTop()
 
@@ -108,7 +111,7 @@ function assignEventListeners() {
     });
 
     // 메시지 inputBox 활성화, 비활성화
-    messageInputBox.on('input change', function() {
+    messageInputBox.on('input change', function () {
         if ($(this).val() === "") {
             setDisabled(sendBtn, true);
         } else {
@@ -180,9 +183,13 @@ function handleMessageReceived(data) {
     }
     // 10이면 공지 띄워주기
     else if (data.messageType === 10) {
-        showNoticeBox(data)
-    }
-    else if (data.messageType === 99) {
+        console.log("공지입니다. " + data.content);
+        noticeContainer.empty()
+        noticeContainer.append(makeNoticeBox(data))
+        $('#remove-notice-btn').click(() => {
+            noticeContainer.empty();
+        })
+    } else if (data.messageType === 99) {
         // 99이면 시스템 메시지
         let [command, messageId] = parseSystemMessage(data.content);
         runSystemCommand(command, messageId);
@@ -199,8 +206,7 @@ function parseSystemMessage(content) {
 function runSystemCommand(command, messageId) {
     if (command === "delete") {
         deleteMessage(messageId)
-    }
-    else {
+    } else {
         console.log("Unknown System Message Command: " + command + ", messageId: " + messageId);
     }
 }
@@ -259,6 +265,7 @@ function makeMessageBoxListHTML(data) {
                 sentAt="${formatDateForMessage(data.sentAt)}"/>`
 
 }
+
 function makeChatHeaderHTML(title, visitCount) {
     return `<chat-header title="${title}" visit-count="${visitCount}"/>`
 }
@@ -290,3 +297,9 @@ function hideModal() {
     // // Remove event listener for clicking outside the modal
     // chatModalBackdrop.removeEventListener('click', hideModal);
 }
+
+function makeNoticeBox(data) {
+    return `<notice-box content="${data.content}"/>`
+}
+
+

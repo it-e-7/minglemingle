@@ -62,7 +62,7 @@ $('#notice-form').on('submit', function(e) {
                 previewText = field.value
             } else {
                 if (field.name=="all"){continue;}
-                previewCategories += '<li>' + categoryToPreviewDict[field.value] + '</li>';
+                previewCategories += '<p>' + categoryToPreviewDict[field.value] + '</p>';
             }
         }
         $('#notice-text-preview').html(previewText)

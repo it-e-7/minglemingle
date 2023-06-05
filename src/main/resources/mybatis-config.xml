@@ -17,6 +17,7 @@
 		<typeAlias alias="Product" type="com.minglemingle.chat2mingle.product.vo.ProductVO" />
 		<typeAlias alias="Report" type="com.minglemingle.chat2mingle.report.vo.ReportVO" />
 		<typeAlias alias="ReportDetail" type="com.minglemingle.chat2mingle.report.vo.ReportDetailVO" />
+		<typeAlias alias="ReportStatistic" type="com.minglemingle.chat2mingle.report.vo.ReportStatisticVO" />
 	</typeAliases>
 
 </configuration>
