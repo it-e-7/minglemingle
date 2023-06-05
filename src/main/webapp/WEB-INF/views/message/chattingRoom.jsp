@@ -22,8 +22,7 @@
 
 
 <div id="chatContainer" class="flex flex-col items-center justify-center w-screen min-h-screen text-gray-800 pb-3 px-1">
-     class="flex flex-col items-center justify-center w-screen min-h-screen text-gray-800 pb-3 px-1">
-    <div id="notice-box-container" class="w-screen">
+    <div id="noticeBoxContainer" class="w-screen">
     </div>
     <div class="flex flex-col flex-grow w-full max-w-xl bg-white rounded-b-lg overflow-hidden">
         <div id="chatBoxWrap" class="flex flex-col flex-grow h-0 p-4 overflow-auto">
@@ -80,7 +79,7 @@
         chatBox = $('#chatBox')
         chatBoxWrap = $("#chatBoxWrap")
         messageInputBox = $("#messageInputBox");
-        noticeContainer = $('#notice-box-container');
+        noticeBoxContainer = $('#noticeBoxContainer');
         sendBtn = $("#sendBtn")
         seeMoreModal = $("#seeMoreModal")
         chatModalBackdrop = $("#chatModalBackdrop")

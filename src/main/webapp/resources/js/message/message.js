@@ -12,7 +12,7 @@ let sendBtn;
 let nickname;
 let channel;
 let accountType;
-let noticeContainer;
+let noticeBoxContainer;
 let removeNoticeBtn;
 
 let seeMoreModal;
@@ -184,10 +184,10 @@ function handleMessageReceived(data) {
     // 10이면 공지 띄워주기
     else if (data.messageType === 10) {
         console.log("공지입니다. " + data.content);
-        noticeContainer.empty()
-        noticeContainer.append(makeNoticeBox(data))
+        noticeBoxContainer.empty()
+        noticeBoxContainer.append(makeNoticeBox(data))
         $('#remove-notice-btn').click(() => {
-            noticeContainer.empty();
+            noticeBoxContainer.empty();
         })
     } else if (data.messageType === 99) {
         // 99이면 시스템 메시지
