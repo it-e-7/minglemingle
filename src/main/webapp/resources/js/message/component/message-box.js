@@ -26,17 +26,28 @@ class MessageBox extends HTMLElement {
         let timeHTML = `<span class="text-xxs text-gray-500 leading-none self-end mb-1 whitespace-nowrap">${sentAt}</span>`
         let nicknameHTML = `<p class="text-xs pb-1">${nickname}</p>`
 
+        let backGroundHTML;
+        if (isMyMessage) {
+            backGroundHTML = 'bg-hyundai-600 text-white';
+        }
+        else {
+            backGroundHTML = 'bg-gray-100';
+        }
+
+        if (messageType === 5){
+            backGroundHTML = 'bg-purple-500 text-white font-bold';
+        }
         this.innerHTML = `
-                <div class="flex w-full mt-2 max-w-sm mb-3 ${isMyMessage ? 'ml-auto justify-end' : ''}">
-                    ${isMyMessage ? timeHTML : profileHTML}
-                    <div class="${isMyMessage ? 'ml-1' : 'mr-1'}">
-                        ${isMyMessage ? '' : nicknameHTML}
-                        <div class="p-2 ${isMyMessage ? 'bg-hyundai-600 text-white rounded-l-lg rounded-br-lg' : 'bg-gray-100 rounded-r-lg rounded-bl-lg'}">
-                            <p class="text-sm">${messageType === 50 ? '😮' : ''} ${content}</p>
-                        </div>
+            <div class="flex w-full mt-2 max-w-sm mb-3 ${isMyMessage ? 'ml-auto justify-end' : ''}">
+                ${isMyMessage ? timeHTML : profileHTML}
+                <div class="${isMyMessage ? 'ml-1' : 'mr-1'}">
+                    ${isMyMessage ? '' : nicknameHTML}
+                    <div class="p-2 ${backGroundHTML} ${isMyMessage ? 'rounded-l-lg rounded-br-lg' : 'rounded-r-lg rounded-bl-lg'}">
+                        <p class="text-sm">${content}</p>
                     </div>
-                    ${isMyMessage ? '' : timeHTML}
-                </div>`
+                </div>
+                ${isMyMessage ? '' : timeHTML}
+            </div>`
     }
 }
 
