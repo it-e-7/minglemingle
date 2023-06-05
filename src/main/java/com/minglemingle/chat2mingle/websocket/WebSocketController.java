@@ -1,5 +1,6 @@
 package com.minglemingle.chat2mingle.websocket;
 
+import com.minglemingle.chat2mingle.auth.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/chat")
 public class WebSocketController {
     @GetMapping("")
+    @Auth(status = Auth.Status.CHATUSER)
+//    @Auth(role=Auth.Role.ADMIN)
     public String chattingRoom(@RequestParam String nickname,
                                @RequestParam Integer channel,
                                @RequestParam Integer accountType,

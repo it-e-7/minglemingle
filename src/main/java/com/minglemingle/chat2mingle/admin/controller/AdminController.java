@@ -107,12 +107,16 @@ public class AdminController {
 
         if (accountPunishmentList != null) {
             String suspendType = accountPunishmentList.get(0);
-            MemberVO memberVO = new MemberVO(null, reportDetailVO.getReporteeNickname(), null, null, 0, null, 11);
+            MemberVO memberVO = new MemberVO(null, reportDetailVO.getReporteeNickname(), null, null, 0, null, 0);
+            boolean result;
             switch (suspendType) {
                 case "no-stop":
                 case "chatting-stop":
+                    memberVO.setAccountStatus(10);
+                     result = memberService.changeAccountStatus(memberVO);
                 case "login-stop":
-                    boolean result = memberService.changeAccountStatus(memberVO);
+                    memberVO.setAccountStatus(11);
+                    result = memberService.changeAccountStatus(memberVO);
                 default:
             }
         }

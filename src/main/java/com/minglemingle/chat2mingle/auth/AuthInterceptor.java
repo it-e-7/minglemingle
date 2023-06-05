@@ -38,6 +38,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         MemberVO sessionMember = (MemberVO) session.getAttribute("member");
         MemberVO registeredMember = service.loginService(sessionMember);
         int accountType = registeredMember.getAccountType();
+        int accountStatus = registeredMember.getAccountStatus();
         String role = auth.role().toString();
 
         if(Objects.isNull(registeredMember)) {
@@ -46,9 +47,18 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
         if (accountType==99 && "ADMIN".equals(role)) {
             return true;
-        } else if (accountType==1 && "USER".equals(role)){
+        } else if (accountType==1 && accountStatus==1 && "USER".equals(role)){
             return true;
+        } else {
+            String status = auth.status().toString();
+            if(accountStatus==10 && "CHATUSER".equals(status)){
+                System.out.println("Inside chat auth");
+                response.sendRedirect("/global/invalidApproach.jsp");
+//                response.sendRedirect("redirect:/global/invalidApproach");
+                return false;
+            }
         }
+
         response.sendRedirect("/product/home");
         return false;
 

@@ -12,8 +12,8 @@ import java.lang.annotation.RetentionPolicy;
 public @interface Auth {
 
     public enum Role { ADMIN, VIP, USER }
-
+    public enum Status { CHATUSER, SUSPENDED}
     public Role role() default Role.USER;
-
+    public Status status() default Status.CHATUSER;
 
 }
