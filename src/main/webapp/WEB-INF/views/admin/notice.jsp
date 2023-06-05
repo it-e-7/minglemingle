@@ -43,7 +43,7 @@
         </div>
         <div class="notice-container">
             <h3 class="notice-h3"><label for="text-input">공지</label></h3>
-            <textarea id="text-input" rows="5" required="true" autofocus="true" maxlength="255"
+            <textarea id="text-input" rows="5" required="true" autofocus="true" maxlength="100"
                       name="textInput"></textarea>
         </div>
 
