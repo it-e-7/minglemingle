@@ -63,27 +63,27 @@
 }
 
 /* Firefox */
-#chatBox-wrap {
+#chatBoxWrap {
     scrollbar-width: thin;
     scrollbar-color: transparent;
 }
 /* Chrome, Edge, and Safari */
-#chatBox-wrap::-webkit-scrollbar {
+#chatBoxWrap::-webkit-scrollbar {
     width: 6px;
 }
 
-#chatBox-wrap::-webkit-scrollbar-track {
+#chatBoxWrap::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 5px;
 }
 
-#chatBox-wrap::-webkit-scrollbar-thumb {
+#chatBoxWrap::-webkit-scrollbar-thumb {
     background-color: #656565;
     border-radius: 5px;
 }
 
 /* modal*/
-#modalBackdrop {
+#chatModalBackdrop {
     display: none;
     position: fixed;
     z-index: 9998;

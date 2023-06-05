@@ -1,5 +1,6 @@
 const options = { hour: 'numeric', minute: 'numeric' };
 
+let documentSelector;
 let sock;
 let onLoad;
 
@@ -13,7 +14,7 @@ let channel;
 let accountType;
 
 let seeMoreModal;
-let modalBackdrop;
+let chatModalBackdrop;
 
 async function connectSocket(nickname_param, channel_param, accountType_param) {
     // Socket 연결
@@ -34,20 +35,17 @@ async function connectSocket(nickname_param, channel_param, accountType_param) {
         // Socket이 연결되면
         await loadMessages(); // 처음에 메시지 불러오기
         scrollChatBoxWrapToBottom(); // 불러온 다음 아래로 스크롤
-        assignMessageHandlers() //
+        assignEventListeners() //
 
         sock.onmessage = (datastr => {
             let data = JSON.parse(datastr.data)
             let wasAtBottom = isChatBoxWrapAtBottom()
-
             handleMessageReceived(data);
-
             //스크롤이 밑에 있었다면, 새로운 메시지를 받았을 때 아래로 스크롤을 같이 이동
             if (wasAtBottom || data.nickname === nickname) {
                 scrollChatBoxWrapToBottom();
             }
         });
-
     }
 }
 
@@ -94,7 +92,7 @@ async function getMessages(messageId) {
     })
 }
 
-function assignMessageHandlers() {
+function assignEventListeners() {
     // 마우스 휠을 움직이거나, 스크롤을 움직일 경우 메시지를 불러오고 위치조정
     chatBoxWrap.on('wheel scroll', async function(event) {
         let previousY = $(this).data('previousScrollY') || 0;
@@ -128,6 +126,10 @@ function assignMessageHandlers() {
     sendBtn.click(() => {
         setDisabled(sendBtn, true);
         sendMessage();
+    });
+
+    documentSelector.on("keydown", function(event) {
+        hideModalOnEscape(event);
     });
 }
 
@@ -244,6 +246,10 @@ function getScrollHeight(jSelector) {
     return jSelector.prop("scrollHeight")
 }
 
+function setDisplay(jSelector, value) {
+    jSelector.css("display", value);
+}
+
 function makeMessageBoxListHTML(data) {
     return `<message-box messageid="${data.messageId}"
                 messageType=${data.messageType}
@@ -260,18 +266,27 @@ function makeChatHeaderHTML(title, visitCount) {
 // Function to show the modal and populate the attribute
 function showModal(messageId) {
     console.log("modal with message id: " + messageId)
-    seeMoreModal.style.display = 'block';
-    modalBackdrop.style.display = 'block';
+    setDisplay(seeMoreModal, 'block');
+    setDisplay(chatModalBackdrop, 'block');
 
-    // Add event listener to close modal when clicked outside
-    modalBackdrop.addEventListener('click', hideModal);
+    documentSelector.on("keydown", function(event) {
+        hideModalOnEscape(event);
+    });
+}
+
+function hideModalOnEscape(event) {
+    if (event.key === "Escape") {
+        hideModal();
+    }
 }
 
 // Function to hide the modal
 function hideModal() {
-    seeMoreModal.style.display = 'none';
-    modalBackdrop.style.display = 'none';
-
-    // Remove event listener for clicking outside the modal
-    modalBackdrop.removeEventListener('click', hideModal);
+    setDisplay(seeMoreModal, 'none');
+    setDisplay(chatModalBackdrop, 'none');
+    documentSelector.off("keydown");
+    //
+    // chatModalBackdrop.unbind("keydown");
+    // // Remove event listener for clicking outside the modal
+    // chatModalBackdrop.removeEventListener('click', hideModal);
 }
