@@ -27,7 +27,7 @@ public class ProductController {
     @GetMapping("")
     public String pageForOneProductCategory(@RequestParam("category") String productCategory, Model model) {
         ProductVO productVO = new ProductVO(null, null, null, Integer.parseInt(productCategory), 0, null);
-        List<ProductVO> result = productService.getProductList(productVO);
+        List<ProductVO> result = productService.getProductListByCategory(productVO);
         model.addAttribute("productList", result);
         return "product/category";
     }
