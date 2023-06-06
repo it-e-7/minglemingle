@@ -16,6 +16,7 @@
 <div class="product-detail-wrap wrap">
     <div class="brand-crumb">
     </div>
+	<div><button onclick="sendLinkToChatWindow()">테스트버튼입니돠와와와</button></div>
     <div class="prd-info">
     					<div class="prd-info-box left">
 
@@ -123,6 +124,8 @@
 </div>
 <h3>${productDetail}</h3>
   <%-- 푸터 포함 --%>
+
 <%@ include file="/WEB-INF/views/global/footer.jsp" %>
+
 </body>
 </html>

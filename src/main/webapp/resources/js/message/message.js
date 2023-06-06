@@ -1,4 +1,5 @@
 const options = {hour: 'numeric', minute: 'numeric'};
+const urlPattern = /^(?:\w+:)?\/\/([^\s.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
 
 let documentSelector;
 let sock;
@@ -17,6 +18,7 @@ let removeNoticeBtn;
 
 let seeMoreModal;
 let chatModalBackdrop;
+
 
 async function connectSocket(nickname_param, channel_param, accountType_param) {
     // Socket 연결
@@ -122,18 +124,22 @@ function assignEventListeners() {
     messageInputBox.keyup(e => {
         if (e.keyCode === 13 && messageInputBox.val() !== "") {
             setDisabled(sendBtn, true);
-            sendMessage();
+            sendChatMessage();
         }
     });
 
     sendBtn.click(() => {
         setDisabled(sendBtn, true);
-        sendMessage();
+        sendChatMessage();
     });
 
     documentSelector.on("keydown", function(event) {
-        hideModalOnEscape(event);
+        hideSeeMoreModalOnEscape(event);
     });
+
+    chatModalBackdrop.click(() => {
+        hideSeeMoreModal();
+    })
 }
 
 // Option에 기반해서 message 시간 포멧팅
@@ -205,14 +211,15 @@ function parseSystemMessage(content) {
 // 시스템 메시지 커맨드 실행
 function runSystemCommand(command, messageId) {
     if (command === "delete") {
-        deleteMessage(messageId)
+        // deleteMessage(messageId)
+        makeMessageBoxBlind(messageId);
     } else {
         console.log("Unknown System Message Command: " + command + ", messageId: " + messageId);
     }
 }
 
 // 메시지 전송 함수
-function sendMessage() {
+function sendChatMessage() {
     let content = messageInputBox.val()
     sock.send(
         JSON.stringify({
@@ -222,7 +229,7 @@ function sendMessage() {
             channel: channel
         })
     );
-    messageInputBox.val("");
+    setInputVal(messageInputBox, "");
 }
 
 // 가장 위에 있는 메시지ID 반환
@@ -240,6 +247,15 @@ function lockLoad(state) {
     onLoad = state;
 }
 
+function makeMessageBoxBlind(messageId) {
+    let targetMessageBox = chatBox.find(`message-box[messageid=${messageId}]`);
+    setMessageBoxAttributeToBlind(targetMessageBox);
+}
+
+function setMessageBoxAttributeToBlind(messageBox) {
+    messageBox.attr('content', '블라인드처리된 메시지입니다.');
+    messageBox.attr('showimagepreview', false);
+}
 function setDisabled(jSelector, state) {
     jSelector.prop("disabled", state);
 }
@@ -256,14 +272,18 @@ function setDisplay(jSelector, value) {
     jSelector.css("display", value);
 }
 
+function setInputVal(jSelector, value){
+    jSelector.val(value);
+}
+
 function makeMessageBoxListHTML(data) {
     return `<message-box messageid="${data.messageId}"
                 messageType=${data.messageType}
                 isMyMessage="${(nickname === data.nickname)}" 
                 content="${data.content}"
                 nickname="${data.nickname}"
-                sentAt="${formatDateForMessage(data.sentAt)}"/>`
-
+                sentAt="${formatDateForMessage(data.sentAt)}"
+                showImagePreview="${isUrl(data.content)}"/>`
 }
 
 function makeChatHeaderHTML(title, visitCount) {
@@ -271,35 +291,33 @@ function makeChatHeaderHTML(title, visitCount) {
 }
 
 // Function to show the modal and populate the attribute
-function showModal(messageId) {
+function showSeeMoreModal(messageId) {
     console.log("modal with message id: " + messageId)
     setDisplay(seeMoreModal, 'block');
     setDisplay(chatModalBackdrop, 'block');
 
     documentSelector.on("keydown", function(event) {
-        hideModalOnEscape(event);
+        hideSeeMoreModalOnEscape(event);
     });
 }
 
-function hideModalOnEscape(event) {
+function hideSeeMoreModalOnEscape(event) {
     if (event.key === "Escape") {
-        hideModal();
+        hideSeeMoreModal();
     }
 }
 
 // Function to hide the modal
-function hideModal() {
+function hideSeeMoreModal() {
     setDisplay(seeMoreModal, 'none');
     setDisplay(chatModalBackdrop, 'none');
     documentSelector.off("keydown");
-    //
-    // chatModalBackdrop.unbind("keydown");
-    // // Remove event listener for clicking outside the modal
-    // chatModalBackdrop.removeEventListener('click', hideModal);
 }
 
 function makeNoticeBox(data) {
     return `<notice-box content="${data.content}"/>`
 }
 
-
+function isUrl(url) {
+    return urlPattern.test(url);
+}
