@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/chat")
 public class WebSocketController {
     @GetMapping("")
-    @Auth(status = Auth.Status.CHATUSER)
-//    @Auth(role=Auth.Role.ADMIN)
+    @Auth(status = Auth.AccountStatus.ALLOWED_TO_CHAT)
     public String chattingRoom(@RequestParam String nickname,
                                @RequestParam Integer channel,
                                @RequestParam Integer accountType,
