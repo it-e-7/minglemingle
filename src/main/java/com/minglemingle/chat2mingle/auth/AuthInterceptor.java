@@ -38,17 +38,25 @@ public class AuthInterceptor implements HandlerInterceptor {
         MemberVO sessionMember = (MemberVO) session.getAttribute("member");
         MemberVO registeredMember = service.loginService(sessionMember);
         int accountType = registeredMember.getAccountType();
-        String role = auth.role().toString();
+        int accountStatus = registeredMember.getAccountStatus();
+        String authRole = auth.role().toString();
 
         if(Objects.isNull(registeredMember)) {
             response.sendRedirect("/member/login");
             return false;
         }
-        if (accountType==99 && "ADMIN".equals(role)) {
+        if (accountType==99 && "ADMIN".equals(authRole)) {
             return true;
-        } else if (accountType==1 && "USER".equals(role)){
+        } else if (accountType==1 && accountStatus==1 && "USER".equals(authRole)){
             return true;
+        } else if (accountType==1 && accountStatus==10) {
+            String authAccountStatus = auth.status().toString();
+            if("ALLOWED_TO_CHAT".equals(authAccountStatus)){
+                response.sendRedirect("/resources/html/global/invalidApproach.html");
+                return false;
+            }
         }
+
         response.sendRedirect("/product/home");
         return false;
 

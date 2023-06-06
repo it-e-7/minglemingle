@@ -11,9 +11,9 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Auth {
 
-    public enum Role { ADMIN, VIP, USER }
-
+    public enum Role { ADMIN, USER }
+    public enum AccountStatus { ALLOWED_TO_CHAT }
     public Role role() default Role.USER;
-
+    public AccountStatus status() default AccountStatus.ALLOWED_TO_CHAT;
 
 }
