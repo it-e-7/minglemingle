@@ -4,7 +4,6 @@ import com.minglemingle.chat2mingle.product.service.ProductService;
 import com.minglemingle.chat2mingle.product.vo.ProductVO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,8 +42,8 @@ public class WishlistController {
         return ResponseEntity.ok(true);
     }
 
-    @GetMapping("mywishlist")
+    @GetMapping("myWishlist")
     public String pageWishList() {
-        return "wishlist/mywishlist";
+        return "wishlist/myWishlist";
     }
 }
