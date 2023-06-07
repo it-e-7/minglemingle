@@ -30,6 +30,7 @@ function initializeSelectors() {
     sendBtn = $("#sendBtn")
     seeMoreModal = $("#seeMoreModal")
     chatModalBackdrop = $("#chatModalBackdrop")
+    reportBtn = $("#report-message-btn")
 }
 
 async function connectSocket(nickname_param, channel_param, accountType_param) {
