@@ -58,6 +58,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         if (member.getAccountType() == 99) {
             response.sendRedirect("/admin/notice");
+            return false;
         }
         return true;
 

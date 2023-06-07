@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -16,21 +15,12 @@ import java.util.stream.Collectors;
 public class WishlistVO {
     private String wishlistId;
     private String memberNickname;
-    private List<String> productCodeList;
-    private List<ProductVO> productVOList;
+    private String productCodeString;
+    private List<ProductVO> productList;
 
-    public String getProductCodeList() {
-        if (productCodeList == null) return null;
-        return String.join(",", productCodeList);
-    }
     public List<String> getProductCodeList(boolean toList) {
-        return productCodeList;
-    }
-    public void setProductCodeList(String productCodesString) {
-        if (productCodesString == null) return;
-        this.productCodeList = new ArrayList<String>(Arrays.asList(productCodesString.split(",")));
+        if (productCodeString == null) return new ArrayList<>();
+        return new ArrayList<>(Arrays.asList(productCodeString.split(",")));
     }
 
-    public void productVOList(ArrayList<Object> objects) {
-    }
 }

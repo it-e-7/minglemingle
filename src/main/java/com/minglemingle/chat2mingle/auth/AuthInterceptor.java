@@ -2,6 +2,7 @@ package com.minglemingle.chat2mingle.auth;
 
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
+import com.minglemingle.chat2mingle.util.SystemConst;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -45,13 +46,15 @@ public class AuthInterceptor implements HandlerInterceptor {
             response.sendRedirect("/member/login");
             return false;
         }
-        if (accountType==99 && "ADMIN".equals(authRole)) {
+        if (accountType == SystemConst.ACCOUNT_TYPE_ADMIN && "ADMIN".equals(authRole)) {
             return true;
-        } else if (accountType==1 && accountStatus==1 && "USER".equals(authRole)){
+        }
+
+        if (accountType <= 10 && accountStatus == SystemConst.ACCOUNT_STATUS_STANDARD){
             return true;
-        } else if (accountType==1 && accountStatus==10) {
+        } else if (accountType <= 10 && accountStatus == SystemConst.ACCOUNT_STATUS_CHAT_SUSPENDED) {
             String authAccountStatus = auth.status().toString();
-            if("ALLOWED_TO_CHAT".equals(authAccountStatus)){
+            if("NEED_PERMISSION_TO_CHAT".equals(authAccountStatus)){
                 response.sendRedirect("/resources/html/global/invalidApproach.html");
                 return false;
             }

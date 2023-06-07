@@ -6,17 +6,17 @@
     <select id="selectWishlistById" parameterType="Wishlist" resultType="Wishlist">
         SELECT wishlist_id,
                member_nickname,
-               product_code_list
+               product_code_list AS productCodeString
         FROM wishlist
         WHERE wishlist_id = #{wishlistId}
     </select>
 
     <update id="upsertWishlist" parameterType="Wishlist">
         MERGE INTO wishlist w
-        USING (SELECT #{memberNickname} member_nickname, #{productCodeList} product_code_list from dual) s
+        USING (SELECT #{memberNickname} member_nickname, #{productCodeString} product_code_list, #{wishlistId} wishlist_id from dual) s
         ON (w.member_nickname = s.member_nickname)
         WHEN MATCHED THEN UPDATE SET w.product_code_list = s.product_code_list
-        WHEN NOT MATCHED THEN INSERT (member_nickname, product_code_list) VALUES (s.member_nickname, s.product_code_list)
+        WHEN NOT MATCHED THEN INSERT (wishlist_id, member_nickname, product_code_list) VALUES (s.wishlist_id, s.member_nickname, s.product_code_list)
     </update>
 
 </mapper>

@@ -17,7 +17,7 @@ public class WebSocketController {
 
     private final WebSocketVisitor webSocketVisitor;
     @GetMapping("")
-    @Auth(status = Auth.AccountStatus.ALLOWED_TO_CHAT)
+    @Auth(status = Auth.AccountStatus.NEED_PERMISSION_TO_CHAT)
     public String chattingRoom(@RequestParam String nickname,
                                @RequestParam Integer channel,
                                @RequestParam Integer accountType,
