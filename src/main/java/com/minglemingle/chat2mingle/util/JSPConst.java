@@ -1,38 +1,25 @@
 package com.minglemingle.chat2mingle.util;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * JSP 상수를 정의한 클래스
  * 페이지의 콘텐츠 유형과 JSTL 태그 라이브러리에 대한 상수를 포함합니다.
  * @version : 1.0.0
  * @author : noino
- * @see : PAGE_CONTENT_TYPE UTF8을 지원합니다
- * @see : JSTL_C JSTL라이브러를 지원합니다
  */
 public class JSPConst {
-    public static final String PAGE_CONTENT_TYPE = "text/html; charset=UTF-8";
-    public static final String PAGE_CHARACTER_ENCODING = "UTF-8";
-    public static final String JSTL_C = "<%@ taglib uri=\"http://java.sun.com/jsp/jstl/core\" prefix=\"c\"%>";
     public static final HashMap <String, String> CATEGORY_TITLES;
-    public static final List<String> keys;
+    public static final List<String> CATEGORY_KEYS;
+
+    public static String getCatagorySubtitleByChannel(Integer channel) {
+        return CATEGORY_TITLES.get(CATEGORY_KEYS.get(channel-1));
+    }
 
     static {
-        keys = new ArrayList<>();
-        keys.add("화장품");
-        keys.add("명품잡화");
-        keys.add("여성패션");
-        keys.add("영캐주얼");
-        keys.add("남성패션");
-        keys.add("진/이지");
-        keys.add("유아동/문화");
-        keys.add("스포츠/레저");
-        keys.add("리빙/가전");
-        keys.add("식품");
-        keys.add("반려동물");
+        CATEGORY_KEYS = new ArrayList<>(
+                Arrays.asList("화장품", "명품잡화", "여성패션", "영캐주얼", "남성패션", "진/이지", "유아동/문화", "스포츠/레저", "리빙/가전", "식품", "반려동물")
+        );
 
         CATEGORY_TITLES = new LinkedHashMap<>();
         CATEGORY_TITLES.put("화장품", "화장품 브랜드 유아른을 아시나요?");
