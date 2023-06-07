@@ -76,8 +76,9 @@ function scrollChatBoxWrapToBottom() {
 
 }
 
-function deleteMessage(messageId) {
-    console.log("deleting: " + messageId)
+function handleImageError(img) {
+    img.onerror = null;  // Remove the onerror event handler to avoid infinite loops
+    img.style.display = "none";  // Hide the image
 }
 
 function hasReachedLoadThreshold() {

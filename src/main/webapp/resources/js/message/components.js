@@ -36,8 +36,8 @@ class MessageBox extends HTMLElement {
                                 </div>
                             </div>`
 
-        let timeHTML = `<div class="flex text-xxs text-gray-500 leading-none self-end whitespace-nowrap w-10"> 
-                            <span class="sent-at-wrapper ${isMyMessage ? '' : 'others-message'} w-10">
+        let timeHTML = `<div class="flex text-xxs text-gray-500 leading-none self-end whitespace-nowrap w-12"> 
+                            <span class="sent-at-wrapper ${isMyMessage ? '' : 'others-message'} w-12">
                               ${sentAt}
                             </span>
                             ${isMyMessage ? '' : menuDotsHTML}
@@ -49,11 +49,12 @@ class MessageBox extends HTMLElement {
         let contentHTML;
 
         if (showImagePreview) {
-            imageHTML = `<img class="m-2 w-36" src="http://ryulrudaga.com:48000/api/image/first?url=${content}"/>`
-            contentHTML = `<a href="${content}">${content}</a>`
+            let productCode = content.split("/").pop();
+            imageHTML = `<img class="m-2 w-36" src="http://ryulrudaga.com:48000/api/mingle/file/${productCode}.jpg" onerror="this.style.display='none';""/>`
+            contentHTML = `<a class="break-all" href="${content}">${content}</a>`
         }
         else {
-            contentHTML = `<p>${content}</p>`;
+            contentHTML = `<p class="break-all" >${content}</p>`;
         }
 
 
