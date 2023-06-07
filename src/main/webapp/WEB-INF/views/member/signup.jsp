@@ -11,11 +11,7 @@
     @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
     @import url("${pageContext.request.contextPath}/resources/css/member/member.css");
 </style>
-<script
-        src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-        crossorigin="anonymous"
-></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/global/jquery-3.6.4.min.js"></script>
 <body>
 <div class="member">
     <div class="logo">

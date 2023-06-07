@@ -19,11 +19,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.6.4.min.js"
-            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-            crossorigin="anonymous"
-    ></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/global/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 
@@ -39,7 +35,7 @@
         </div>
         <div class="p-1 border-t-1">
             <input id="messageInputBox" class="flex items-center h-10 w-full rounded px-3 text-sm" type="text"
-                   placeholder="${nickname}(으)로 메시지 작성">
+                   placeholder="${member.nickname}(으)로 메시지 작성">
         </div>
         <div class="p-2 flex">
             <div class="flex ">
@@ -67,14 +63,10 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/js/message/component/message-box.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/js/message/component/notice-box.js"></script>
+        src="${pageContext.request.contextPath}/resources/js/message/components.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/message.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/js/message/component/chat-header.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/global/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
 
     $(document).ready(async function() {

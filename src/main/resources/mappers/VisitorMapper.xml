@@ -9,7 +9,7 @@
         <![CDATA[
     MERGE INTO visitor
     USING dual
-    ON (nickname = #{nickname})
+    ON (nickname = #{nickname} AND channel = #{channel})
     WHEN MATCHED THEN
       UPDATE SET visit_time = SYSTIMESTAMP
     WHEN NOT MATCHED THEN

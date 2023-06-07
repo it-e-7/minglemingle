@@ -30,7 +30,7 @@
         <br>
 
 <c:forEach var="category" items="${JSPConst.CATEGORY_TITLES}" varStatus="status">
-    <a href="/chat?channel=${status.index+1}&nickname=${member.nickname}&accountType=${member.accountType}">
+    <a href="/chat?channel=${status.index+1}">
             <div class="${status.index % 2 != 1 ? 'even-class' : 'bg-white'} bg-stone-100 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-screen w-full max-w-xl">
                   <div class="flex flex-wrap items-center mx-auto max-w-xl">
                     <div>

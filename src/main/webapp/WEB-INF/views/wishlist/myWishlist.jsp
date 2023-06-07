@@ -17,11 +17,7 @@
         @import url("${pageContext.request.contextPath}/resources/css/wishlist/wishlist.css");
     </style>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/global/clipboard.css">
-    <script
-            src="https://code.jquery.com/jquery-3.6.4.min.js"
-            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-            crossorigin="anonymous"
-    ></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/global/jquery-3.6.4.min.js"></script>
 </head>
 
 <%@ include file="/WEB-INF/views/global/header.jsp" %>
