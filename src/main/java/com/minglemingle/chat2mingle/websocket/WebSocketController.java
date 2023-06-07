@@ -1,8 +1,6 @@
 package com.minglemingle.chat2mingle.websocket;
 import com.minglemingle.chat2mingle.util.JSPConst;
-import lombok.extern.java.Log;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.minglemingle.chat2mingle.auth.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +15,7 @@ import static com.minglemingle.chat2mingle.util.JSPConst.CATEGORY_TITLES;
 @RequestMapping("/chat")
 public class WebSocketController {
     @GetMapping("")
+    @Auth(status = Auth.AccountStatus.ALLOWED_TO_CHAT)
     public String chattingRoom(@RequestParam String nickname,
                                @RequestParam Integer channel,
                                @RequestParam Integer accountType,

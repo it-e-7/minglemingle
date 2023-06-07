@@ -18,14 +18,14 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductVO> getProductList(ProductVO productVO) {
-        List<ProductVO> result = null;
+    public List<ProductVO> getProductListByCategory(ProductVO productVO) {
+        List<ProductVO> result;
         result = mapper.selectAllProductFromCategory(productVO);
         return result;
     }
     @Override
     public ProductVO getProductInfo(ProductVO productVO) {
-        ProductVO result = null;
+        ProductVO result;
         result = mapper.selectOneProductByCode(productVO);
         return result;
     }
