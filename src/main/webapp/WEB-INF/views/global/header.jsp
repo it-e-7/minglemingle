@@ -51,7 +51,7 @@
                             <c:choose>
                                 <c:when test="${member==null}">
                                     <div class="top-con-quick-my">
-                                        <a href="/member/login">로그인/회원</a>
+                                        <a href="/member/login">로그인</a>
                                     </div>
                                 </c:when>
                                 <c:when test="${member!=null}">

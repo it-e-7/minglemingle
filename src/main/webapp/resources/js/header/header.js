@@ -18,7 +18,7 @@ $('#get-wishlist').on('click', function () {
         async: false,
         success: function (data) {
             console.log(data)
-            window.location.href = '/wishlist/mywishlist';
+            window.location.href = '/wishlist/myWishlist';
         },
         error: function (e) {
             console.log(e);

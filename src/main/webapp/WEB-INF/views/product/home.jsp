@@ -260,7 +260,7 @@
                     </li>
                     <li>
 
-                        <a class="btn-to-link" href="/prodcut/40A1139891"
+                        <a class="btn-to-link" href="/product/40A1139891"
                            onclick="javascript:sendGAEvent('선물하기', '상품', '샤넬 루쥬 코코 플래쉬'); itemDetailView('186124','40A1139891', 'N');return false;">
                             <div class="img-box">
                                 <img
