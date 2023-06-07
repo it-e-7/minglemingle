@@ -77,7 +77,7 @@
                         <li class="user-quick-login">
                             <div class="top-con-quick-login">
                                 <a class="chat-text" href="javascript:void(0)"
-                                   onclick="openChatWindow('/chat', 500, 400)">
+                                   onclick="openChatWindow('/chattingList', 500, 400)">
                                     채팅바로이동
                                     <span class="chat-background"></span>
                                 </a>

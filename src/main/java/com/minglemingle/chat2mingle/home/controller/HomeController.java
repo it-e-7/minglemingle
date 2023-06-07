@@ -20,8 +20,8 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "test")
-    public String TestHandler () {
+    @GetMapping(value = "chattingList")
+    public String chattingListHandler () {
         return "message/chattingListRoom";
     }
 
