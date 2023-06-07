@@ -2,6 +2,7 @@ package com.minglemingle.chat2mingle.auth;
 
 import com.minglemingle.chat2mingle.member.service.MemberService;
 import com.minglemingle.chat2mingle.member.vo.MemberVO;
+import com.minglemingle.chat2mingle.util.SystemConst;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,9 +15,6 @@ import java.util.Objects;
 public class AuthInterceptor implements HandlerInterceptor {
 
     private MemberService service;
-    private static final int ADMIN_TYPE=99;
-    private static final int STANDARD_STATUS=1;
-    private static final int CHATTING_SUSPENDED_STATUS=10;
 
     public AuthInterceptor(MemberService service) {
         this.service = service;
@@ -48,13 +46,13 @@ public class AuthInterceptor implements HandlerInterceptor {
             response.sendRedirect("/member/login");
             return false;
         }
-        if (accountType==ADMIN_TYPE && "ADMIN".equals(authRole)) {
+        if (accountType == SystemConst.ACCOUNT_TYPE_ADMIN && "ADMIN".equals(authRole)) {
             return true;
         }
 
-        if (accountType <= 10 && accountStatus==STANDARD_STATUS){
+        if (accountType <= 10 && accountStatus == SystemConst.ACCOUNT_STATUS_STANDARD){
             return true;
-        } else if (accountType <= 10 && accountStatus==CHATTING_SUSPENDED_STATUS) {
+        } else if (accountType <= 10 && accountStatus == SystemConst.ACCOUNT_STATUS_CHAT_SUSPENDED) {
             String authAccountStatus = auth.status().toString();
             if("NEED_PERMISSION_TO_CHAT".equals(authAccountStatus)){
                 response.sendRedirect("/resources/html/global/invalidApproach.html");
