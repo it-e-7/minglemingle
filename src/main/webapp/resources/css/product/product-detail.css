@@ -249,7 +249,6 @@ input:read-only {
 .prd-btn .mainbtn.type1 .type-share-box {
     float: left;
     position: relative;
-    z-index: 10;
     margin-left: 1%;
 }
 

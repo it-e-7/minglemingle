@@ -29,21 +29,15 @@
                     </button>
                 </div>
                 <div class="top-con-search">
-                    <form name="formTopSearchPopup" id="formTopSearchPopup" method="get"
-                          action="https://www.thehyundai.com/front/dpo/hdSearch.thd">
-                        <input type="hidden" name="searchtype" id="js_searchtype">
-                        <input type="hidden" name="searchQuery" autocomplete="off">
-                        <div class="top-con-search-unit">
-                            <input type="text" class="top-con-search-input" maxlength="30"
-                                   id="cs-token-input" value="" onfocus="return dq_setTextbox(0,event);"
-                                   onmousedown="dq_setTextbox(1,event);"
-                                   onkeydown="dq_setTextbox(1,event);" autocomplete="off">
-                            <button type="submit" class="top-con-search-btn"
-                                    onclick="javascript:GA_Event('PC_공통','헤더_검색','검색'); goTopSearch(); return false;">
-                                <span class="blind"></span>
-                            </button>
-                        </div>
-                    </form>
+                    <input type="hidden" name="searchtype" id="js_searchtype">
+                    <input type="hidden" name="searchQuery" autocomplete="off">
+                    <div class="top-con-search-unit">
+                        <input type="text" class="top-con-search-input" maxlength="30"
+                               id="cs-token-input" value="">
+                        <button type="submit" class="top-con-search-btn">
+                            <span class="blind"></span>
+                        </button>
+                    </div>
                 </div>
                 <div class="top-con-quick">
 
@@ -99,48 +93,48 @@
                                         <div class="in-cate-area cosmetic">
                                             <div class="menu">
                                                 <ul>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">스킨케어</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">메이크업</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">바디/헤어케어</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">기능성케어</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">향수/캔들</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">미용기기/용품</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">남성화장품</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">BrandSHOP</li>
+                                                    <li><a >스킨케어</li>
+                                                    <li><a >메이크업</li>
+                                                    <li><a >바디/헤어케어</li>
+                                                    <li><a >기능성케어</li>
+                                                    <li><a >향수/캔들</li>
+                                                    <li><a >미용기기/용품</li>
+                                                    <li><a >남성화장품</li>
+                                                    <li><a >BrandSHOP</li>
                                                 </ul>
                                             </div>
 
                                             <div class="brand">
                                                 <ul>
                                                     <li id="first-child-menu"><a
-                                                            onclick="이동해야하는 세부 탭으로">Other
+                                                            >Other
                                                         Stories</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">BEAUTY</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">Dior</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">아모레퍼시픽</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">SISLEY</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">LOCCITANE</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">CREED</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">Hermès</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">TOM</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">GUCCI</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">LANCOME</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">GUERLAIN</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">GIVENCHY</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">CLARINS</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">LA</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">VALMONT</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">Oera</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">SK-Ⅱ</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">NARS</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">메종</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">리바이리</li>
+                                                    <li><a >BEAUTY</li>
+                                                    <li><a >Dior</li>
+                                                    <li><a >아모레퍼시픽</li>
+                                                    <li><a >SISLEY</li>
+                                                    <li><a >LOCCITANE</li>
+                                                    <li><a >CREED</li>
+                                                    <li><a >Hermès</li>
+                                                    <li><a >TOM</li>
+                                                    <li><a >GUCCI</li>
+                                                    <li><a >LANCOME</li>
+                                                    <li><a >GUERLAIN</li>
+                                                    <li><a >GIVENCHY</li>
+                                                    <li><a >CLARINS</li>
+                                                    <li><a >LA</li>
+                                                    <li><a >VALMONT</li>
+                                                    <li><a >Oera</li>
+                                                    <li><a >SK-Ⅱ</li>
+                                                    <li><a >NARS</li>
+                                                    <li><a >메종</li>
+                                                    <li><a >리바이리</li>
                                                 </ul>
                                             </div>
 
                                             <div class="banner">
                                                 <ul>
-                                                    <li><a onclick="이동해야하는 세부 탭으로"></li>
+                                                    <li><a ></li>
                                                 </ul>
                                             </div>
 
@@ -150,37 +144,37 @@
                                         <div class="in-cate-area luxury">
                                             <div class="menu">
                                                 <ul>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">핸드백/가방</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">슈즈</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">지갑/벨트</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">시계</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">액세서리</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">기타잡화</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">웨딩밴드 전문관</li>
+                                                    <li><a >핸드백/가방</li>
+                                                    <li><a >슈즈</li>
+                                                    <li><a >지갑/벨트</li>
+                                                    <li><a >시계</li>
+                                                    <li><a >액세서리</li>
+                                                    <li><a >기타잡화</li>
+                                                    <li><a >웨딩밴드 전문관</li>
                                                 </ul>
                                             </div>
 
                                             <div class="brand">
                                                 <ul>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">Mansion Margiela
+                                                    <li><a >Mansion Margiela
                                                     </li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">Mullberry</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">JIMMY CHOO</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">GOLDEN GOOSE</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">TUMI</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">MONTBLANC</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">LONGINES</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">LONGCHANP</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">루즈앤라운지</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">덕케</li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">TOTEME</li>
+                                                    <li><a >Mullberry</li>
+                                                    <li><a >JIMMY CHOO</li>
+                                                    <li><a >GOLDEN GOOSE</li>
+                                                    <li><a >TUMI</li>
+                                                    <li><a >MONTBLANC</li>
+                                                    <li><a >LONGINES</li>
+                                                    <li><a >LONGCHANP</li>
+                                                    <li><a >루즈앤라운지</li>
+                                                    <li><a >덕케</li>
+                                                    <li><a >TOTEME</li>
                                     </li>
                                             </ul>
                                             </div>
 
                                             <div class="banner">
                                                 <ul>
-                                                    <li><a onclick="이동해야하는 세부 탭으로"></li>
+                                                    <li><a ></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -195,22 +189,17 @@
                                     <li><a href="#">식품</a></li>
                                     <li><a href="#">반려동물</a></li>
                                 </ul>
-                                <script
-                                        src="${pageContext.request.contextPath}/resources/js/global/banner-script.js"></script>
+                                <script src="${pageContext.request.contextPath}/resources/js/global/banner-script.js"></script>
                         </li>
-                        <li><a href="해당주소로이동" class="nav-gift">Gift</a></li>
-                        <li><a href="해당주소로이동" class="nav-new">New</a></li>
-                        <li><a href="해당주소로이동" class="nav-store">Store In</a></li>
-                        <li><a href="해당주소로이동" class="nav-show">Show-Room</a></li>
-                        <li><a href="해당주소로이동" class="nav-green">Re.Green</a></li>
-                        <li><a href="해당주소로이동" class="nav-event">Event</a></li>
+                        <li><a class="nav-gift">Gift</a></li>
+                        <li><a class="nav-new">New</a></li>
+                        <li><a class="nav-store">Store In</a></li>
+                        <li><a class="nav-show">Show-Room</a></li>
+                        <li><a class="nav-green">Re.Green</a></li>
+                        <li><a class="nav-event">Event</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="sky-left sub" id="leftBanner_skyScrpr"></div>
-            <div class="sky-left main" id="leftBanner_skyScrpr"></div>
-            <div class="sky-right"></div>
-            <div class="theme-flag-box"></div>
         </div>
     </div>
 </header>
