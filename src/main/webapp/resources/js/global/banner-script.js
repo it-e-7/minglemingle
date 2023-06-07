@@ -51,9 +51,3 @@ const openChatWindow = (url) => {
   const params = `status=no,toolbar=no,menubar=no,width=500,height=${window.innerHeight}`;
   chatWindow = window.open(url, 'chatWindow', params);
 };
-
-
-const sendLinkToChatWindow = () => {
-  const sharedMessage = window.location.href;
-  chatWindow.postMessage({sharedMessage: sharedMessage}, '*');
-}
