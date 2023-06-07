@@ -10,4 +10,5 @@ import java.util.List;
 @Mapper
 public interface VisitorMapper {
     int updateOneVisitor(@NonNull VisitorVO visitorVO);
+    int selectAllVisitor(@NonNull Integer channel);
 }

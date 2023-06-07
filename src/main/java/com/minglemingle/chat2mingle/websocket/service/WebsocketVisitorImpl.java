@@ -1,6 +1,5 @@
 package com.minglemingle.chat2mingle.websocket.service;
 import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
-import com.minglemingle.chat2mingle.aspect.transaction.annotation.Transactional;
 import com.minglemingle.chat2mingle.websocket.mapper.VisitorMapper;
 import com.minglemingle.chat2mingle.websocket.vo.VisitorVO;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,6 @@ public class WebsocketVisitorImpl implements WebSocketVisitor {
     private VisitorMapper mapper;
 
     @Override
-    @DebugLog
     public void updateVisitor(Integer channel, String nickname) {
         VisitorVO visitorVO = new VisitorVO();
         visitorVO.setChannel(channel);
@@ -31,5 +29,17 @@ public class WebsocketVisitorImpl implements WebSocketVisitor {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int selectAllVisitor(Integer channel) {
+        int result = 0;
+        try{
+            result = mapper.selectAllVisitor(channel);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 }

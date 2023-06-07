@@ -80,7 +80,7 @@
         seeMoreModal = $("#seeMoreModal")
         chatModalBackdrop = $("#chatModalBackdrop")
       
-        $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "532"));
+        $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "${visitors}"));
         await connectSocket("${nickname}", ${channel}, ${accountType});
     })
 

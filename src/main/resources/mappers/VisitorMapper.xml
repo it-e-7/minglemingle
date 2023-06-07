@@ -18,6 +18,12 @@
   ]]>
     </update>
 
+    <select id="selectAllVisitor" parameterType="Integer" resultType="Integer">
+        <![CDATA[
+    SELECT COUNT(*) FROM visitor WHERE channel = #{channel} AND visit_time >= SYSTIMESTAMP - INTERVAL '6' HOUR
+  ]]>
+    </select>
+
     <resultMap type="Visitor" id="visitorResult">
         <result column="nickname" property="nickname"/>
         <result column="channel" property="channel"/>
