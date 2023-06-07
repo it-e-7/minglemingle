@@ -27,7 +27,7 @@ async function connectSocket(nickname_param, channel_param, accountType_param) {
     channel = channel_param;
     accountType = accountType_param;
 
-    sock = new WebSocket("ws://192.168.0.200:8080/ws/chat?channel=" + channel);
+    sock = new WebSocket("ws://localhost:8080/ws/chat?channel=" + channel);
     sock.onerror = function (e) {
         alert('연결에 실패하였습니다.');
         console.log(e)
