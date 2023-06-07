@@ -7,7 +7,6 @@ function generateUUID() {
     });
     return uuid;
 }
-
 $('#share-to-chat').on('click', function (e) {
     e.preventDefault();
 
@@ -17,8 +16,12 @@ $('#share-to-chat').on('click', function (e) {
         return item !== null && item !== undefined;
     }).join(",");
 
-    const uuid = generateUUID();
     var memberNickname = $('#memberNickname').val()
+
+    const uuid = generateUUID();
+
+    let targetUrl = generateURLFromUUID(uuid)
+    copyToClipboard(targetUrl)
 
     let data = JSON.stringify({
         wishlistId: uuid,
@@ -40,3 +43,7 @@ $('#share-to-chat').on('click', function (e) {
         },
     })
 })
+
+function generateURLFromUUID(uuid) {
+    return "http://localhost:8080/wishlist/" + uuid;
+}

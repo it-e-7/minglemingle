@@ -12,3 +12,7 @@ $('#wishlist-btn').on('click', function () {
     var sessionData = JSON.stringify(sessionStorage);
     console.log(sessionData);
 });
+
+function copyCurrentLocationToClipboard() {
+    copyToClipboard(window.location.href)
+}
