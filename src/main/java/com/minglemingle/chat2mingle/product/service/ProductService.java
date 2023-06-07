@@ -15,7 +15,7 @@ public interface ProductService {
      * @param productVO 특정 카테고리의 제품 목록을 검색하기 위해 필요한 ProductVO 커맨드 객체입니다.
      * @return 제품 목록을 포함하는 ProductVO 객체의 리스트입니다.
      */
-    List<ProductVO> getProductList(ProductVO productVO);
+    List<ProductVO> getProductListByCategory(ProductVO productVO);
 
     /**
      * 특정 제품에 대한 상세 정보를 검색합니다.
