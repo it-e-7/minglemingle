@@ -98,7 +98,10 @@
         </div>
     </div>
 
-    <button id="share-to-chat">공유하기</button>
+    <form class="share-form">
+        <input type="hidden" id="memberNickname" value="${member.nickname}">
+        <input type="submit" id="share-to-chat" value="공유하기">
+    </form>
 </div>
 </body>
 

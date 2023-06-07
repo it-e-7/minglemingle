@@ -67,12 +67,14 @@
     text-align: right;
 }
 
+.share-form {
+    align-self: center;
+}
 #share-to-chat {
     margin-top: 4rem;
     width: 8rem;
     background-color: black;
     color: white;
     border-radius: 25px;
-    align-self: center;
     padding: 0.8rem;
 }

@@ -81,19 +81,9 @@
         chatModalBackdrop = $("#chatModalBackdrop")
       
         $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "532"));
-        addChatWindowMessageEventListener();
         await connectSocket("${nickname}", ${channel}, ${accountType});
     })
 
-    const addChatWindowMessageEventListener = () => {
-        console.log("adding the eventListner");
-        window.addEventListener('message', function(event) {
-            if (event.data?.sharedMessage) {
-                console.log("data: " + event.data.sharedMessage);
-                setInputVal(messageInputBox, event.data.sharedMessage);
-            }
-        });
-    }
 </script>
 </body>
 </html>

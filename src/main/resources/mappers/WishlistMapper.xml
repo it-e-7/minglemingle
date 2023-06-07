@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+    <mapper namespace="com.minglemingle.chat2mingle.wishlist.mapper.WishlistMapper">
+
+    <select id="selectWishlistById" parameterType="Wishlist" resultType="Wishlist">
+        SELECT wishlist_id,
+               member_nickname,
+               product_code_list
+        FROM wishlist
+        WHERE wishlist_id = #{wishlistId}
+    </select>
+
+    <update id="upsertWishlist" parameterType="Wishlist">
+        MERGE INTO wishlist w
+        USING (SELECT #{memberNickname} member_nickname, #{productCodeList} product_code_list from dual) s
+        ON (w.member_nickname = s.member_nickname)
+        WHEN MATCHED THEN UPDATE SET w.product_code_list = s.product_code_list
+        WHEN NOT MATCHED THEN INSERT (member_nickname, product_code_list) VALUES (s.member_nickname, s.product_code_list)
+    </update>
+
+</mapper>
