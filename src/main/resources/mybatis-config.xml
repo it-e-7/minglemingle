@@ -19,6 +19,7 @@
 		<typeAlias alias="ReportDetail" type="com.minglemingle.chat2mingle.report.vo.ReportDetailVO" />
 		<typeAlias alias="ReportStatistic" type="com.minglemingle.chat2mingle.report.vo.ReportStatisticVO" />
 		<typeAlias alias="Wishlist" type="com.minglemingle.chat2mingle.wishlist.vo.WishlistVO" />
+		<typeAlias alias="Visitor" type="com.minglemingle.chat2mingle.websocket.vo.VisitorVO" />
 	</typeAliases>
 
 </configuration>
