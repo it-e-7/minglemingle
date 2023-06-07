@@ -18,6 +18,7 @@
 		<typeAlias alias="Report" type="com.minglemingle.chat2mingle.report.vo.ReportVO" />
 		<typeAlias alias="ReportDetail" type="com.minglemingle.chat2mingle.report.vo.ReportDetailVO" />
 		<typeAlias alias="ReportStatistic" type="com.minglemingle.chat2mingle.report.vo.ReportStatisticVO" />
+		<typeAlias alias="Wishlist" type="com.minglemingle.chat2mingle.wishlist.vo.WishlistVO" />
 	</typeAliases>
 
 </configuration>

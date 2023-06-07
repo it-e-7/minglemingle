@@ -27,7 +27,6 @@
 <div class="product-detail-wrap wrap">
     <div class="brand-crumb">
     </div>
-	<div><button onclick="sendLinkToChatWindow()">테스트버튼입니돠와와와</button></div>
     <div class="prd-info">
         <div class="prd-info-box left">
 
