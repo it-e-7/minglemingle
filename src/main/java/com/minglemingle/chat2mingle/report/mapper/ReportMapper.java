@@ -13,4 +13,5 @@ public interface ReportMapper {
     ReportDetailVO selectReportDetailByMessageId(ReportVO reportVO);
     boolean updateReportStatusByMessageId(ReportVO reportVO);
     ReportStatisticVO selectReportStatisticByMessageId(ReportVO reportVO);
+    boolean insertNewReport(ReportVO reportVO);
 }
