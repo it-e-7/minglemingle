@@ -20,8 +20,20 @@ let seeMoreModal;
 let chatModalBackdrop;
 
 
+function initializeSelectors() {
+    documentSelector = $(document);
+    chatBox = $('#chatBox')
+    chatBoxWrap = $("#chatBoxWrap")
+    messageInputBox = $("#messageInputBox");
+    noticeBoxContainer = $('#noticeBoxContainer');
+    sendBtn = $("#sendBtn")
+    seeMoreModal = $("#seeMoreModal")
+    chatModalBackdrop = $("#chatModalBackdrop")
+}
+
 async function connectSocket(nickname_param, channel_param, accountType_param) {
     // Socket 연결
+    initializeSelectors();
 
     nickname = nickname_param;
     channel = channel_param;
