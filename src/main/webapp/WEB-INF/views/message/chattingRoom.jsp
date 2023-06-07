@@ -79,9 +79,9 @@
         sendBtn = $("#sendBtn")
         seeMoreModal = $("#seeMoreModal")
         chatModalBackdrop = $("#chatModalBackdrop")
+      
+        $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "532"));
         addChatWindowMessageEventListener();
-
-        $("#chatContainer").prepend(makeChatHeaderHTML("화장품, 요즘은 뭐가 대세야?", "532"));
         await connectSocket("${nickname}", ${channel}, ${accountType});
     })
 
@@ -94,8 +94,6 @@
             }
         });
     }
-
 </script>
-
 </body>
 </html>
