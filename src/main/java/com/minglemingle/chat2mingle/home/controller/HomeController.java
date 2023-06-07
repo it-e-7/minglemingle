@@ -20,4 +20,9 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = "test")
+    public String TestHandler () {
+        return "message/chattingListRoom";
+    }
+
 }

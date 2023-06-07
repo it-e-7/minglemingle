@@ -16,7 +16,9 @@
 <div class="member">
 
     <div class="logo">
+        <a href="/">
         <img src="${pageContext.request.contextPath}/resources/images/logo_thyundai.png"/>
+        </a>
     </div>
 
     <div class="member-container">
