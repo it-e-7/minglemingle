@@ -68,7 +68,7 @@ public class WishlistController {
     @PostMapping(value="", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> upsertWishlist(WishlistVO wishlistVO) {
+    public ResponseEntity<String> upsertWishlist(@RequestBody WishlistVO wishlistVO) {
         int upsertResult = wishlistService.upsertWishlist(wishlistVO);
         Map<String, Object> result = new HashMap<>();
         if (upsertResult == 1) {

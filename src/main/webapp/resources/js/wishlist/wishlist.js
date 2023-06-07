@@ -13,23 +13,21 @@ $('#share-to-chat').on('click', function (e) {
 
     var myWishlist = JSON.parse(sessionStorage.getItem("myWishlist"))
     var itemsList = myWishlist.items
-    var filteredArray = itemsList.filter(function(item) {
+    var productCodeString = itemsList.filter(function(item) {
         return item !== null && item !== undefined;
-    });
+    }).join(",");
 
     const uuid = generateUUID();
     var memberNickname = $('#memberNickname').val()
 
-    console.log(filteredArray)
-    console.log(uuid)
-    console.log(memberNickname)
-
+    let data = JSON.stringify({
+        wishlistId: uuid,
+        memberNickname: memberNickname,
+        productCodeString: productCodeString,
+    });
+    console.log(data);
     $.ajax({
-        data: {
-            wishlistId: uuid,
-            productCodeList: filteredArray,
-            memberNickname: memberNickname
-        },
+        data: data,
         url: '/wishlist',
         type: 'post',
         contentType: 'application/json',
@@ -38,7 +36,7 @@ $('#share-to-chat').on('click', function (e) {
             console.log(data)
         },
         error: function (e) {
-            console.log(e);
+            console.log(e.responseText);
         },
     })
 })
