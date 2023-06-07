@@ -14,6 +14,9 @@ import java.util.Objects;
 public class AuthInterceptor implements HandlerInterceptor {
 
     private MemberService service;
+    private static final int ADMIN_TYPE=99;
+    private static final int STANDARD_STATUS=1;
+    private static final int CHATTING_SUSPENDED_STATUS=10;
 
     public AuthInterceptor(MemberService service) {
         this.service = service;
@@ -45,13 +48,15 @@ public class AuthInterceptor implements HandlerInterceptor {
             response.sendRedirect("/member/login");
             return false;
         }
-        if (accountType==99 && "ADMIN".equals(authRole)) {
+        if (accountType==ADMIN_TYPE && "ADMIN".equals(authRole)) {
             return true;
-        } else if (accountType==1 && accountStatus==1 && "USER".equals(authRole)){
+        }
+
+        if (accountType <= 10 && accountStatus==STANDARD_STATUS){
             return true;
-        } else if (accountType==1 && accountStatus==10) {
+        } else if (accountType <= 10 && accountStatus==CHATTING_SUSPENDED_STATUS) {
             String authAccountStatus = auth.status().toString();
-            if("ALLOWED_TO_CHAT".equals(authAccountStatus)){
+            if("NEED_PERMISSION_TO_CHAT".equals(authAccountStatus)){
                 response.sendRedirect("/resources/html/global/invalidApproach.html");
                 return false;
             }
