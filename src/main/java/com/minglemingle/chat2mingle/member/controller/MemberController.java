@@ -47,7 +47,7 @@ public class MemberController {
     public String loginHandler(@SessionAttribute("member") MemberVO member,
                                Model model) {
         model.addAttribute("member", member);
-        return "home";
+        return "redirect:/";
     }
 
     @GetMapping(value = "info")
