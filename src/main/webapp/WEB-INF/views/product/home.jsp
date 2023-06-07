@@ -117,7 +117,7 @@
 
 
                     <li>
-                        <a class="btn-to-link" href="/product/A0761805"
+                        <a class="btn-to-link" href="/product/40A0761805"
                            onclick="javascript:sendGAEvent('선물하기', '상품', '[불리][선물포장] 레 비지날 바디로션 190ml (7종 택1)');
                                                                                                             itemDetailView('186124','40A0761805', 'N');return false;">
                             <div class="img-box">
@@ -217,7 +217,7 @@
 
                     <li>
 
-                        <a class="btn-to-link" href="/product/75920698"
+                        <a class="btn-to-link" href="/product/2075920698"
                            onclick="javascript:sendGAEvent('선물하기', '상품', '[레노마]남성 손수건 선물 SET 1'); itemDetailView('186124','2075920698', 'N');return false;">
 
                             <div class="img-box">
@@ -276,13 +276,13 @@
                     </li>
                     <li>
 
-                        <a class="btn-to-link" href="/product/A1271652"
-                           onclick="javascript:sendGAEvent('선물하기', '상품', '[닥스] 기본체크 손수건 2매세트 (D) 5종 택1'); itemDetailView('186124','40A1349665', 'N');return false;">
+                        <a class="btn-to-link" href="/product/40A1349665"
+                           onclick="javascript:sendGAEvent('선물하기', '상품', '[닥스] 기본체크 손수건 2매세트 (D) 5종 택1'); itemDetailView('40A1349665','40A1271652', 'N');return false;">
 
                             <div class="img-box">
                                 <img
-                                        src="https://image.thehyundai.com//static/6/6/9/34/A1/40A1349665_0_600.jpg"
-                                        alt="상품이미지">
+                                    src="https://image.thehyundai.com//static/6/6/9/34/A1/40A1349665_0_600.jpg"
+                                    alt="상품이미지">
 
                             </div>
                             <div class="info-box">
