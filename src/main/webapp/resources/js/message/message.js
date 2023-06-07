@@ -19,6 +19,7 @@ let removeNoticeBtn;
 let seeMoreModal;
 let chatModalBackdrop;
 
+let reportBtn;
 
 async function connectSocket(nickname_param, channel_param, accountType_param) {
     // Socket 연결
@@ -292,14 +293,48 @@ function makeChatHeaderHTML(title, visitCount) {
 
 // Function to show the modal and populate the attribute
 function showSeeMoreModal(messageId) {
-    console.log("modal with message id: " + messageId)
+    // console.log("modal with message id: " + messageId)
     setDisplay(seeMoreModal, 'block');
     setDisplay(chatModalBackdrop, 'block');
-
+    setReportButtonMessageIdAttribute(messageId);
     documentSelector.on("keydown", function(event) {
         hideSeeMoreModalOnEscape(event);
     });
 }
+
+function setReportButtonMessageIdAttribute(messageId) {
+    $("#report-message-btn").attr("messageId", messageId)
+}
+
+function reportMessage() {
+    const memberId = reportBtn.attr('memberId');
+    const messageId = parseInt(reportBtn.attr('messageId'));
+    let data = JSON.stringify({
+        messageId: messageId,
+        memberId: memberId,
+    });
+
+    $.ajax({
+        data: data,
+        url: '/createReport',
+        type: 'post',
+        contentType: 'application/json',
+        async: false,
+        success: function (data) {
+            console.log(data)
+            hideSeeMoreModal();
+        },
+        error: function (e) {
+            console.log(e.responseText);
+            hideSeeMoreModal();
+            alert('이미 신고된 메세지입니다')
+        },
+    });
+}
+
+
+
+
 
 function hideSeeMoreModalOnEscape(event) {
     if (event.key === "Escape") {
