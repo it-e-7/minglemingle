@@ -325,6 +325,10 @@ header {
     margin-top: 15px;
 }
 
+.top-nav-area2 .in-depth-area.type-category > ul > li:hover > a {
+    color: #bfae90;
+}
+
 .admin-header-container {
     margin-top: 2rem;
     display: flex;

@@ -178,9 +178,8 @@
                                                     <li><a onclick="이동해야하는 세부 탭으로">루즈앤라운지</li>
                                                     <li><a onclick="이동해야하는 세부 탭으로">덕케</li>
                                                     <li><a onclick="이동해야하는 세부 탭으로">TOTEME</li>
-                                                    </li>
-                                                    <li><a onclick="이동해야하는 세부 탭으로">메터스</li>
-                                                </ul>
+                                    </li>
+                                            </ul>
                                             </div>
 
                                             <div class="banner">
