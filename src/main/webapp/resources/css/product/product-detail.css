@@ -183,6 +183,9 @@ input:read-only {
     clear: both;
     content: "";
 }
+.cursor-pointer {
+    cursor: pointer;
+}
 
 .opt-sel-wrap .opt-sel-box p.price {
     float: left;
