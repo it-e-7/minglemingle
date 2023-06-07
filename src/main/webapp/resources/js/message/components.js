@@ -116,7 +116,7 @@ class ChatHeader extends HTMLElement {
                   <div class="text-xs">
                     최근 ${visit_count}명 방문
                   </div>
-                </div>s
+                </div>
                 <div class="flex items-center lg:order-2">
                 <a href="/chattingList">
                   <button class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" >
