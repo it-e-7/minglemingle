@@ -58,7 +58,7 @@
     display:block;
 }
 
-.message-box-container:hover .sent-at-wrapper {
+.message-box-container:hover .sent-at-wrapper.others-message {
     display:none;
 }
 

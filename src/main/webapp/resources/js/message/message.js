@@ -267,7 +267,7 @@ function makeMessageBoxBlind(messageId) {
 }
 
 function setMessageBoxAttributeToBlind(messageBox) {
-    messageBox.attr('content', '블라인드처리된 메시지입니다.');
+    messageBox.attr('content', '블라인드 처리된 메시지입니다.');
     messageBox.attr('showimagepreview', false);
 }
 function setDisabled(jSelector, state) {
@@ -336,11 +336,12 @@ function reportMessage() {
         success: function (data) {
             console.log(data)
             hideSeeMoreModal();
+            alert('정상적으로 신고처리 되었습니다.')
         },
         error: function (e) {
             console.log(e.responseText);
             hideSeeMoreModal();
-            alert('이미 신고된 메세지입니다')
+            alert('이미 신고된 메세지입니다.')
         },
     });
 }

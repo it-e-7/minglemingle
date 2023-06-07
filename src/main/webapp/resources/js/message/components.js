@@ -26,11 +26,7 @@ class MessageBox extends HTMLElement {
 
         let profileHTML = `<div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 mr-2"></div>`
 
-        let timeHTML = `<div class="flex text-xxs text-gray-500 leading-none self-end whitespace-nowrap w-10"> 
-                            <span class="sent-at-wrapper w-10">
-                              ${sentAt}
-                            </span>
-                            <div class="menu-dots self-end align-bottom w-10">
+        let menuDotsHTML = `<div class="menu-dots self-end align-bottom w-10">
                                 <div class="hover:bg-gray-200 rounded-full p-0.5 w-6 h-6" onclick="showSeeMoreModal(${messageId})">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='20' height='20'>
                                         <circle cx="12" cy="6" r="1.5"></circle>
@@ -38,7 +34,13 @@ class MessageBox extends HTMLElement {
                                         <circle cx="12" cy="18" r="1.5"></circle>
                                     </svg>
                                 </div>
-                            </div>
+                            </div>`
+
+        let timeHTML = `<div class="flex text-xxs text-gray-500 leading-none self-end whitespace-nowrap w-10"> 
+                            <span class="sent-at-wrapper ${isMyMessage ? '' : 'others-message'} w-10">
+                              ${sentAt}
+                            </span>
+                            ${isMyMessage ? '' : menuDotsHTML}
                         </div>`
 
         let nicknameHTML = `<p class="text-xs pb-1">${nickname}</p>`
