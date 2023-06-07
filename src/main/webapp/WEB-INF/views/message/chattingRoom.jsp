@@ -79,17 +79,11 @@
         sendBtn = $("#sendBtn")
         seeMoreModal = $("#seeMoreModal")
         chatModalBackdrop = $("#chatModalBackdrop")
-<<<<<<< HEAD
+      
         $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "532"));
-=======
         addChatWindowMessageEventListener();
-
-        $("#chatContainer").prepend(makeChatHeaderHTML("화장품, 요즘은 뭐가 대세야?", "532"));
->>>>>>> 44b53bf72bc391a934d36650271b239164d3e6b2
         await connectSocket("${nickname}", ${channel}, ${accountType});
     })
-<<<<<<< HEAD
-=======
 
     const addChatWindowMessageEventListener = () => {
         console.log("adding the eventListner");
@@ -100,8 +94,6 @@
             }
         });
     }
-
->>>>>>> 44b53bf72bc391a934d36650271b239164d3e6b2
 </script>
 </body>
 </html>
