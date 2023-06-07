@@ -358,8 +358,13 @@ margin-top : 50px;
 }
 
 .btn.color4 {
-    color: #fff!important;
+    color: #fff;
     border: 1px solid #45675b;
     background: #45675b;
     font-size: 16px;
+}
+
+#wishlist-btn:active {
+    border: 3px solid black;
+    outline-offset: -2px;
 }

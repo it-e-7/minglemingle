@@ -37,5 +37,10 @@ public class ReportServiceImpl implements ReportService {
         return reportMapper.updateReportStatusByMessageId(reportVO);
     }
 
+    @Override
+    public boolean createNewReport(ReportVO reportVO) {
+        return reportMapper.insertNewReport(reportVO);
+    }
+
 
 }

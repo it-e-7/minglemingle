@@ -63,6 +63,14 @@
         where message_id=#{messageId}
     </update>
 
+    <insert id="insertNewReport" parameterType="Report">
+        insert into member_report (member_id, message_id)
+        values
+            (
+                #{memberId},
+                #{messageId}
+            )
+    </insert>
 
 
 </mapper>
