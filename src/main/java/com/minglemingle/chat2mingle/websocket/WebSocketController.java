@@ -26,7 +26,7 @@ public class WebSocketController {
         model.addAttribute("member", member);
         model.addAttribute("channel", channel);
         model.addAttribute("categorySubtitle", JSPConst.getCatagorySubtitleByChannel(channel));
-        webSocketVisitor.updateVisitor(channel, nickname);
+        webSocketVisitor.updateVisitor(channel, member.getNickname());
         model.addAttribute("visitors",webSocketVisitor.selectAllVisitor(channel));
         return "message/chattingRoom";
     }

@@ -78,7 +78,7 @@
 <script type="text/javascript">
 
     $(document).ready(async function() {
-        $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "532"));
+        $("#chatContainer").prepend(makeChatHeaderHTML("${categorySubtitle}", "${visitors}"));
         await connectSocket("${member.nickname}", ${channel}, ${member.accountType});
     })
 
