@@ -9,7 +9,6 @@ import com.minglemingle.chat2mingle.wishlist.vo.WishlistVO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class WishlistServiceImpl implements WishlistService {
@@ -26,11 +25,11 @@ public class WishlistServiceImpl implements WishlistService {
     public WishlistVO findWishlistById(WishlistVO vo) {
         WishlistVO wishlistVO = wishlistMapper.selectWishlistById(vo);
 
-        wishlistVO.setProductVOList(new ArrayList<>());
+        wishlistVO.setProductList(new ArrayList<>());
 
         for (String productCode : wishlistVO.getProductCodeList(true)) {
             ProductVO productInfo = productService.getProductInfo(new ProductVO(productCode, null, null, null, null, null));
-            wishlistVO.getProductVOList().add(productInfo);
+            wishlistVO.getProductList().add(productInfo);
         }
         return wishlistVO;
     }
@@ -38,6 +37,9 @@ public class WishlistServiceImpl implements WishlistService {
     @Transactional
     @Override
     public Integer upsertWishlist(WishlistVO wishlistVO) {
+        if (wishlistVO.getProductCodeString() == null || wishlistVO.getMemberNickname() == null) {
+            return 0;
+        }
         return wishlistMapper.upsertWishlist(wishlistVO);
     }
 }
