@@ -12,8 +12,8 @@ import java.lang.annotation.RetentionPolicy;
 public @interface Auth {
 
     public enum Role { ADMIN, USER }
-    public enum AccountStatus { ALLOWED_TO_CHAT }
+    public enum AccountStatus { NEED_PERMISSION_TO_CHAT }
     public Role role() default Role.USER;
-    public AccountStatus status() default AccountStatus.ALLOWED_TO_CHAT;
+    public AccountStatus status() default AccountStatus.NEED_PERMISSION_TO_CHAT;
 
 }
