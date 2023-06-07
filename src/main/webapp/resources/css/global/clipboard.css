@@ -1,0 +1,51 @@
+.fixed {
+    position: fixed;
+}
+
+.top-1\/2 {
+    top: 50%;
+}
+
+.left-1\/2 {
+    left: 50%;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.content-center {
+    align-content: center;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.rounded {
+    border-radius: 0.375rem;
+}
+
+.shadow-lg {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+}
+
+.w-60 {
+    width: 15rem;
+}
+
+.h-14 {
+    height: 3.5rem;
+}

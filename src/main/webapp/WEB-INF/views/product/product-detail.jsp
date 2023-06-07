@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.minglemingle.chat2mingle.util.JSPConst" %>
+
 <html>
 <head>
     <title>Title</title>
     <style type="text/css">
         @import url("${pageContext.request.contextPath}/resources/css/product/product-detail.css");
     </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/global/clipboard.css">
     <script
             src="https://code.jquery.com/jquery-3.6.4.min.js"
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -41,7 +42,7 @@
             <div class="prd-title">
                 <div class="prd-logo">
                     <c:choose>
-                        <c:when test="${productDetail.productBrand} eq 'CHANEL'">
+                        <c:when test="${productDetail.productBrand = 'CHANEL'}">
                             <img src="https://image.thehyundai.com/hdmall/images/specialshop/A002018_prd.jpg"
                                  alt="CHANEL">
                         </c:when>
@@ -72,14 +73,12 @@
                     <div id="product-code" class="info">${productDetail.productCode}</div>
                 </div>
             </div>
-            <form id="itemInfForm" name="itemInfForm" action="#" method="post">
-            </form>
 
             <!-- 간편선택 move 영역 -->
             <div class="option-floating-case">
                 <div class="option-floating" id="option-floating">
                     <div class="option-floating-btn">
-                        <a href="#" class="btn-opt-toggle">간편 옵션선택</a>
+                        <a class="btn-opt-toggle">간편 옵션선택</a>
                     </div>
                     <div class="option-floating-scroll">
                         <div class="opt-sel-wrap">
@@ -101,7 +100,7 @@
                                             <input type="text" name="ordQty" onkeyup="changeOrdQtyBasic(this);"
                                                    value="1" maxlength="4" maxval="2" title="inputarea">
                                             <input type="hidden" name="sellPossQty" value="4" title="inputarea">
-                                            <a href="#tooltip-sameopt-1" class="cnt-down tooltip"
+                                            <a class="cnt-down tooltip"
                                                onclick="plusOrdQtyForNoUitm(this, 2);">＋</a>
                                         </div>
                                         <p class="price">
@@ -117,54 +116,28 @@
                         </div>
 
                     </div>
-                    <form id="itemCalcForm" name="itemCalcForm" action="#" method="post">
-                        <div class="btn-wrap prd-btn">
-                            <div class="optinalbtn">
-                                <div class="optinalbtn-box">
-                                    <a href="javascript:;"
-                                       onclick="sendEcommerceSet('Checkout', 'checkout'); buyDirectGift();"><i
-                                            class="icon gift"></i><span>선물하기</span><i
-                                            class="icon-arrow right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mainbtn type1">
-                                <button id="wishlist-btn" class="btn size6 color4" type="button">찜</button>
-                                <button class="btn size6 color4" type="button"
-                                        onclick="sendEcommerceSet('Add to Cart', 'add', '장바구니'); addCart(this);">장바구니
-                                </button>
-                                <span class="type-share-box">
-    																	<button class="btn size6 color4 type-share"><span
-                                                                                class="ico">공유</span></button>
-    																	<span class="tooltip-share"
-                                                                              style="display: none;">
-    																		<span class="head">SHARING-POP_IN</span>
-    																		<span class="sns-wrap">
-    																			<a href="javascript://"
-                                                                                   onclick="goFacebook();"><i
-                                                                                        class="icon-sns facebook">페이스북 공유</i></a>
-    																			<a href="javascript://"
-                                                                                   onclick="goKakaoStroy();"><i
-                                                                                        class="icon-sns kakaostory">카카오스토리 공유</i></a>
-    																			<a href="javascript://"
-                                                                                   onclick="goTwitter();"><i
-                                                                                        class="icon-sns twitter">트위터 공유</i></a>
-    																			<a href="javascript://"
-                                                                                   onclick="copyShortenUrl('40A1687835');"><i
-                                                                                        class="icon-sns url">단축URL 복사</i></a>
-    																		</span>
-    																		<span class="tooltip-arrow"></span>
-    																	</span>
-    																</span>
-                                <button class="btn size6 color9" type="button"
-                                        onclick="sendEcommerceSet('Checkout', 'checkout', '바로구매'); setIsGiftN(); buyDirect();">
-                                    바로구매
-                                </button>
-                                <input type="hidden" name="buyYn" value="Y">
-                            </div>
-                            <div class="description text-left">
+                    <div class="btn-wrap prd-btn">
+                        <div class="optinalbtn">
+                            <div class="optinalbtn-box">
+                                <a> <i class="icon-arrow right-arrow"></i></a>
                             </div>
                         </div>
-                    </form>
+                        <div class="mainbtn type1">
+                            <button id="wishlist-btn" class="btn size6 color4 cursor-pointer" type="button">찜</button>
+                            <button class="btn size6 color4 cursor-pointer" type="button">장바구니
+                            </button>
+                            <span class="type-share-box">
+                                <button class="btn size6 color4 type-share cursor-pointer" onclick="copyCurrentLocationToClipboard()">
+                                    <span class="ico">공유</span>
+                                </button>
+                            </span>
+                            <button class="btn size6 color9 cursor-pointer" type="button">
+                                바로구매
+                            </button>
+                        </div>
+                        <div class="description text-left">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,5 +149,6 @@
 
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/product/product-detail.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/global/clipboard.js"></script>
 
 </html>

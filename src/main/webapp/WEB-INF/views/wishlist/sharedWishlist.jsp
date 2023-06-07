@@ -11,12 +11,11 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>공유된 위시리스트</title>
     <style>
         @import url("${pageContext.request.contextPath}/resources/css/global/common.css");
         @import url("${pageContext.request.contextPath}/resources/css/wishlist/wishlist.css");
     </style>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/global/clipboard.css">
     <script
             src="https://code.jquery.com/jquery-3.6.4.min.js"
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -28,6 +27,7 @@
 
 <body>
 <div class="wishlist-container">
+    <div>${wishlist.memberNickname}님의 위시리스트</div>
     <table class="wishlist-table">
         <thead class="top-thead">
         <tr>
@@ -37,7 +37,7 @@
         </thead>
         <tbody>
 
-        <c:forEach var="product" items="${myWishlistProducts}">
+        <c:forEach var="product" items="${wishlist.productList}">
 
             <tr id="wishlist-tr">
                 <td>
@@ -82,7 +82,7 @@
 
                         <c:set var="total" value="0" />
 
-                        <c:forEach var="product" items="${myWishlistProducts}">
+                        <c:forEach var="product" items="${wishlist.productList}">
                             <c:set var="total" value="${total + product.productPriceWon}" />
                         </c:forEach>
 
@@ -99,10 +99,6 @@
         </div>
     </div>
 
-    <form class="share-form">
-        <input type="hidden" id="memberNickname" value="${member.nickname}">
-        <input type="submit" id="share-to-chat" value="공유하기">
-    </form>
 </div>
 </body>
 

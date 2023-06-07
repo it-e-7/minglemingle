@@ -84,6 +84,94 @@ class MessageBox extends HTMLElement {
           </div>`
     }
 }
+class ChatHeader extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    static get observedAttributes() {
+        return ['title', 'visit_count'];
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        this.render();
+    }
+
+    render() {
+        const title = this.getAttribute('title');
+        const visit_count = this.getAttribute('visit-count');
+
+        this.innerHTML = `
+          <header>
+            <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-screen w-full max-w-xl">
+              <div class="flex flex-wrap justify-between items-center mx-auto max-w-xl">
+                <div>
+                  <div class="text-xl font-bold">
+                    ${title}
+                  </div>
+                  <div class="text-xs">
+                    최근 ${visit_count}명 방문
+                  </div>
+                </div>
+                <div class="flex items-center lg:order-2">
+                <a href="/chattingList">
+                  <button class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" >
+                    <svg class="w-6 h-6" fill="currentColor" viewB:ox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                  </button>
+                 <a>
+                </div>
+              </div>
+            </nav>
+          </header>`
+
+    }
+}
+class NoticeBox extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    static get observedAttributes() {
+        return ['content'];
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        this.render();
+    }
+
+    render() {
+        const content = this.getAttribute('content') || 'Error';
+
+        this.innerHTML = `
+<div class="mx-4 mt-2 grid justify-items-stretch rounded-md bg-amber-300 p-1">
+  <div class="ml-2 mt-1 justify-self-start">
+    <button id="remove-notice-btn" class="justify-self-start">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="10px" height="10px">
+        <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
+      </svg>
+    </button>
+  </div>
+  <div class="justify-self-center mb-2 mx-6">
+    <p class="font-bold">${content}</p>
+  </div>
+</div>
+`
+    }
+}
+
+customElements.define('notice-box', NoticeBox);
+
+customElements.define('chat-header', ChatHeader);
 
 customElements.define('message-box', MessageBox);
 
