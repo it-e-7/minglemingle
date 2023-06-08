@@ -67,7 +67,10 @@ class MessageBox extends HTMLElement {
         }
 
         if (messageType === 5){
-            backGroundHTML = `bg-purple-500 ${showImagePreview ? 'text-white underline' : 'text-white'}`;
+            backGroundHTML = `bg-brown-200 ${showImagePreview ? 'underline bg-brown-500' : 'text-black'}`;
+        }
+        else if (messageType === 6){
+            backGroundHTML = `bg-purple-500 text-white ${showImagePreview ? 'underline' : ''}`;
         }
 
         this.innerHTML = `
