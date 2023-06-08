@@ -22,6 +22,14 @@
     min-height: 100vh;
 }
 
+.bg-brown-200 {
+    background-color: #f4e8ce;
+}
+
+.bg-brown-500 {
+    color: #87640b;
+}
+
 .bg-gray-100 {
     background-color: #f7fafc;
 }
