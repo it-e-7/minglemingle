@@ -1,6 +1,5 @@
 package com.minglemingle.chat2mingle.message.service;
 
-import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.aspect.transaction.annotation.Transactional;
 import com.minglemingle.chat2mingle.message.mapper.MessageMapper;
 import com.minglemingle.chat2mingle.message.vo.MessageDTO;
@@ -60,7 +59,6 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.selectOneMessageByMessageId(messageDTO);
     }
 
-    @DebugLog
     @Override
     public List<MessageDTO> getMessageListAfterMessageId(@NonNull MessageDTO messageDTO) {
         if (messageDTO.getMessageId() == null) {

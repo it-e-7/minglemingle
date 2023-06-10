@@ -76,7 +76,6 @@ function sendFormData(form) {
     let formDataArray = form.serializeArray()
     let obj = {}
     let channels = []
-    console.log(formDataArray)
     for (var i = 0; i < formDataArray.length; i++) {
         var field = formDataArray[i];
         if(field.name=='all'){continue}
@@ -88,7 +87,7 @@ function sendFormData(form) {
         }
     }
     obj['channels'] = channels
-    console.log(obj)
+
     let result = false
     $.ajax({
         data: JSON.stringify(obj),

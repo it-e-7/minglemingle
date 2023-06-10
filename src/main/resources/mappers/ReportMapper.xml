@@ -16,13 +16,12 @@
             from (
                 SELECT member_id, message_id, reported_at
                 FROM member_report
-                WHERE TRUNC(reported_at) = TRUNC(SYSDATE) and process_status=#{processStatus}
             ) rep
                 join member m on m.member_id = rep.member_id
                 join message msg on msg.message_id = rep.message_id
         ]]>
     </select>
-
+<!--    WHERE TRUNC(reported_at) = TRUNC(SYSDATE) and process_status=#{processStatus}-->
 
     <select id="selectReportDetailByMessageId" parameterType="Report" resultType="ReportDetail">
         <!-- TODO -->

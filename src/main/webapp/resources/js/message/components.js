@@ -26,7 +26,7 @@ class MessageBox extends HTMLElement {
 
         let profileHTML = `<div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 mr-2"></div>`
 
-        let menuDotsHTML = `<div class="menu-dots self-end align-bottom w-10">
+        let menuDotsHTML = `<div class="menu-dots self-end align-bottom w-12">
                                 <div class="hover:bg-gray-200 rounded-full p-0.5 w-6 h-6" onclick="showSeeMoreModal(${messageId})">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='20' height='20'>
                                         <circle cx="12" cy="6" r="1.5"></circle>
@@ -50,11 +50,12 @@ class MessageBox extends HTMLElement {
 
         if (showImagePreview) {
             let productCode = content.split("/").pop();
-            imageHTML = `<img class="m-2 w-36" src="http://ryulrudaga.com:48000/api/mingle/file/${productCode}.jpg" onerror="this.style.display='none';""/>`
-            contentHTML = `<a class="break-all" href="${content}">${content}</a>`
+            imageHTML = `<img class="m-2 w-36" src="http://ryulrudaga.com:48000/api/image/first?url=${content}" 
+                              onerror="this.style.display='none';" />`
+            contentHTML = `<a class="break-all" href="${content}" target="_blank">${content}</a>`
         }
         else {
-            contentHTML = `<p class="break-all" >${content}</p>`;
+            contentHTML = `<p class="break-all">${content}</p>`;
         }
 
 

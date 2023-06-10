@@ -46,7 +46,7 @@
             <tr class="table-row">
                 <td>메세지</td>
                 <td>${reportDetail.messageContent}</td>
-                <td class="table-label">메시지 삭제</td>
+                <td class="table-label">메세지 블라인드 처리</td>
                 <td>
                     <input type="checkbox" name="delete-message" class="checkbox" />
                 </td>

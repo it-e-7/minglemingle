@@ -28,7 +28,7 @@ $('#share-to-chat').on('click', function (e) {
         memberNickname: memberNickname,
         productCodeString: productCodeString,
     });
-    console.log(data);
+
     $.ajax({
         data: data,
         url: '/wishlist',
@@ -43,7 +43,3 @@ $('#share-to-chat').on('click', function (e) {
         },
     })
 })
-
-function generateURLFromUUID(uuid) {
-    return "http://localhost:8080/wishlist/" + uuid;
-}

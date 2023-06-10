@@ -10,7 +10,6 @@ $('#wishlist-btn').on('click', function () {
     sessionStorage.setItem("myWishlist", JSON.stringify(sessionObject));
 
     var sessionData = JSON.stringify(sessionStorage);
-    console.log(sessionData);
 });
 
 function copyCurrentLocationToClipboard() {

@@ -21,6 +21,9 @@
               append="true">
             <PatternLayout pattern="%p == %m == %d%n" />
         </File>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
     </Appenders>
 
     <Loggers>
@@ -45,9 +48,19 @@
             <AppenderRef ref="stdout_1" />
         </Logger>
 
-        <Root level="INFO">
+        <Root level="WARN">
             <AppenderRef ref="stdout_2" />
         </Root>
+
+        <Logger name="org.apache.kafka.clients.producer" level="WARN" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.apache.kafka.clients.consumer" level="WARN" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.apache.kafka.clients.producer.internals" level="WARN" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
     </Loggers>
 
 </Configuration>

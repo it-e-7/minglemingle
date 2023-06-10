@@ -1,16 +1,25 @@
-function copyToClipboard(text) {
-    console.log(text);
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            console.log('Text copied to clipboard');
-            createNotification();
-        })
-        .catch((error) => {
-            console.error('Error copying text to clipboard:', error);
-            alert("복사 실패");
-        });
 
-}
+const copyToClipboard = (text) => {
+    const textArea = document.createElement("textarea");
+    textArea.value=text; document.body.appendChild(textArea);
+    textArea.focus({preventScroll: true});textArea.select();
+    try{document.execCommand('copy')}
+    catch(err){console.error('Unable to copy to clipboard',err)}
+    document.body.removeChild(textArea);
+    createNotification();
+};
+
+    //
+    // navigator.clipboard.writeText(text)
+    //     .then(() => {
+    //         createNotification();
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error copying text to clipboard:', error);
+    //         alert("복사 실패");
+    //     });
+
+
 
 function createNotification() {
     const notification = document.createElement('div');

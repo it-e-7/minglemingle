@@ -1,7 +1,6 @@
 package com.minglemingle.chat2mingle.admin.controller;
 
 import com.minglemingle.chat2mingle.admin.vo.NoticeDTO;
-import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.auth.Auth;
 import com.minglemingle.chat2mingle.kafka.producer.KafkaProducer;
 import com.minglemingle.chat2mingle.member.service.MemberService;
@@ -73,7 +72,7 @@ public class AdminController {
 
         List<ReportVO> reportList = reportService.selectReportListByReportedDate(reportVO);
         model.addAttribute("reportList", reportList);
-
+        System.out.println(reportList);
         return "admin/report-list";
     }
 

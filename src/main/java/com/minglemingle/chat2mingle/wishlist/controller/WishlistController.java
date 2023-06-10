@@ -1,7 +1,6 @@
 package com.minglemingle.chat2mingle.wishlist.controller;
 
 import com.google.gson.Gson;
-import com.minglemingle.chat2mingle.aspect.annotation.DebugLog;
 import com.minglemingle.chat2mingle.product.service.ProductService;
 import com.minglemingle.chat2mingle.product.vo.ProductVO;
 import com.minglemingle.chat2mingle.wishlist.service.WishlistService;
@@ -59,7 +58,7 @@ public class WishlistController {
         return "wishlist/myWishlist";
     }
 
-    @DebugLog
+
     @GetMapping("/{wishlistId}")
     public String getWishlistPageById(WishlistVO wishlistVO, Model model) {
         WishlistVO wishlist = wishlistService.findWishlistById(wishlistVO);

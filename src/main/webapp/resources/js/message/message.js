@@ -1,5 +1,6 @@
-const options = {hour: 'numeric', minute: 'numeric'};
-const urlPattern = /^(?:\w+:)?\/\/([^\s.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+const DATE_FORMAT_OPTIONS = {hour: 'numeric', minute: 'numeric'};
+const URL_PATTERN = /^(?:\w+:)?\/\/([^\s.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+const WEBSOCKET_URL = "ws://172.30.1.149:8080/ws/chat";
 
 let documentSelector;
 let sock;
@@ -41,10 +42,10 @@ async function connectSocket(nickname_param, channel_param, accountType_param) {
     channel = channel_param;
     accountType = accountType_param;
 
-    sock = new WebSocket("ws://localhost:8080/ws/chat?channel=" + channel);
+    sock = new WebSocket(WEBSOCKET_URL + "?channel=" + channel);
     sock.onerror = function (e) {
-        alert('연결에 실패하였습니다.');
         console.log(e)
+        alert('연결에 실패하였습니다.');
     }
     sock.onclose = function () {
         alert('연결을 종료합니다.');
@@ -101,7 +102,6 @@ async function getMessages(messageId) {
         url: '/message?messageId=' + messageId + '&channel=' + channel,
         dataType: "json",
         success: function (data) {
-            console.log(data)
             return data;
         },
         error: function (xhr, status, error) {
@@ -159,7 +159,7 @@ function assignEventListeners() {
 
 // Option에 기반해서 message 시간 포멧팅
 function formatDateForMessage(dateString) {
-    return (new Date(dateString)).toLocaleTimeString('kr-KR', options);
+    return (new Date(dateString)).toLocaleTimeString('kr-KR', DATE_FORMAT_OPTIONS);
 }
 
 // Load 되었을 때, 메시지 추가
@@ -191,11 +191,6 @@ function prependMessageBoxListToChatBox(data) {
     )
 }
 
-// 공지 띄워주는 함수
-function showNoticeBox(data) {
-    console.log("공지입니다. " + data.content);
-}
-
 // 메시지를 받았을 때 취할 행동
 function handleMessageReceived(data) {
     // messageType이 10보다 아래면 일반 메시지
@@ -204,7 +199,6 @@ function handleMessageReceived(data) {
     }
     // 10이면 공지 띄워주기
     else if (data.messageType === 10) {
-        console.log("공지입니다. " + data.content);
         noticeBoxContainer.empty()
         noticeBoxContainer.append(makeNoticeBox(data))
         $('#remove-notice-btn').click(() => {
@@ -335,12 +329,10 @@ function reportMessage() {
         contentType: 'application/json',
         async: false,
         success: function (data) {
-            console.log(data)
             hideSeeMoreModal();
             alert('정상적으로 신고처리 되었습니다.')
         },
         error: function (e) {
-            console.log(e.responseText);
             hideSeeMoreModal();
             alert('이미 신고된 메세지입니다.')
         },
@@ -369,5 +361,5 @@ function makeNoticeBox(data) {
 }
 
 function isUrl(url) {
-    return urlPattern.test(url);
+    return URL_PATTERN.test(url);
 }
